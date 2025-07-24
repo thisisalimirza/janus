@@ -1,31 +1,59 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import ScrollAnimations from '../components/ScrollAnimations'
+import SmoothScroll from '../components/SmoothScroll'
 
 export default function Home() {
   return (
     <div className="bg-white">
       <ScrollAnimations />
+      <SmoothScroll />
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center py-3 lg:py-4">
             <div>
-              <Image
-                src="/JANUS-Logo-transparentBG.png"
-                alt="JANUS"
-                width={120}
-                height={40}
-                className="h-6 lg:h-8 w-auto"
-              />
+              <Link href="/">
+                <Image
+                  src="/JANUS-Logo-transparentBG.png"
+                  alt="JANUS"
+                  width={120}
+                  height={40}
+                  className="h-6 lg:h-8 w-auto"
+                />
+              </Link>
             </div>
-            <div>
+            
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              <Link href="/insights" className="text-gray-700 hover:text-black transition-colors font-medium">
+                Insights
+              </Link>
+              <Link href="/portfolio" className="text-gray-700 hover:text-black transition-colors font-medium">
+                Portfolio
+              </Link>
               <Link
                 href="#contact"
-                className="bg-black text-white px-3 py-2 lg:px-6 lg:py-2.5 text-xs lg:text-sm font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
+                className="bg-black text-white px-6 py-2.5 text-sm font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
               >
-                <span className="hidden sm:inline">See How We'd Fix Your Messaging</span>
-                <span className="sm:hidden">Fix My Messaging</span>
+                See How We'd Fix Your Messaging
+              </Link>
+            </nav>
+            
+            {/* Mobile Navigation */}
+            <div className="lg:hidden flex items-center space-x-4">
+              <Link href="/insights" className="text-gray-700 hover:text-black transition-colors text-sm font-medium">
+                Insights
+              </Link>
+              <Link href="/portfolio" className="text-gray-700 hover:text-black transition-colors text-sm font-medium">
+                Portfolio
+              </Link>
+              <Link
+                href="#contact"
+                className="bg-black text-white px-3 py-2 text-xs font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
+              >
+                <span className="hidden sm:inline">Fix My Messaging</span>
+                <span className="sm:hidden">CTA</span>
               </Link>
             </div>
           </div>
@@ -619,33 +647,55 @@ export default function Home() {
             </h2>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div className="scroll-animate slide-left delay-300 bg-gray-50 p-12 rounded-lg janus-shadow hover-rise">
-              <blockquote className="text-2xl font-display italic text-black mb-8 leading-relaxed">
-                "JANUS helped us go from a vague pitch to a 60-second story that converts — it's already lifting demo requests."
-              </blockquote>
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-janus-blue rounded-full flex items-center justify-center mr-4">
-                  <span className="text-white font-bold text-sm">AS</span>
+          <div className="grid lg:grid-cols-3 gap-16 items-center">
+            {/* Handshake Image */}
+            <div className="scroll-animate scale-in delay-200 lg:col-span-1 flex justify-center">
+              <div className="relative">
+                {/* White background container for the handshake SVG */}
+                <div className="bg-white rounded-2xl p-8 janus-shadow">
+                  <Image
+                    src="/handshake.svg"
+                    alt="Partnership and trust"
+                    width={200}
+                    height={150}
+                    className="w-full h-auto"
+                  />
                 </div>
-                <div>
-                  <p className="font-semibold text-black">Alex S., CEO</p>
-                  <p className="text-gray-600">Trustly</p>
-                </div>
+                {/* Decorative elements */}
+                <div className="absolute -top-3 -right-3 w-6 h-6 bg-janus-blue/20 rounded-full"></div>
+                <div className="absolute -bottom-3 -left-3 w-4 h-4 bg-gray-200 rounded-full"></div>
               </div>
             </div>
             
-            <div className="scroll-animate slide-right delay-400 bg-gray-50 p-12 rounded-lg janus-shadow hover-rise">
-              <blockquote className="text-2xl font-display italic text-black mb-8 leading-relaxed">
-                "Every startup should install the JANUS system before they start spending money on ads."
-              </blockquote>
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mr-4">
-                  <span className="text-white font-bold">GA</span>
+            {/* Testimonials */}
+            <div className="lg:col-span-2 grid gap-12">
+              <div className="scroll-animate slide-left delay-300 bg-gray-50 p-12 rounded-lg janus-shadow hover-rise">
+                <blockquote className="text-2xl font-display italic text-black mb-8 leading-relaxed">
+                  "JANUS helped us go from a vague pitch to a 60-second story that converts — it's already lifting demo requests."
+                </blockquote>
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-janus-blue rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-sm">AS</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-black">Alex S., CEO</p>
+                    <p className="text-gray-600">Trustly</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-black">Growth Advisor</p>
-                  <p className="text-gray-600">VC-backed Platform</p>
+              </div>
+              
+              <div className="scroll-animate slide-right delay-400 bg-gray-50 p-12 rounded-lg janus-shadow hover-rise">
+                <blockquote className="text-2xl font-display italic text-black mb-8 leading-relaxed">
+                  "Every startup should install the JANUS system before they start spending money on ads."
+                </blockquote>
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold">GA</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-black">Growth Advisor</p>
+                    <p className="text-gray-600">VC-backed Platform</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -871,13 +921,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <Image
-                src="/JANUS-Logo-transparentBG.png"
-                alt="JANUS"
-                width={120}
-                height={40}
-                className="h-8 w-auto mb-6"
-              />
+              <Link href="/">
+                <Image
+                  src="/JANUS-Logo-transparentBG.png"
+                  alt="JANUS"
+                  width={120}
+                  height={40}
+                  className="h-8 w-auto mb-6"
+                />
+              </Link>
               <p className="text-lg text-gray-600 font-medium mb-4">
                 Built for founders who refuse to settle.
               </p>
@@ -887,18 +939,20 @@ export default function Home() {
             </div>
             
             <div>
-              <h4 className="font-bold text-black mb-4">Contact</h4>
+              <h4 className="font-bold text-black mb-4">Pages</h4>
               <div className="space-y-2 text-gray-600">
-                <p>hello@janus.agency</p>
-                <p>Book a call</p>
+                <Link href="/" className="block hover:text-black transition-colors">Home</Link>
+                <Link href="/insights" className="block hover:text-black transition-colors">Insights</Link>
+                <Link href="/portfolio" className="block hover:text-black transition-colors">Portfolio</Link>
+                <Link href="#contact" className="block hover:text-black transition-colors">Contact</Link>
               </div>
             </div>
             
             <div>
               <h4 className="font-bold text-black mb-4">Legal</h4>
               <div className="space-y-2 text-gray-600">
-                <p>Privacy Policy</p>
-                <p>Terms of Service</p>
+                <Link href="/privacy" className="block hover:text-black transition-colors">Privacy Policy</Link>
+                <Link href="/terms" className="block hover:text-black transition-colors">Terms of Service</Link>
               </div>
             </div>
           </div>
