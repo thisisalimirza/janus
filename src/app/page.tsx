@@ -652,7 +652,7 @@ export default function Home() {
             <div className="scroll-animate scale-in delay-200 lg:col-span-1 flex justify-center">
               <div className="relative">
                 {/* White background container for the handshake SVG */}
-                <div className="bg-white rounded-2xl p-8 janus-shadow">
+                <div className="bg-white rounded-2xl p-8">
                   <Image
                     src="/handshake.svg"
                     alt="Partnership and trust"
