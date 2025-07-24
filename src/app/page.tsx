@@ -1,28 +1,31 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import ScrollAnimations from '../components/ScrollAnimations'
 
 export default function Home() {
   return (
     <div className="bg-white">
+      <ScrollAnimations />
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="flex justify-between items-center py-3 lg:py-4">
             <div>
               <Image
                 src="/JANUS-Logo-transparentBG.png"
                 alt="JANUS"
                 width={120}
                 height={40}
-                className="h-8 w-auto"
+                className="h-6 lg:h-8 w-auto"
               />
             </div>
             <div>
               <Link
                 href="#contact"
-                className="bg-black text-white px-6 py-2.5 text-sm font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm"
+                className="bg-black text-white px-3 py-2 lg:px-6 lg:py-2.5 text-xs lg:text-sm font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
               >
-                See How We'd Fix Your Messaging
+                <span className="hidden sm:inline">See How We'd Fix Your Messaging</span>
+                <span className="sm:hidden">Fix My Messaging</span>
               </Link>
             </div>
           </div>
@@ -95,16 +98,16 @@ export default function Home() {
       <section className="py-16 lg:py-24 bg-white section-spacing">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-sm uppercase tracking-widest text-gray-500 font-medium mb-6">
+            <p className="scroll-animate fade-up text-sm uppercase tracking-widest text-gray-500 font-medium mb-6">
               Trusted by Founders, Used by Funded Startups
             </p>
-            <blockquote className="text-xl lg:text-2xl font-display italic text-black max-w-4xl mx-auto leading-relaxed">
+            <blockquote className="scroll-animate fade-up delay-200 text-xl lg:text-2xl font-display italic text-black max-w-4xl mx-auto leading-relaxed">
               "Backed by the results we've delivered across B2B SaaS, fintech, and compliance tech."
             </blockquote>
           </div>
           
           {/* Logo placeholder area with better styling */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 items-center">
+          <div className="scroll-animate scale-in delay-400 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 items-center">
             <div className="h-16 bg-gray-50 border border-gray-100 rounded-lg flex items-center justify-center hover:border-gray-200 transition-colors">
               <div className="text-center">
                 <div className="w-8 h-8 bg-gray-200 rounded mx-auto mb-1"></div>
@@ -154,7 +157,7 @@ export default function Home() {
         
         <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div className="scroll-animate slide-left">
               <p className="text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
                 Why JANUS Exists
               </p>
@@ -165,7 +168,7 @@ export default function Home() {
               </h2>
             </div>
             
-            <div className="space-y-8">
+            <div className="scroll-animate slide-right delay-200 space-y-8">
               <p className="text-xl text-gray-700 leading-relaxed">
                 Every day, your startup leaks leads, churns users, or confuses visitors — because your message isn't clear, 
                 and your product looks like a spreadsheet.
@@ -196,15 +199,15 @@ export default function Home() {
         
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
-            <p className="text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
+            <p className="scroll-animate fade-up text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
               Our Core Offer
             </p>
-            <h2 className="font-display text-6xl lg:text-8xl font-bold text-black mb-8 leading-tight letter-tighter">
+            <h2 className="scroll-animate fade-up delay-200 font-display text-6xl lg:text-8xl font-bold text-black mb-8 leading-tight letter-tighter">
               The JANUS 
               <br />
               <span className="italic text-janus-blue">Clarity Engine™</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="scroll-animate fade-up delay-400 text-xl text-gray-600 max-w-3xl mx-auto">
               A plug-and-play 3-part system that transforms your software from "unclear" to "unmissable."
             </p>
           </div>
@@ -212,7 +215,7 @@ export default function Home() {
           <div className="space-y-24">
             {/* Component 1 */}
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="order-2 lg:order-1">
+              <div className="scroll-animate slide-left order-2 lg:order-1">
                 <div className="aspect-video bg-gradient-to-br from-janus-blue to-blue-700 rounded-lg image-overlay flex items-center justify-center">
                   <div className="text-center text-white">
                     <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -225,7 +228,7 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="order-1 lg:order-2 animate-slide-in-left">
+              <div className="scroll-animate slide-right delay-200 order-1 lg:order-2">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-janus-blue text-white rounded-full flex items-center justify-center font-bold text-xl mr-6">
                     1
@@ -248,7 +251,7 @@ export default function Home() {
             
             {/* Component 2 */}
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="animate-slide-in-left">
+              <div className="scroll-animate slide-left">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center font-bold text-xl mr-6">
                     2
@@ -268,7 +271,7 @@ export default function Home() {
                 </div>
               </div>
               
-              <div>
+              <div className="scroll-animate slide-right delay-200">
                 <div className="aspect-video bg-gradient-to-br from-black to-gray-800 rounded-lg image-overlay flex items-center justify-center">
                   <div className="text-center text-white">
                     <div className="grid grid-cols-3 gap-2 mb-4">
@@ -284,7 +287,7 @@ export default function Home() {
             
             {/* Component 3 */}
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="order-2 lg:order-1">
+              <div className="scroll-animate slide-left order-2 lg:order-1">
                 <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg image-overlay flex items-center justify-center">
                   <div className="text-center text-gray-600">
                     <div className="flex space-x-2 mb-4">
@@ -297,7 +300,7 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="order-1 lg:order-2 animate-slide-in-left">
+              <div className="scroll-animate slide-right delay-200 order-1 lg:order-2">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-gray-600 text-white rounded-full flex items-center justify-center font-bold text-xl mr-6">
                     3
@@ -342,17 +345,17 @@ export default function Home() {
         
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-8">
+            <p className="scroll-animate fade-up text-sm uppercase tracking-widest text-gray-400 font-medium mb-8">
               Why This Beats Hiring
             </p>
-            <h2 className="font-display display-text text-4xl lg:text-6xl font-bold mb-6 leading-tight letter-tighter">
+            <h2 className="scroll-animate fade-up delay-200 font-display display-text text-4xl lg:text-6xl font-bold mb-6 leading-tight letter-tighter">
               Save thousands and skip <br/>the HR tax
             </h2>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Hiring In-House */}
-            <div className="bg-white rounded-xl p-8 lg:p-10 janus-shadow">
+            <div className="scroll-animate scale-in delay-300 bg-white rounded-xl p-8 lg:p-10 janus-shadow">
               <div className="flex items-center mb-8">
                 <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
                   <svg className="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
@@ -386,7 +389,7 @@ export default function Home() {
             </div>
             
             {/* JANUS */}
-            <div className="bg-janus-blue rounded-xl p-8 lg:p-10 janus-shadow-xl hover-rise relative">
+            <div className="scroll-animate scale-in delay-500 bg-janus-blue rounded-xl p-8 lg:p-10 janus-shadow-xl hover-rise relative">
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <span className="bg-black text-white px-4 py-1 text-xs font-bold tracking-wide rounded-full">RECOMMENDED</span>
               </div>
@@ -443,17 +446,17 @@ export default function Home() {
         
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
+            <p className="scroll-animate fade-up text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
               Who It's For
             </p>
-            <h2 className="font-display display-text text-4xl lg:text-6xl font-bold text-black mb-8 leading-tight letter-tighter">
+            <h2 className="scroll-animate fade-up delay-200 font-display display-text text-4xl lg:text-6xl font-bold text-black mb-8 leading-tight letter-tighter">
               JANUS works best with
             </h2>
           </div>
           
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {/* Card 1 */}
-            <div className="bg-white border-2 border-gray-100 p-8 lg:p-10 rounded-xl hover-rise janus-shadow group">
+            <div className="scroll-animate scale-in delay-300 bg-white border-2 border-gray-100 p-8 lg:p-10 rounded-xl hover-rise janus-shadow group">
               <div className="flex items-start mb-6">
                 <div className="w-16 h-16 bg-janus-blue rounded-xl flex items-center justify-center mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -472,7 +475,7 @@ export default function Home() {
             </div>
             
             {/* Card 2 */}
-            <div className="bg-white border-2 border-gray-100 p-8 lg:p-10 rounded-xl hover-rise janus-shadow group">
+            <div className="scroll-animate scale-in delay-400 bg-white border-2 border-gray-100 p-8 lg:p-10 rounded-xl hover-rise janus-shadow group">
               <div className="flex items-start mb-6">
                 <div className="w-16 h-16 bg-black rounded-xl flex items-center justify-center mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -491,7 +494,7 @@ export default function Home() {
             </div>
             
             {/* Card 3 */}
-            <div className="bg-white border-2 border-gray-100 p-8 lg:p-10 rounded-xl hover-rise janus-shadow group">
+            <div className="scroll-animate scale-in delay-500 bg-white border-2 border-gray-100 p-8 lg:p-10 rounded-xl hover-rise janus-shadow group">
               <div className="flex items-start mb-6">
                 <div className="w-16 h-16 bg-gray-700 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -512,7 +515,7 @@ export default function Home() {
           
           {/* Bottom CTA */}
           <div className="text-center">
-            <div className="bg-janus-blue rounded-xl p-8 lg:p-10 max-w-4xl mx-auto janus-shadow-xl">
+            <div className="scroll-animate fade-up delay-300 bg-janus-blue rounded-xl p-8 lg:p-10 max-w-4xl mx-auto janus-shadow-xl">
               <p className="text-xl lg:text-2xl font-bold text-white mb-4">
                 If your product is ready — but your growth is stalled — we'll fix that.
               </p>
@@ -546,16 +549,16 @@ export default function Home() {
         
         <div className="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
           <div className="text-center mb-20">
-            <p className="text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
+            <p className="scroll-animate fade-up text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
               How We Launch in 21 Days
             </p>
-            <h2 className="font-display text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight letter-tighter">
+            <h2 className="scroll-animate fade-up delay-200 font-display text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight letter-tighter">
               Our Process
             </h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center group">
+            <div className="scroll-animate scale-in delay-300 text-center group">
               <div className="w-24 h-24 bg-janus-blue rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-3xl font-bold text-white">1</span>
               </div>
@@ -565,7 +568,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="text-center group">
+            <div className="scroll-animate scale-in delay-400 text-center group">
               <div className="w-24 h-24 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-3xl font-bold text-white">2</span>
               </div>
@@ -575,7 +578,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="text-center group">
+            <div className="scroll-animate scale-in delay-500 text-center group">
               <div className="w-24 h-24 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
                 <span className="text-3xl font-bold text-white">3</span>
               </div>
@@ -608,16 +611,16 @@ export default function Home() {
         
         <div className="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
           <div className="text-center mb-20">
-            <p className="text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
+            <p className="scroll-animate fade-up text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
               Founder Testimonials
             </p>
-            <h2 className="font-display text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight letter-tighter">
+            <h2 className="scroll-animate fade-up delay-200 font-display text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight letter-tighter">
               What They Say
             </h2>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-16">
-            <div className="bg-gray-50 p-12 rounded-lg janus-shadow hover-rise">
+            <div className="scroll-animate slide-left delay-300 bg-gray-50 p-12 rounded-lg janus-shadow hover-rise">
               <blockquote className="text-2xl font-display italic text-black mb-8 leading-relaxed">
                 "JANUS helped us go from a vague pitch to a 60-second story that converts — it's already lifting demo requests."
               </blockquote>
@@ -632,7 +635,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="bg-gray-50 p-12 rounded-lg janus-shadow hover-rise">
+            <div className="scroll-animate slide-right delay-400 bg-gray-50 p-12 rounded-lg janus-shadow hover-rise">
               <blockquote className="text-2xl font-display italic text-black mb-8 leading-relaxed">
                 "Every startup should install the JANUS system before they start spending money on ads."
               </blockquote>
@@ -673,16 +676,16 @@ export default function Home() {
         
         <div className="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
           <div className="text-center mb-20">
-            <p className="text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
+            <p className="scroll-animate fade-up text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
               Pricing & Packages
             </p>
-            <h2 className="font-display text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight letter-tighter">
+            <h2 className="scroll-animate fade-up delay-200 font-display text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight letter-tighter">
               Investment Options
             </h2>
           </div>
           
           <div className="grid lg:grid-cols-3 gap-8">
-            <div className="bg-white p-12 rounded-lg janus-shadow hover-rise">
+            <div className="scroll-animate scale-in delay-300 bg-white p-12 rounded-lg janus-shadow hover-rise">
               <h3 className="font-display text-3xl font-bold text-black mb-4">Starter</h3>
               <p className="text-gray-600 mb-8">Landing page clarity</p>
               <div className="mb-8">
@@ -697,7 +700,7 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="bg-janus-blue p-12 rounded-lg janus-shadow-xl hover-rise relative">
+            <div className="scroll-animate scale-in delay-400 bg-janus-blue p-12 rounded-lg janus-shadow-xl hover-rise relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <span className="bg-black text-white px-4 py-2 text-sm font-bold tracking-wide">MOST POPULAR</span>
               </div>
@@ -715,7 +718,7 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="bg-white p-12 rounded-lg janus-shadow hover-rise">
+            <div className="scroll-animate scale-in delay-500 bg-white p-12 rounded-lg janus-shadow hover-rise">
               <h3 className="font-display text-3xl font-bold text-black mb-4">Embedded Creative</h3>
               <p className="text-gray-600 mb-8">Retainer for scaling brands</p>
               <div className="mb-8">
@@ -731,7 +734,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="text-center mt-12 space-y-4">
+          <div className="scroll-animate fade-up delay-300 text-center mt-12 space-y-4">
             <p className="text-lg text-gray-700 font-medium">
               Hiring a junior content person costs ~$4,000/mo + tax. JANUS installs a full creative system — no management required.
             </p>
@@ -745,12 +748,12 @@ export default function Home() {
       {/* Confusion Cost Section */}
       <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="font-display text-4xl lg:text-6xl font-bold mb-12 leading-tight">
+          <h2 className="scroll-animate fade-up font-display text-4xl lg:text-6xl font-bold mb-12 leading-tight">
             How much is <span className="text-janus-blue italic">confusion</span> costing you?
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="group">
+            <div className="scroll-animate scale-in delay-200 group">
               <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500/30 transition-colors">
                 <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
@@ -761,7 +764,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="group">
+            <div className="scroll-animate scale-in delay-300 group">
               <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500/30 transition-colors">
                 <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -772,7 +775,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="group">
+            <div className="scroll-animate scale-in delay-400 group">
               <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500/30 transition-colors">
                 <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -784,7 +787,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="border-t border-gray-700 pt-8">
+          <div className="scroll-animate fade-up delay-500 border-t border-gray-700 pt-8">
             <p className="text-2xl font-display italic text-janus-blue mb-4">
               Clarity is the growth lever you're ignoring.
             </p>
@@ -815,15 +818,15 @@ export default function Home() {
         </div>
         
         <div className="max-w-6xl mx-auto px-8 lg:px-12 text-center relative z-10">
-          <h2 className="font-display text-6xl lg:text-8xl font-bold mb-8 leading-tight letter-tighter">
+          <h2 className="scroll-animate fade-up font-display text-6xl lg:text-8xl font-bold mb-8 leading-tight letter-tighter">
             Ready to Transform Your Brand?
           </h2>
-          <p className="text-2xl mb-4 opacity-90">Let's talk.</p>
-          <p className="text-xl mb-16 opacity-80 max-w-3xl mx-auto">
+          <p className="scroll-animate fade-up delay-200 text-2xl mb-4 opacity-90">Let's talk.</p>
+          <p className="scroll-animate fade-up delay-300 text-xl mb-16 opacity-80 max-w-3xl mx-auto">
             Schedule a 15-minute discovery call and see if the JANUS Clarity Engine™ is a fit for your startup.
           </p>
           
-          <div className="bg-gray-900 p-12 rounded-lg max-w-2xl mx-auto">
+          <div className="scroll-animate scale-in delay-400 bg-gray-900 p-12 rounded-lg max-w-2xl mx-auto">
             <div className="flex items-center justify-center mb-8">
               <div className="relative">
                 <Image
