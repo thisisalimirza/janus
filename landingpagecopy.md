@@ -36,7 +36,7 @@ Three crisp motion videos that explain your most powerful features — driving r
 Designed to reduce churn and increase lifetime value.
 
 🔹 3. Paid + Organic Ad Kit
-Three optimized short-form videos for use in ads, social, and outbound — based on proven SaaS creative principles.
+Upto thirty optimized short-form videos for use in ads, social, and outbound — based on proven SaaS creative principles.
 
 We give you the content that moves leads.
 

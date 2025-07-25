@@ -1,13 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import ScrollAnimations from '../components/ScrollAnimations'
-import SmoothScroll from '../components/SmoothScroll'
+import ROICalculator from '../components/ROICalculator'
 
 export default function Home() {
   return (
     <div className="bg-white">
       <ScrollAnimations />
-      <SmoothScroll />
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
@@ -754,10 +753,10 @@ export default function Home() {
               <div className="mb-8">
                 <p className="text-sm font-semibold text-gray-700 mb-3">What's included:</p>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Full creative team embedded</li>
-                  <li>• Unlimited design & video</li>
-                  <li>• Strategic messaging oversight</li>
-                  <li>• Weekly creative reviews</li>
+                  <li>• Dedicated full creative team (no hiring required)</li>
+                  <li>• Unlimited video + design</li>
+                  <li>• Weekly feedback loop with strategic oversight</li>
+                  <li>• Ad campaign optimization to maximize ROI</li>
                 </ul>
               </div>
               
@@ -785,10 +784,11 @@ export default function Home() {
               <div className="mb-8">
                 <p className="text-sm font-semibold text-blue-100 mb-3">What's included:</p>
                 <ul className="text-sm text-blue-100 space-y-1">
-                  <li>• Complete messaging transformation</li>
-                  <li>• Clarity videos & landing pages</li>
-                  <li>• Sales enablement materials</li>
-                  <li>• Monthly strategy calls</li>
+                  <li>• Full messaging transformation</li>
+                  <li>• Hero + landing video</li>
+                  <li>• 2–3 feature explainer videos</li>
+                  <li>• Sales enablement asset pack</li>
+                  <li>• Monthly strategy call</li>
                 </ul>
               </div>
               
@@ -815,7 +815,9 @@ export default function Home() {
                 <ul className="text-sm text-gray-500 space-y-1">
                   <li>• Landing page messaging review</li>
                   <li>• Clarity framework application</li>
-                  <li>• Basic conversion optimization</li>
+                  <li>• Live heatmap installation</li>
+                  <li>• Advanced conversion optimization</li>
+                  <li>• 30s signature Clarity video</li>
                   <li>• One revision round</li>
                 </ul>
               </div>
@@ -824,7 +826,7 @@ export default function Home() {
                 href="#contact"
                 className="block w-full text-center bg-gray-200 text-gray-600 py-3 font-medium hover:bg-gray-300 transition-colors duration-300 rounded-sm"
               >
-                Get Started
+                Fix My Landing Page
               </Link>
             </div>
           </div>
@@ -837,55 +839,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Confusion Cost Section */}
+      {/* Confusion Cost Section with ROI Calculator */}
       <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="scroll-animate fade-up font-display text-4xl lg:text-6xl font-bold mb-12 leading-tight">
-            How much is <span className="text-janus-blue italic">confusion</span> costing you?
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="scroll-animate scale-in delay-200 group">
-              <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500/30 transition-colors">
-                <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
-                </svg>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="scroll-animate fade-up font-display text-4xl lg:text-6xl font-bold mb-12 leading-tight">
+              How much is <span className="text-janus-blue italic">confusion</span> costing you?
+            </h2>
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+              <div className="scroll-animate scale-in delay-200 group">
+                <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500/30 transition-colors">
+                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                  </svg>
+                </div>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Low conversion rates on your landing page?
+                </p>
               </div>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Low conversion rates on your landing page?
-              </p>
+              
+              <div className="scroll-animate scale-in delay-300 group">
+                <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500/30 transition-colors">
+                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
+                </div>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Users dropping off before they activate?
+                </p>
+              </div>
+              
+              <div className="scroll-animate scale-in delay-400 group">
+                <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500/30 transition-colors">
+                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Sales calls starting with "Wait, what do you do again?"
+                </p>
+              </div>
             </div>
             
-            <div className="scroll-animate scale-in delay-300 group">
-              <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500/30 transition-colors">
-                <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                </svg>
-              </div>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Users dropping off before they activate?
+            <div className="scroll-animate fade-up delay-500 border-t border-gray-700 pt-8 mb-16">
+              <p className="text-2xl font-display italic text-janus-blue mb-4">
+                Clarity is the growth lever you're ignoring.
               </p>
-            </div>
-            
-            <div className="scroll-animate scale-in delay-400 group">
-              <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500/30 transition-colors">
-                <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Sales calls starting with "Wait, what do you do again?"
+              <p className="text-xl text-gray-300">
+                Let's quantify what it's costing you.
               </p>
             </div>
           </div>
-          
-          <div className="scroll-animate fade-up delay-500 border-t border-gray-700 pt-8">
-            <p className="text-2xl font-display italic text-janus-blue mb-4">
-              Clarity is the growth lever you're ignoring.
-            </p>
-            <p className="text-xl text-gray-300">
-              Let's fix it.
-            </p>
+
+          {/* ROI Calculator */}
+          <div className="scroll-animate fade-up delay-600 max-w-5xl mx-auto">
+            <ROICalculator />
           </div>
         </div>
       </section>
