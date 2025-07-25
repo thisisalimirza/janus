@@ -282,7 +282,7 @@ function mapNotionPageToClientLogo(page: any): ClientLogo {
     id: page.id,
     name: getPlainText(properties.Name?.title || []),
     logo: properties.Logo?.files?.[0]?.file?.url || properties.Logo?.files?.[0]?.external?.url || '',
-    website: getPlainText(properties.Website?.url || []) || undefined,
+    website: properties.Website?.url || undefined, // URL property returns string directly
     industry: properties.Industry?.select?.name || 'SaaS',
     stage: properties.Stage?.select?.name || 'Startup',
     order: properties.Order?.number || 0,

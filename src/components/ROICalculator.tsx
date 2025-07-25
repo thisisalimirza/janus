@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
+import CalBooking from './CalBooking'
 
 interface Scenario {
   name: string
@@ -256,12 +257,9 @@ export default function ROICalculator() {
       {/* CTA - Only show when results are visible */}
       {showResults && (
         <div className="text-center">
-          <Link
-            href="#contact"
-            className="inline-block bg-janus-blue text-white px-10 py-5 text-xl font-bold hover:bg-blue-700 transition-all duration-300 rounded-sm hover-rise janus-shadow-xl"
-          >
+          <CalBooking className="inline-block bg-janus-blue text-white px-10 py-5 text-xl font-bold hover:bg-blue-700 transition-all duration-300 rounded-sm hover-rise janus-shadow-xl">
             Book Your Clarity Call
-          </Link>
+          </CalBooking>
           <p className="text-sm text-gray-500 mt-4">
             Conservative estimates based on real client results
           </p>

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ScrollAnimations from '../components/ScrollAnimations'
 import ROICalculator from '../components/ROICalculator'
+import CalBooking from '../components/CalBooking'
 import { getClientLogos } from '../lib/notion'
 
 export default async function Home() {
@@ -104,13 +105,10 @@ export default async function Home() {
             <p className="text-sm font-medium mb-8 opacity-80">
               Start seeing ROI in weeks — not months.
             </p>
-            <Link
-              href="#contact"
-              className="inline-block bg-janus-blue text-white px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold tracking-wide hover:bg-blue-700 transition-all duration-300 hover-rise janus-shadow-xl rounded-sm whitespace-nowrap"
-            >
+            <CalBooking className="inline-block bg-janus-blue text-white px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold tracking-wide hover:bg-blue-700 transition-all duration-300 hover-rise janus-shadow-xl rounded-sm whitespace-nowrap">
               <span className="hidden sm:inline">See How We'd Fix Your Messaging</span>
               <span className="sm:hidden">Fix My Messaging</span>
-            </Link>
+            </CalBooking>
             <p className="text-xs text-white/70 mt-3">
               Free 15-minute strategy call
             </p>
@@ -1083,12 +1081,9 @@ export default async function Home() {
             </div>
             
             <div className="space-y-4">
-              <Link
-                href="mailto:hello@janus.agency"
-                className="block w-full bg-janus-blue text-white py-4 text-lg font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm"
-              >
-                👉 Book a Strategy Call
-              </Link>
+              <CalBooking className="w-full bg-janus-blue text-white py-4 text-lg font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
+                Book a Strategy Call
+              </CalBooking>
               
               <div className="py-2">
                 <p className="text-gray-400 text-sm">Not ready to talk? Get value first:</p>
@@ -1098,13 +1093,13 @@ export default async function Home() {
                 href="mailto:hello@janus.agency?subject=Send me the messaging clarity checklist"
                 className="block w-full border border-gray-600 text-white py-3 text-base font-medium hover:border-gray-500 hover:bg-gray-800 transition-colors duration-300 rounded-sm"
               >
-                📋 Get our messaging clarity checklist
+                Get our messaging clarity checklist
               </Link>
               <Link
                 href="mailto:hello@janus.agency?subject=Free landing page copy teardown"
                 className="block w-full border border-gray-600 text-white py-3 text-base font-medium hover:border-gray-500 hover:bg-gray-800 transition-colors duration-300 rounded-sm"
               >
-                🔍 Get a teardown of your landing page copy — free
+                Get a teardown of your landing page copy — free
               </Link>
             </div>
             
