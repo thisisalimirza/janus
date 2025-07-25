@@ -115,12 +115,12 @@ export default function ROICalculator() {
             <button
               key={index}
               onClick={() => loadScenario(scenario)}
-              className="text-left p-4 bg-gray-50 hover:bg-janus-blue hover:text-white transition-all duration-200 rounded-lg group border border-gray-200 hover:border-janus-blue"
+              className="text-left p-4 bg-gray-50 hover:bg-gray-100 transition-all duration-200 rounded-lg border border-gray-200 hover:border-janus-blue group"
             >
-              <div className="font-semibold text-sm mb-1 text-black group-hover:text-white">
+              <div className="font-semibold text-sm mb-1 text-black group-hover:text-janus-blue">
                 {scenario.name}
               </div>
-              <div className="text-xs text-gray-600 group-hover:text-blue-100">
+              <div className="text-xs text-gray-600 group-hover:text-gray-700">
                 {scenario.description}
               </div>
             </button>
@@ -201,52 +201,52 @@ export default function ROICalculator() {
 
       {/* Results - Only show when showResults is true */}
       {showResults && (
-        <div className="bg-black rounded-xl p-8 lg:p-10 text-white mb-8 janus-shadow-xl">
-          <h4 className="font-display text-2xl lg:text-3xl font-bold mb-8 text-center text-white">
+        <div className="bg-gray-50 rounded-xl p-8 lg:p-10 mb-8 border border-gray-100">
+          <h4 className="font-display text-xl lg:text-2xl font-bold mb-6 text-center text-black">
             Your Potential ROI
           </h4>
           
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div className="grid md:grid-cols-3 gap-6 mb-6">
             <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-janus-blue mb-3">
+              <div className="text-2xl lg:text-3xl font-bold text-black mb-2">
                 {formatNumber(calculations.currentDemos)}
               </div>
-              <div className="text-sm text-gray-300 font-medium">
+              <div className="text-xs text-gray-600 font-medium">
                 Current Monthly Demos
               </div>
             </div>
             
             <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-yellow-400 mb-3">
+              <div className="text-2xl lg:text-3xl font-bold text-janus-blue mb-2">
                 +{formatNumber(calculations.extraDemos)}
               </div>
-              <div className="text-sm text-gray-300 font-medium">
+              <div className="text-xs text-gray-600 font-medium">
                 Extra Demos per Month
               </div>
             </div>
             
             <div className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-green-400 mb-3">
+              <div className="text-2xl lg:text-3xl font-bold text-janus-blue mb-2">
                 {formatCurrency(calculations.addedRevenue)}
               </div>
-              <div className="text-sm text-gray-300 font-medium">
+              <div className="text-xs text-gray-600 font-medium">
                 Additional Monthly Revenue
               </div>
             </div>
           </div>
 
-          <div className="border-t border-gray-700 pt-8">
+          <div className="border-t border-gray-200 pt-6">
             <div className="text-center">
-              <p className="text-lg lg:text-xl mb-4 leading-relaxed text-gray-100">
-                With <strong className="text-white">{formatNumber(visitors)}</strong> monthly visitors converting at <strong className="text-white">{conversionRate}%</strong>, 
-                you currently get <strong className="text-janus-blue">{formatNumber(calculations.currentDemos)} demos/month</strong>.
+              <p className="text-sm mb-3 leading-relaxed text-gray-700">
+                With <strong className="text-black">{formatNumber(visitors)}</strong> monthly visitors converting at <strong className="text-black">{conversionRate}%</strong>, 
+                you currently get <strong className="text-black">{formatNumber(calculations.currentDemos)} demos/month</strong>.
               </p>
-              <p className="text-lg lg:text-xl mb-6 leading-relaxed text-gray-100">
-                With a <strong className="text-yellow-400">{uplift}% uplift</strong>, JANUS could add <strong className="text-yellow-400">{formatNumber(calculations.extraDemos)} extra demos</strong>, 
-                worth <strong className="text-green-400">{formatCurrency(calculations.addedRevenue)}</strong> in added revenue.
+              <p className="text-sm mb-4 leading-relaxed text-gray-700">
+                With a <strong className="text-janus-blue">{uplift}% uplift</strong>, JANUS could add <strong className="text-janus-blue">{formatNumber(calculations.extraDemos)} extra demos</strong>, 
+                worth <strong className="text-janus-blue">{formatCurrency(calculations.addedRevenue)}</strong> in added revenue.
               </p>
-              <p className="text-2xl lg:text-3xl font-bold text-yellow-400 font-display">
-                You'd break even on your $5,000 investment in {formatTimeToBreakEven()}.
+              <p className="text-lg lg:text-xl font-bold text-black font-display">
+                Break even in {formatTimeToBreakEven()}
               </p>
             </div>
           </div>
