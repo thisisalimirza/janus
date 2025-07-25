@@ -37,6 +37,18 @@ export interface CaseStudy {
   published: boolean
 }
 
+// Client Logo Interface
+export interface ClientLogo {
+  id: string
+  name: string
+  logo: string
+  website?: string
+  industry: string
+  stage: string
+  order: number
+  published: boolean
+}
+
 // Get all blog posts
 export async function getBlogPosts(): Promise<BlogPost[]> {
   if (!process.env.NOTION_BLOG_DATABASE_ID) {
@@ -191,6 +203,36 @@ export async function getCaseStudy(slug: string): Promise<CaseStudy | null> {
   }
 }
 
+// Get all client logos
+export async function getClientLogos(): Promise<ClientLogo[]> {
+  if (!process.env.NOTION_CLIENTS_DATABASE_ID) {
+    return []
+  }
+
+  try {
+    const response = await notion.databases.query({
+      database_id: process.env.NOTION_CLIENTS_DATABASE_ID!,
+      filter: {
+        property: 'Published',
+        checkbox: {
+          equals: true,
+        },
+      },
+      sorts: [
+        {
+          property: 'Order',
+          direction: 'ascending',
+        },
+      ],
+    })
+
+    return response.results.map(mapNotionPageToClientLogo)
+  } catch (error) {
+    console.error('Error fetching client logos:', error)
+    return []
+  }
+}
+
 // Helper function to map Notion page to BlogPost
 function mapNotionPageToBlogPost(page: any): BlogPost {
   const properties = page.properties
@@ -228,6 +270,22 @@ function mapNotionPageToCaseStudy(page: any): CaseStudy {
     solution: getPlainText(properties.Solution?.rich_text || []),
     testimonial: getPlainText(properties.Testimonial?.rich_text || []),
     testimonialAuthor: getPlainText(properties['Testimonial Author']?.rich_text || []),
+    published: properties.Published?.checkbox || false,
+  }
+}
+
+// Helper function to map Notion page to ClientLogo
+function mapNotionPageToClientLogo(page: any): ClientLogo {
+  const properties = page.properties
+
+  return {
+    id: page.id,
+    name: getPlainText(properties.Name?.title || []),
+    logo: properties.Logo?.files?.[0]?.file?.url || properties.Logo?.files?.[0]?.external?.url || '',
+    website: getPlainText(properties.Website?.url || []) || undefined,
+    industry: properties.Industry?.select?.name || 'SaaS',
+    stage: properties.Stage?.select?.name || 'Startup',
+    order: properties.Order?.number || 0,
     published: properties.Published?.checkbox || false,
   }
 }

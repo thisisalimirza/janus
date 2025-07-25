@@ -2,8 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ScrollAnimations from '../components/ScrollAnimations'
 import ROICalculator from '../components/ROICalculator'
+import { getClientLogos } from '../lib/notion'
 
-export default function Home() {
+export default async function Home() {
+  const clientLogos = await getClientLogos()
   return (
     <div className="bg-white">
       <ScrollAnimations />
@@ -134,32 +136,70 @@ export default function Home() {
             </blockquote>
           </div>
           
-          {/* Logo placeholder area with better styling */}
+          {/* Dynamic client logos from Notion CMS */}
           <div className="scroll-animate scale-in delay-400 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 items-center">
-            <div className="h-16 bg-gray-50 border border-gray-100 rounded-lg flex items-center justify-center hover:border-gray-200 transition-colors">
-              <div className="text-center">
-                <div className="w-8 h-8 bg-gray-200 rounded mx-auto mb-1"></div>
-                <span className="text-xs text-gray-400 font-medium">TechFlow</span>
-              </div>
-            </div>
-            <div className="h-16 bg-gray-50 border border-gray-100 rounded-lg flex items-center justify-center hover:border-gray-200 transition-colors">
-              <div className="text-center">
-                <div className="w-8 h-8 bg-gray-200 rounded mx-auto mb-1"></div>
-                <span className="text-xs text-gray-400 font-medium">DataVault</span>
-              </div>
-            </div>
-            <div className="h-16 bg-gray-50 border border-gray-100 rounded-lg flex items-center justify-center hover:border-gray-200 transition-colors">
-              <div className="text-center">
-                <div className="w-8 h-8 bg-gray-200 rounded mx-auto mb-1"></div>
-                <span className="text-xs text-gray-400 font-medium">CloudSync</span>
-              </div>
-            </div>
-            <div className="h-16 bg-gray-50 border border-gray-100 rounded-lg flex items-center justify-center hover:border-gray-200 transition-colors">
-              <div className="text-center">
-                <div className="w-8 h-8 bg-gray-200 rounded mx-auto mb-1"></div>
-                <span className="text-xs text-gray-400 font-medium">SecureBase</span>
-              </div>
-            </div>
+            {clientLogos.length > 0 ? (
+              clientLogos.map((client) => (
+                <div 
+                  key={client.id} 
+                  className="h-16 bg-gray-50 border border-gray-100 rounded-lg flex items-center justify-center hover:border-gray-200 transition-colors group"
+                >
+                  {client.website ? (
+                    <a 
+                      href={client.website} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-full h-full"
+                    >
+                      {client.logo ? (
+                        <Image
+                          src={client.logo}
+                          alt={client.name}
+                          width={120}
+                          height={60}
+                          className="max-w-28 max-h-14 lg:max-w-32 lg:max-h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                        />
+                      ) : (
+                        <div className="text-center">
+                          <div className="w-8 h-8 bg-gray-200 rounded mx-auto mb-1"></div>
+                          <span className="text-xs text-gray-400 font-medium">{client.name}</span>
+                        </div>
+                      )}
+                    </a>
+                  ) : (
+                    <div className="flex items-center justify-center w-full h-full">
+                      {client.logo ? (
+                        <Image
+                          src={client.logo}
+                          alt={client.name}
+                          width={120}
+                          height={60}
+                          className="max-w-28 max-h-14 lg:max-w-32 lg:max-h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                        />
+                      ) : (
+                        <div className="text-center">
+                          <div className="w-8 h-8 bg-gray-200 rounded mx-auto mb-1"></div>
+                          <span className="text-xs text-gray-400 font-medium">{client.name}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))
+            ) : (
+              // Fallback placeholders if no logos are available
+              Array.from({ length: 4 }).map((_, index) => (
+                <div 
+                  key={index} 
+                  className="h-16 bg-gray-50 border border-gray-100 rounded-lg flex items-center justify-center hover:border-gray-200 transition-colors"
+                >
+                  <div className="text-center">
+                    <div className="w-8 h-8 bg-gray-200 rounded mx-auto mb-1"></div>
+                    <span className="text-xs text-gray-400 font-medium">Client {index + 1}</span>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>
