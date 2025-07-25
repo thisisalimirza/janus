@@ -9,6 +9,10 @@
   --janus-dark: #0f172a;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
