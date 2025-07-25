@@ -12,10 +12,11 @@ Create a new Notion database with the following properties:
    - Type: Title
    - Description: The client company name
 
-2. **Logo** (Files & Media)
-   - Type: Files & Media
-   - Description: Upload the client's logo image
-   - Recommended: PNG or SVG format, transparent background preferred
+2. **Logo** (URL)
+   - Type: URL
+   - Description: URL to the client's logo image
+   - Example: https://janusny.com/client-logos/techflow.png
+   - Note: Host images in /public/client-logos/ for permanent URLs
 
 3. **Published** (Checkbox)
    - Type: Checkbox
