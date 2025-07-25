@@ -5,6 +5,9 @@ import { getBlogPost, getBlogPosts } from '../../../lib/notion'
 import ScrollAnimations from '../../../components/ScrollAnimations'
 import NotionContent from '../../../components/NotionContent'
 
+// Revalidate every 10 minutes
+export const revalidate = 600
+
 export async function generateStaticParams() {
   const posts = await getBlogPosts()
   return posts.map((post) => ({

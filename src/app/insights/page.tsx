@@ -4,6 +4,9 @@ import ScrollAnimations from '../../components/ScrollAnimations'
 import BlogFilter from '../../components/BlogFilter'
 import { getBlogPosts } from '../../lib/notion'
 
+// Revalidate every 10 minutes
+export const revalidate = 600
+
 export default async function Insights() {
   const blogPosts = await getBlogPosts()
   
@@ -143,7 +146,7 @@ export default async function Insights() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-gray-50">
+      <section className="pt-24 pb-16 lg:pt-32 lg:pb-18 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="scroll-animate fade-up">

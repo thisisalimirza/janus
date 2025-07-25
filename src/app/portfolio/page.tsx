@@ -4,6 +4,9 @@ import ScrollAnimations from '../../components/ScrollAnimations'
 import AdaptiveImage from '../../components/AdaptiveImage'
 import { getCaseStudies } from '../../lib/notion'
 
+// Revalidate every 10 minutes
+export const revalidate = 600
+
 export default async function Portfolio() {
   const caseStudies = await getCaseStudies()
   

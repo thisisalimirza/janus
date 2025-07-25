@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Removed 'output: export' to enable ISR
   trailingSlash: true,
   images: {
+    // Keep unoptimized for better compatibility with Vercel
     unoptimized: true
   }
 }

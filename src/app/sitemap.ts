@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
 import { getBlogPosts, getCaseStudies } from '../lib/notion'
 
-export const dynamic = 'force-static'
+// Revalidate sitemap every 10 minutes
+export const revalidate = 600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://janus-creative.com'

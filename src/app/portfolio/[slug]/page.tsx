@@ -6,6 +6,9 @@ import ScrollAnimations from '../../../components/ScrollAnimations'
 import NotionContent from '../../../components/NotionContent'
 import AdaptiveImage from '../../../components/AdaptiveImage'
 
+// Revalidate every 10 minutes
+export const revalidate = 600
+
 export async function generateStaticParams() {
   const caseStudies = await getCaseStudies()
   return caseStudies.map((study) => ({
