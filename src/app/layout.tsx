@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: 'JANUS | The Clarity Engine™ for SaaS Growth',
   description: 'JANUS installs high-converting, brand-driven marketing systems into SaaS companies. Book a strategy call to transform your marketing.',
   keywords: 'SaaS marketing, brand strategy, creative agency, marketing systems, conversion optimization, SaaS growth, B2B marketing, landing page optimization, messaging strategy',
-  authors: [{ name: 'JANUS', url: 'https://janus-creative.com' }],
+  authors: [{ name: 'JANUS', url: 'https://janusny.com' }],
   creator: 'JANUS',
   publisher: 'JANUS',
-  metadataBase: new URL('https://janus-creative.com'),
+  metadataBase: new URL('https://janusny.com'),
   alternates: {
     canonical: '/',
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'JANUS | The Clarity Engine™ for SaaS Growth',
     description: 'JANUS installs high-converting, brand-driven marketing systems into SaaS companies. Trusted by funded startups and growth-stage SaaS companies.',
     type: 'website',
-    url: 'https://janus-creative.com',
+    url: 'https://janusny.com',
     siteName: 'JANUS',
     locale: 'en_US',
     images: [
@@ -88,8 +88,8 @@ export default function RootLayout({
               "name": "JANUS",
               "alternateName": "JANUS Creative Agency",
               "description": "JANUS installs high-converting, brand-driven marketing systems into SaaS companies.",
-              "url": "https://janus-creative.com",
-              "logo": "https://janus-creative.com/JANUS-Logo-transparentBG.png",
+              "url": "https://janusny.com",
+              "logo": "https://janusny.com/JANUS-Logo-transparentBG.png",
               "foundingDate": "2024",
               "founder": {
                 "@type": "Person",
@@ -100,7 +100,7 @@ export default function RootLayout({
                 "addressCountry": "US"
               },
               "sameAs": [
-                "https://linkedin.com/company/janus-creative"
+                "https://linkedin.com/company/janusny"
               ],
               "serviceType": [
                 "SaaS Marketing",
@@ -137,7 +137,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "JANUS",
-              "url": "https://janus-creative.com",
+              "url": "https://janusny.com",
               "description": "The Clarity Engine™ for SaaS Growth",
               "publisher": {
                 "@type": "Organization",
@@ -147,7 +147,7 @@ export default function RootLayout({
                 "@type": "SearchAction",
                 "target": {
                   "@type": "EntryPoint",
-                  "urlTemplate": "https://janus-creative.com/insights?q={search_term_string}"
+                  "urlTemplate": "https://janusny.com/insights?q={search_term_string}"
                 },
                 "query-input": "required name=search_term_string"
               }

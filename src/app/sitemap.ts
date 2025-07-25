@@ -5,7 +5,7 @@ import { getBlogPosts, getCaseStudies } from '../lib/notion'
 export const revalidate = 600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://janus-creative.com'
+  const baseUrl = 'https://janusny.com'
   
   // Get all blog posts and case studies
   const [blogPosts, caseStudies] = await Promise.all([

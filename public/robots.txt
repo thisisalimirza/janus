@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://janus-creative.com/sitemap.xml
+Sitemap: https://janusny.com/sitemap.xml
 
 # Block access to admin or sensitive paths
 Disallow: /api/
