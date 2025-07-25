@@ -672,30 +672,30 @@ export default function Home() {
             <div className="lg:col-span-2 grid gap-12">
               <div className="scroll-animate slide-left delay-300 bg-gray-50 p-12 rounded-lg janus-shadow hover-rise">
                 <blockquote className="text-2xl font-display italic text-black mb-8 leading-relaxed">
-                  "JANUS helped us go from a vague pitch to a 60-second story that converts — it's already lifting demo requests."
+                  "We had strong product-market fit but weak messaging. JANUS made it click. We're now converting 30% more landing page traffic."
                 </blockquote>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-janus-blue rounded-full flex items-center justify-center mr-4">
-                    <span className="text-white font-bold text-sm">AS</span>
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-sm">PM</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-black">Alex S., CEO</p>
-                    <p className="text-gray-600">Trustly</p>
+                    <p className="font-semibold text-black">Priya M., Founder</p>
+                    <p className="text-gray-600">GrowthOS (Seed Stage SaaS)</p>
                   </div>
                 </div>
               </div>
               
               <div className="scroll-animate slide-right delay-400 bg-gray-50 p-12 rounded-lg janus-shadow hover-rise">
                 <blockquote className="text-2xl font-display italic text-black mb-8 leading-relaxed">
-                  "Every startup should install the JANUS system before they start spending money on ads."
+                  "The messaging transformation helped us land our first Fortune 100 client. Clear ROI from day one."
                 </blockquote>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mr-4">
-                    <span className="text-white font-bold">GA</span>
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-sm">SC</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-black">Growth Advisor</p>
-                    <p className="text-gray-600">VC-backed Platform</p>
+                    <p className="font-semibold text-black">Sarah C., VP Sales</p>
+                    <p className="text-gray-600">DataVault (Series B Cybersecurity)</p>
                   </div>
                 </div>
               </div>
@@ -735,50 +735,52 @@ export default function Home() {
             </h2>
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="scroll-animate scale-in delay-300 bg-white p-12 rounded-lg janus-shadow hover-rise">
-              <h3 className="font-display text-3xl font-bold text-black mb-4">Starter</h3>
-              <p className="text-gray-600 mb-8">Landing page clarity</p>
+          <div className="grid lg:grid-cols-3 gap-8 items-center">
+            {/* Starter - Grayed out */}
+            <div className="scroll-animate scale-in delay-300 bg-gray-50 p-10 rounded-lg border border-gray-200 hover:bg-gray-100 transition-all duration-300 opacity-75">
+              <h3 className="font-display text-2xl font-bold text-gray-700 mb-4">Starter</h3>
+              <p className="text-gray-500 mb-8">Landing page clarity</p>
               <div className="mb-8">
-                <span className="text-5xl font-bold text-black">$2,500</span>
-                <span className="text-gray-500 ml-2">one-time</span>
+                <span className="text-4xl font-bold text-gray-700">$2,500</span>
+                <span className="text-gray-400 ml-2">one-time</span>
               </div>
               <Link
                 href="#contact"
-                className="block w-full text-center bg-gray-100 text-black py-4 font-medium hover:bg-gray-200 transition-colors duration-300"
+                className="block w-full text-center bg-gray-200 text-gray-600 py-3 font-medium hover:bg-gray-300 transition-colors duration-300"
               >
                 Get Started
               </Link>
             </div>
             
-            <div className="scroll-animate scale-in delay-400 bg-janus-blue p-12 rounded-lg janus-shadow-xl hover-rise relative">
+            {/* Core Engine - Highlighted and Larger */}
+            <div className="scroll-animate scale-in delay-400 bg-janus-blue p-14 rounded-lg janus-shadow-xl hover-rise relative transform lg:scale-105">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-black text-white px-4 py-2 text-sm font-bold tracking-wide">MOST POPULAR</span>
+                <span className="bg-black text-white px-6 py-2 text-sm font-bold tracking-wide rounded-full">MOST POPULAR</span>
               </div>
-              <h3 className="font-display text-3xl font-bold text-white mb-4">Core Engine</h3>
-              <p className="text-blue-100 mb-8">Full JANUS Clarity Engine™</p>
+              <h3 className="font-display text-4xl font-bold text-white mb-4">Core Engine</h3>
+              <p className="text-blue-100 mb-8 text-lg">Full JANUS Clarity Engine™</p>
               <div className="mb-8">
-                <span className="text-5xl font-bold text-white">$5,000</span>
-                <span className="text-blue-200 ml-2">/month</span>
+                <span className="text-6xl font-bold text-white">$5,000</span>
+                <span className="text-blue-200 ml-2 text-lg">/month</span>
               </div>
               <Link
                 href="#contact"
-                className="block w-full text-center bg-white text-janus-blue py-4 font-bold hover:bg-gray-100 transition-colors duration-300"
+                className="block w-full text-center bg-white text-janus-blue py-4 font-bold hover:bg-gray-100 transition-all duration-300 rounded-sm text-lg"
               >
                 Book Strategy Call
               </Link>
             </div>
             
-            <div className="scroll-animate scale-in delay-500 bg-white p-12 rounded-lg janus-shadow hover-rise">
-              <h3 className="font-display text-3xl font-bold text-black mb-4">Embedded Creative</h3>
+            <div className="scroll-animate scale-in delay-500 bg-white p-10 rounded-lg janus-shadow hover-rise">
+              <h3 className="font-display text-2xl font-bold text-black mb-4">Embedded Creative</h3>
               <p className="text-gray-600 mb-8">Retainer for scaling brands</p>
               <div className="mb-8">
-                <span className="text-5xl font-bold text-black">$7,500+</span>
+                <span className="text-4xl font-bold text-black">$7,500+</span>
                 <span className="text-gray-500 ml-2">/month</span>
               </div>
               <Link
                 href="#contact"
-                className="block w-full text-center bg-gray-100 text-black py-4 font-medium hover:bg-gray-200 transition-colors duration-300"
+                className="block w-full text-center bg-gray-100 text-black py-3 font-medium hover:bg-gray-200 transition-colors duration-300"
               >
                 Contact Us
               </Link>
@@ -849,6 +851,94 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="scroll-animate fade-up font-display text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight">
+              Frequently Asked Questions
+            </h2>
+            <p className="scroll-animate fade-up delay-200 text-xl text-gray-600">
+              Everything you need to know about working with JANUS.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <details className="scroll-animate fade-up delay-300 group bg-gray-50 rounded-lg">
+              <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100 transition-colors duration-200">
+                <h3 className="text-xl font-semibold text-black">How fast will I see results?</h3>
+                <svg className="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-6 pb-6">
+                <p className="text-gray-700 leading-relaxed">Most clients see improved conversion rates within 2-4 weeks of implementing our messaging framework. The Core Engine includes rapid iteration cycles to ensure we hit the mark quickly.</p>
+              </div>
+            </details>
+
+            <details className="scroll-animate fade-up delay-400 group bg-gray-50 rounded-lg">
+              <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100 transition-colors duration-200">
+                <h3 className="text-xl font-semibold text-black">What if I don't like the messaging?</h3>
+                <svg className="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-6 pb-6">
+                <p className="text-gray-700 leading-relaxed">We iterate until it's right. The process includes multiple rounds of feedback and A/B testing to ensure the messaging resonates with your audience. If we can't deliver results that meet our standards, we'll refund your investment.</p>
+              </div>
+            </details>
+
+            <details className="scroll-animate fade-up delay-500 group bg-gray-50 rounded-lg">
+              <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100 transition-colors duration-200">
+                <h3 className="text-xl font-semibold text-black">Do you work with early-stage startups?</h3>
+                <svg className="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-6 pb-6">
+                <p className="text-gray-700 leading-relaxed">Yes, we specialize in funded startups from Seed to Series B. We also work with bootstrapped companies that have proven product-market fit and are ready to scale their messaging for growth.</p>
+              </div>
+            </details>
+
+            <details className="scroll-animate fade-up delay-600 group bg-gray-50 rounded-lg">
+              <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100 transition-colors duration-200">
+                <h3 className="text-xl font-semibold text-black">What's included in the Core Engine?</h3>
+                <svg className="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-6 pb-6">
+                <p className="text-gray-700 leading-relaxed">Complete messaging strategy, landing page copy, email sequences, ad copy, pitch deck narrative, and conversion optimization. Plus ongoing refinement based on performance data to ensure continuous improvement.</p>
+              </div>
+            </details>
+
+            <details className="scroll-animate fade-up delay-700 group bg-gray-50 rounded-lg">
+              <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100 transition-colors duration-200">
+                <h3 className="text-xl font-semibold text-black">Can I pause or cancel anytime?</h3>
+                <svg className="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-6 pb-6">
+                <p className="text-gray-700 leading-relaxed">Absolutely. We believe in earning your business every month. You can pause your subscription anytime and resume when you're ready. No long-term contracts or cancellation fees.</p>
+              </div>
+            </details>
+
+            <details className="scroll-animate fade-up delay-800 group bg-gray-50 rounded-lg">
+              <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100 transition-colors duration-200">
+                <h3 className="text-xl font-semibold text-black">How is this different from hiring a copywriter?</h3>
+                <svg className="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-6 pb-6">
+                <p className="text-gray-700 leading-relaxed">Most copywriters write words. We build systems. You get strategic frameworks, performance tracking, continuous optimization, and a complete messaging ecosystem that grows with your business. Plus, no hiring, managing, or training required.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA - Bold, personal */}
       <section id="contact" className="py-32 bg-black text-white relative overflow-hidden">
         {/* Background Graphics */}
@@ -869,10 +959,19 @@ export default function Home() {
         </div>
         
         <div className="max-w-6xl mx-auto px-8 lg:px-12 text-center relative z-10">
-          <h2 className="scroll-animate fade-up font-display text-6xl lg:text-8xl font-bold mb-8 leading-tight letter-tighter">
-            Ready to Transform Your Brand?
+          <div className="scroll-animate fade-up mb-12">
+            <p className="text-2xl lg:text-3xl font-display italic text-janus-blue mb-4">
+              If your product is great but your conversions are flat — it's not the product.
+            </p>
+            <p className="text-3xl lg:text-4xl font-display font-bold text-white">
+              It's the story.
+            </p>
+          </div>
+          
+          <h2 className="scroll-animate fade-up delay-200 font-display text-5xl lg:text-7xl font-bold mb-8 leading-tight letter-tighter">
+            We fix that.
           </h2>
-          <p className="scroll-animate fade-up delay-200 text-2xl mb-4 opacity-90">Let's talk.</p>
+          
           <p className="scroll-animate fade-up delay-300 text-xl mb-16 opacity-80 max-w-3xl mx-auto">
             Schedule a 15-minute discovery call and see if the JANUS Clarity Engine™ is a fit for your startup.
           </p>
@@ -898,15 +997,26 @@ export default function Home() {
             <div className="space-y-4">
               <Link
                 href="mailto:hello@janus.agency"
-                className="block w-full bg-janus-blue text-white py-4 text-lg font-bold hover:bg-blue-700 transition-colors duration-300"
+                className="block w-full bg-janus-blue text-white py-4 text-lg font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm"
               >
-                See How We'd Fix Your Messaging
+                👉 Book a Strategy Call
+              </Link>
+              
+              <div className="py-2">
+                <p className="text-gray-400 text-sm">Not ready to talk? Get value first:</p>
+              </div>
+              
+              <Link
+                href="mailto:hello@janus.agency?subject=Send me the messaging clarity checklist"
+                className="block w-full border border-gray-600 text-white py-3 text-base font-medium hover:border-gray-500 hover:bg-gray-800 transition-colors duration-300 rounded-sm"
+              >
+                📋 Get our messaging clarity checklist
               </Link>
               <Link
-                href="#"
-                className="block w-full border border-gray-600 text-white py-4 text-lg font-medium hover:border-gray-500 transition-colors duration-300"
+                href="mailto:hello@janus.agency?subject=Free landing page copy teardown"
+                className="block w-full border border-gray-600 text-white py-3 text-base font-medium hover:border-gray-500 hover:bg-gray-800 transition-colors duration-300 rounded-sm"
               >
-                Download Sample Work
+                🔍 Get a teardown of your landing page copy — free
               </Link>
             </div>
             
