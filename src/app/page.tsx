@@ -725,44 +725,73 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-janus-blue/5 to-transparent"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
-          <div className="text-center mb-20">
+        <div className="max-w-7xl mx-auto px-4 lg:px-12 relative z-10">
+          <div className="text-center mb-12">
             <p className="scroll-animate fade-up text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
               Pricing & Packages
             </p>
             <h2 className="scroll-animate fade-up delay-200 font-display text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight letter-tighter">
               Investment Options
             </h2>
+            <div className="scroll-animate fade-up delay-300 mb-12">
+              <p className="text-lg text-gray-700 font-medium">
+                Hiring a junior content person costs ~$4,000/mo + tax. JANUS installs a full creative system — no management required.
+              </p>
+            </div>
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-8 items-center">
-            {/* Starter - Grayed out */}
-            <div className="scroll-animate scale-in delay-300 bg-gray-50 p-10 rounded-lg border border-gray-200 hover:bg-gray-100 transition-all duration-300 opacity-75">
-              <h3 className="font-display text-2xl font-bold text-gray-700 mb-4">Starter</h3>
-              <p className="text-gray-500 mb-8">Landing page clarity</p>
-              <div className="mb-8">
-                <span className="text-4xl font-bold text-gray-700">$2,500</span>
-                <span className="text-gray-400 ml-2">one-time</span>
+          <div className="grid lg:grid-cols-3 gap-4 lg:gap-8 items-stretch">
+            {/* Embedded Creative - Mobile: Show first for psychological anchoring */}
+            <div className="scroll-animate scale-in delay-500 bg-white p-6 lg:p-10 rounded-lg janus-shadow hover-rise order-1 lg:order-3">
+              <h3 className="font-display text-2xl font-bold text-black mb-4">Embedded Creative</h3>
+              <p className="text-gray-600 mb-6">Retainer for scaling brands</p>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-black">$7,500+</span>
+                <span className="text-gray-500 ml-2">/month</span>
               </div>
+              
+              {/* What's Included */}
+              <div className="mb-8">
+                <p className="text-sm font-semibold text-gray-700 mb-3">What's included:</p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Full creative team embedded</li>
+                  <li>• Unlimited design & video</li>
+                  <li>• Strategic messaging oversight</li>
+                  <li>• Weekly creative reviews</li>
+                </ul>
+              </div>
+              
               <Link
                 href="#contact"
-                className="block w-full text-center bg-gray-200 text-gray-600 py-3 font-medium hover:bg-gray-300 transition-colors duration-300"
+                className="block w-full text-center bg-gray-100 text-black py-3 font-medium hover:bg-gray-200 transition-colors duration-300 rounded-sm"
               >
-                Get Started
+                Contact Us
               </Link>
             </div>
             
             {/* Core Engine - Highlighted and Larger */}
-            <div className="scroll-animate scale-in delay-400 bg-janus-blue p-14 rounded-lg janus-shadow-xl hover-rise relative transform lg:scale-105">
+            <div className="scroll-animate scale-in delay-400 bg-janus-blue p-8 lg:p-14 rounded-lg janus-shadow-xl hover-rise relative transform lg:scale-105 order-2 lg:order-2">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <span className="bg-black text-white px-6 py-2 text-sm font-bold tracking-wide rounded-full">MOST POPULAR</span>
               </div>
-              <h3 className="font-display text-4xl font-bold text-white mb-4">Core Engine</h3>
-              <p className="text-blue-100 mb-8 text-lg">Full JANUS Clarity Engine™</p>
-              <div className="mb-8">
-                <span className="text-6xl font-bold text-white">$5,000</span>
+              <h3 className="font-display text-3xl lg:text-4xl font-bold text-white mb-4">Core Engine</h3>
+              <p className="text-blue-100 mb-6 lg:mb-8 text-lg">Full JANUS Clarity Engine™</p>
+              <div className="mb-6 lg:mb-8">
+                <span className="text-5xl lg:text-6xl font-bold text-white">$5,000</span>
                 <span className="text-blue-200 ml-2 text-lg">/month</span>
               </div>
+              
+              {/* What's Included */}
+              <div className="mb-8">
+                <p className="text-sm font-semibold text-blue-100 mb-3">What's included:</p>
+                <ul className="text-sm text-blue-100 space-y-1">
+                  <li>• Complete messaging transformation</li>
+                  <li>• Clarity videos & landing pages</li>
+                  <li>• Sales enablement materials</li>
+                  <li>• Monthly strategy calls</li>
+                </ul>
+              </div>
+              
               <Link
                 href="#contact"
                 className="block w-full text-center bg-white text-janus-blue py-4 font-bold hover:bg-gray-100 transition-all duration-300 rounded-sm text-lg"
@@ -771,26 +800,36 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="scroll-animate scale-in delay-500 bg-white p-10 rounded-lg janus-shadow hover-rise">
-              <h3 className="font-display text-2xl font-bold text-black mb-4">Embedded Creative</h3>
-              <p className="text-gray-600 mb-8">Retainer for scaling brands</p>
-              <div className="mb-8">
-                <span className="text-4xl font-bold text-black">$7,500+</span>
-                <span className="text-gray-500 ml-2">/month</span>
+            {/* Starter - Grayed out */}
+            <div className="scroll-animate scale-in delay-300 bg-gray-50 p-6 lg:p-10 rounded-lg border border-gray-200 hover:bg-gray-100 transition-all duration-300 opacity-75 order-3 lg:order-1">
+              <h3 className="font-display text-2xl font-bold text-gray-700 mb-4">Starter</h3>
+              <p className="text-gray-500 mb-6">Landing page clarity</p>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-gray-700">$2,500</span>
+                <span className="text-gray-400 ml-2">one-time</span>
               </div>
+              
+              {/* What's Included */}
+              <div className="mb-8">
+                <p className="text-sm font-semibold text-gray-600 mb-3">What's included:</p>
+                <ul className="text-sm text-gray-500 space-y-1">
+                  <li>• Landing page messaging review</li>
+                  <li>• Clarity framework application</li>
+                  <li>• Basic conversion optimization</li>
+                  <li>• One revision round</li>
+                </ul>
+              </div>
+              
               <Link
                 href="#contact"
-                className="block w-full text-center bg-gray-100 text-black py-3 font-medium hover:bg-gray-200 transition-colors duration-300"
+                className="block w-full text-center bg-gray-200 text-gray-600 py-3 font-medium hover:bg-gray-300 transition-colors duration-300 rounded-sm"
               >
-                Contact Us
+                Get Started
               </Link>
             </div>
           </div>
           
-          <div className="scroll-animate fade-up delay-300 text-center mt-12 space-y-4">
-            <p className="text-lg text-gray-700 font-medium">
-              Hiring a junior content person costs ~$4,000/mo + tax. JANUS installs a full creative system — no management required.
-            </p>
+          <div className="scroll-animate fade-up delay-600 text-center mt-12">
             <p className="text-base text-gray-600">
               Ask about performance-based pricing for funded startups.
             </p>
