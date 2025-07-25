@@ -1054,13 +1054,13 @@ export default async function Home() {
               </div>
               
               <Link
-                href="mailto:hello@janus.agency?subject=Send me the messaging clarity checklist"
+                href="mailto:hello@janusny.com?subject=Send me the messaging clarity checklist"
                 className="block w-full border border-gray-600 text-white py-3 text-base font-medium hover:border-gray-500 hover:bg-gray-800 transition-colors duration-300 rounded-sm"
               >
                 Get our messaging clarity checklist
               </Link>
               <Link
-                href="mailto:hello@janus.agency?subject=Free landing page copy teardown"
+                href="mailto:hello@janusny.com?subject=Free landing page copy teardown"
                 className="block w-full border border-gray-600 text-white py-3 text-base font-medium hover:border-gray-500 hover:bg-gray-800 transition-colors duration-300 rounded-sm"
               >
                 Get a teardown of your landing page copy — free

@@ -178,10 +178,10 @@ export default function Privacy() {
               </p>
               <div className="bg-gray-50 p-6 rounded-lg">
                 <p className="text-gray-700 mb-2">
-                  <strong>Email:</strong> hello@janus.agency
+                  <strong>Email:</strong> hello@janusny.com
                 </p>
                 <p className="text-gray-700">
-                  <strong>Website:</strong> <Link href="/" className="text-janus-blue hover:text-blue-700">janus.agency</Link>
+                  <strong>Website:</strong> <Link href="/" className="text-janus-blue hover:text-blue-700">janusny.com</Link>
                 </p>
               </div>
             </section>

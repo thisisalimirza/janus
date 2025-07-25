@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/JANUS-Logo-transparentBG.png',
+        url: '/JANUSCoreOfferOpengraph.png',
         width: 1200,
         height: 630,
         alt: 'JANUS - The Clarity Engine™ for SaaS Growth',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'JANUS | The Clarity Engine™ for SaaS Growth',
     description: 'JANUS installs high-converting, brand-driven marketing systems into SaaS companies.',
-    images: ['/JANUS-Logo-transparentBG.png'],
+    images: ['/JANUSCoreOfferOpengraph.png'],
     creator: '@janus_creative',
   },
   robots: {
@@ -89,7 +89,7 @@ export default function RootLayout({
               "alternateName": "JANUS Creative Agency",
               "description": "JANUS installs high-converting, brand-driven marketing systems into SaaS companies.",
               "url": "https://janusny.com",
-              "logo": "https://janusny.com/JANUS-Logo-transparentBG.png",
+              "logo": "https://janusny.com/JANUSCoreOfferOpengraph.png",
               "foundingDate": "2024",
               "founder": {
                 "@type": "Person",
