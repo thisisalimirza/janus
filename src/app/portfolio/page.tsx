@@ -1,14 +1,20 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import ScrollAnimations from '../../components/ScrollAnimations'
+import { getCaseStudies } from '../../lib/notion'
 
-export default function Portfolio() {
-  const caseStudies = [
+export default async function Portfolio() {
+  const caseStudies = await getCaseStudies()
+  
+  // Fallback data if Notion isn't configured yet
+  const fallbackCaseStudies = [
     {
-      id: 1,
+      id: "1",
       title: "TechFlow",
+      slug: "techflow-workflow-automation",
       subtitle: "B2B Workflow Automation",
       description: "Transformed a complex automation platform into a clear value proposition that increased demo bookings by 340%.",
+      content: [],
       results: [
         "340% increase in demo bookings",
         "67% improvement in trial-to-paid conversion",
@@ -20,13 +26,16 @@ export default function Portfolio() {
       challenge: "TechFlow had powerful automation features but prospects couldn't understand the value within the first 30 seconds of visiting their site.",
       solution: "We created a 60-second clarity video and restructured their messaging hierarchy to lead with outcomes, not features.",
       testimonial: "JANUS helped us go from a vague pitch to a 60-second story that converts — it's already lifting demo requests.",
-      testimonialAuthor: "Alex S., CEO"
+      testimonialAuthor: "Alex S., CEO",
+      published: true
     },
     {
-      id: 2,
+      id: "2",
       title: "DataVault",
+      slug: "datavault-enterprise-security",
       subtitle: "Enterprise Data Security",
       description: "Simplified complex compliance messaging to drive enterprise sales conversations with Fortune 500 companies.",
+      content: [],
       results: [
         "89% increase in enterprise inquiries",
         "45% shorter sales cycle",
@@ -38,13 +47,16 @@ export default function Portfolio() {
       challenge: "Enterprise prospects were confused by technical jargon and couldn't quickly understand DataVault's unique compliance approach.",
       solution: "Developed executive-level messaging that speaks to business outcomes and risk mitigation rather than technical specifications.",
       testimonial: "The messaging transformation helped us land our first Fortune 100 client. Clear ROI from day one.",
-      testimonialAuthor: "Sarah Chen, VP Sales"
+      testimonialAuthor: "Sarah Chen, VP Sales",
+      published: true
     },
     {
-      id: 3,
+      id: "3",
       title: "CloudSync",
+      slug: "cloudsync-collaboration-platform",
       subtitle: "Team Collaboration Platform",
       description: "Repositioned from 'another Slack alternative' to 'the productivity platform that actually works for remote teams.'",
+      content: [],
       results: [
         "156% increase in free trial signups",
         "73% improvement in user retention",
@@ -56,9 +68,13 @@ export default function Portfolio() {
       challenge: "CloudSync was lost in a crowded market of collaboration tools, struggling to differentiate from established players.",
       solution: "Identified their unique strength in async productivity and built messaging around 'deep work' rather than just communication.",
       testimonial: "JANUS found our unique angle in a saturated market. Our positioning is now crystal clear and conversions show it.",
-      testimonialAuthor: "Mike Rodriguez, Founder"
+      testimonialAuthor: "Mike Rodriguez, Founder",
+      published: true
     }
   ]
+
+  // Use Notion data if available, otherwise fallback
+  const studies = caseStudies.length > 0 ? caseStudies : fallbackCaseStudies
 
   return (
     <div className="bg-white">
@@ -198,7 +214,7 @@ export default function Portfolio() {
           </div>
           
           <div className="space-y-24">
-            {caseStudies.map((study, index) => (
+            {studies.map((study, index) => (
               <div key={study.id} className={`scroll-animate ${index % 2 === 0 ? 'slide-left' : 'slide-right'} delay-300`}>
                 <div className="bg-white rounded-2xl janus-shadow-xl overflow-hidden">
                   <div className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
@@ -249,7 +265,7 @@ export default function Portfolio() {
                       </blockquote>
                       
                       <Link
-                        href={`/portfolio/${study.id}`}
+                        href={`/portfolio/${study.slug}`}
                         className="inline-flex items-center text-janus-blue hover:text-blue-700 font-semibold transition-colors"
                       >
                         View Full Case Study
@@ -303,7 +319,7 @@ export default function Portfolio() {
             <div className="scroll-animate slide-right delay-200">
               <div className="relative">
                 {/* White background for the handshake SVG */}
-                <div className="bg-white rounded-2xl p-8 janus-shadow">
+                <div className="bg-white rounded-2xl p-8">
                   <Image
                     src="/handshake.svg"
                     alt="Partnership handshake"
