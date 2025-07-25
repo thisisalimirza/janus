@@ -38,7 +38,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-x-hidden">
       <ScrollAnimations />
       
       {/* Header */}
@@ -86,7 +86,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 className="bg-black text-white px-3 py-2 text-xs font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
               >
                 <span className="hidden sm:inline">Fix My Messaging</span>
-                <span className="sm:hidden">CTA</span>
+                <span className="sm:hidden">Fix</span>
               </Link>
             </div>
           </div>
@@ -175,21 +175,21 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       {/* Challenge & Solution */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div className="scroll-animate slide-left">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold text-black mb-6">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
+            <div className="scroll-animate slide-left min-w-0">
+              <h2 className="font-display text-2xl lg:text-3xl xl:text-4xl font-bold text-black mb-6">
                 The Challenge
               </h2>
-              <p className="text-xl text-gray-700 leading-relaxed">
+              <p className="text-lg lg:text-xl text-gray-700 leading-relaxed break-words">
                 {caseStudy.challenge}
               </p>
             </div>
             
-            <div className="scroll-animate slide-right delay-200">
-              <h2 className="font-display text-3xl lg:text-4xl font-bold text-black mb-6">
+            <div className="scroll-animate slide-right delay-200 min-w-0">
+              <h2 className="font-display text-2xl lg:text-3xl xl:text-4xl font-bold text-black mb-6">
                 Our Solution
               </h2>
-              <p className="text-xl text-gray-700 leading-relaxed">
+              <p className="text-lg lg:text-xl text-gray-700 leading-relaxed break-words">
                 {caseStudy.solution}
               </p>
             </div>
@@ -230,12 +230,12 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       {/* CTA Section */}
       <section className="py-24 bg-black text-white">
         <div className="max-w-6xl mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="scroll-animate slide-left">
-              <h2 className="font-display text-4xl lg:text-5xl font-bold mb-8 leading-tight">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div className="scroll-animate slide-left min-w-0">
+              <h2 className="font-display text-3xl lg:text-4xl xl:text-5xl font-bold mb-8 leading-tight">
                 Ready for Your <span className="text-janus-blue italic">Success Story</span>?
               </h2>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              <p className="text-lg lg:text-xl text-gray-300 mb-8 leading-relaxed break-words">
                 Let's discuss how the JANUS Clarity Engine™ can transform your messaging 
                 and drive similar results for your company.
               </p>
@@ -247,15 +247,15 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               </Link>
             </div>
             
-            <div className="scroll-animate slide-right delay-200">
-              <div className="relative">
-                <div className="bg-white rounded-2xl p-8">
+            <div className="scroll-animate slide-right delay-200 min-w-0">
+              <div className="relative max-w-md mx-auto">
+                <div className="bg-white rounded-2xl p-6 lg:p-8">
                   <Image
                     src="/handshake.svg"
                     alt="Partnership and trust"
                     width={400}
                     height={300}
-                    className="w-full h-auto"
+                    className="w-full h-auto max-w-full"
                   />
                 </div>
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-janus-blue/20 rounded-full"></div>

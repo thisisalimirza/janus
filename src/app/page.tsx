@@ -53,7 +53,7 @@ export default function Home() {
                 className="bg-black text-white px-3 py-2 text-xs font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
               >
                 <span className="hidden sm:inline">Fix My Messaging</span>
-                <span className="sm:hidden">CTA</span>
+                <span className="sm:hidden">Fix</span>
               </Link>
             </div>
           </div>
@@ -105,9 +105,10 @@ export default function Home() {
             </p>
             <Link
               href="#contact"
-              className="inline-block bg-janus-blue text-white px-10 py-4 text-lg font-semibold tracking-wide hover:bg-blue-700 transition-all duration-300 hover-rise janus-shadow-xl rounded-sm"
+              className="inline-block bg-janus-blue text-white px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold tracking-wide hover:bg-blue-700 transition-all duration-300 hover-rise janus-shadow-xl rounded-sm whitespace-nowrap"
             >
-              See How We'd Fix Your Messaging
+              <span className="hidden sm:inline">See How We'd Fix Your Messaging</span>
+              <span className="sm:hidden">Fix My Messaging</span>
             </Link>
             <p className="text-xs text-white/70 mt-3">
               Free 15-minute strategy call

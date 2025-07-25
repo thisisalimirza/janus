@@ -91,7 +91,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 className="bg-black text-white px-3 py-2 text-xs font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
               >
                 <span className="hidden sm:inline">Fix My Messaging</span>
-                <span className="sm:hidden">CTA</span>
+                <span className="sm:hidden">Fix</span>
               </Link>
             </div>
           </div>

@@ -126,7 +126,7 @@ export default async function Portfolio() {
                 className="bg-black text-white px-3 py-2 text-xs font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
               >
                 <span className="hidden sm:inline">Fix My Messaging</span>
-                <span className="sm:hidden">CTA</span>
+                <span className="sm:hidden">Fix</span>
               </Link>
             </div>
           </div>
@@ -277,14 +277,14 @@ export default async function Portfolio() {
                     </div>
                     
                     {/* Image */}
-                    <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} flex items-center`}>
+                    <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} flex items-center justify-center`}>
                       <AdaptiveImage
                         src={study.image}
                         alt={study.title}
                         width={600}
                         height={450}
-                        className="w-full h-auto object-contain max-h-96 p-6"
-                        containerClassName="aspect-[4/3] lg:aspect-auto lg:h-full w-full"
+                        className="w-full h-auto object-contain max-h-80"
+                        containerClassName="aspect-[4/3] lg:aspect-auto lg:h-full w-full flex items-center justify-center p-6"
                       />
                     </div>
                   </div>
