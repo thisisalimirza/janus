@@ -78,7 +78,7 @@ export default async function Portfolio() {
   const studies = caseStudies.length > 0 ? caseStudies : fallbackCaseStudies
 
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-x-hidden">
       <ScrollAnimations />
       
       {/* Header */}
@@ -218,25 +218,25 @@ export default async function Portfolio() {
             {studies.map((study, index) => (
               <div key={study.id} className={`scroll-animate ${index % 2 === 0 ? 'slide-left' : 'slide-right'} delay-300`}>
                 <div className="bg-white rounded-2xl janus-shadow-xl overflow-hidden">
-                  <div className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+                  <div className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''} min-w-0`}>
                     {/* Content */}
-                    <div className={`p-8 lg:p-12 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className="bg-janus-blue/10 text-janus-blue px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className={`p-6 sm:p-8 lg:p-12 ${index % 2 === 1 ? 'lg:col-start-2' : ''} min-w-0`}>
+                      <div className="flex items-center gap-2 sm:gap-4 mb-6 flex-wrap">
+                        <div className="bg-janus-blue/10 text-janus-blue px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
                           {study.industry}
                         </div>
-                        <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
                           {study.stage}
                         </div>
                       </div>
                       
-                      <h3 className="font-display text-3xl lg:text-4xl font-bold text-black mb-2">
+                      <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-2 break-words">
                         {study.title}
                       </h3>
-                      <p className="text-xl text-gray-600 mb-6">
+                      <p className="text-lg sm:text-xl text-gray-600 mb-6 break-words">
                         {study.subtitle}
                       </p>
-                      <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                      <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed break-words">
                         {study.description}
                       </p>
                       
@@ -298,12 +298,12 @@ export default async function Portfolio() {
       {/* Process Section with Handshake Integration */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="scroll-animate slide-left">
-              <h2 className="font-display text-4xl lg:text-5xl font-bold text-black mb-8 leading-tight">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div className="scroll-animate slide-left min-w-0">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-8 leading-tight break-words">
                 Ready to See <span className="text-janus-blue italic">Your Results</span>?
               </h2>
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed break-words">
                 Every case study started with a conversation. Let's discuss how the JANUS Clarity Engine™ 
                 can transform your messaging and drive the growth you're looking for.
               </p>
@@ -315,16 +315,16 @@ export default async function Portfolio() {
               </Link>
             </div>
             
-            <div className="scroll-animate slide-right delay-200">
-              <div className="relative">
+            <div className="scroll-animate slide-right delay-200 min-w-0">
+              <div className="relative max-w-md mx-auto">
                 {/* White background for the handshake SVG */}
-                <div className="bg-white rounded-2xl p-8">
+                <div className="bg-white rounded-2xl p-6 sm:p-8">
                   <Image
                     src="/handshake.svg"
                     alt="Partnership handshake"
                     width={400}
                     height={300}
-                    className="w-full h-auto"
+                    className="w-full h-auto max-w-full"
                   />
                 </div>
                 {/* Decorative elements */}
