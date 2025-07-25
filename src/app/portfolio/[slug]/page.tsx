@@ -216,19 +216,21 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </section>
       )}
 
-      {/* Testimonial */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-4 lg:px-8 text-center">
-          <div className="scroll-animate fade-up">
-            <blockquote className="text-3xl lg:text-4xl font-display italic text-black mb-8 leading-relaxed">
-              "{caseStudy.testimonial}"
-            </blockquote>
-            <footer className="text-xl text-gray-600 font-medium">
-              — {caseStudy.testimonialAuthor}
-            </footer>
+      {/* Testimonial - Only show if testimonial exists */}
+      {caseStudy.testimonial && caseStudy.testimonialAuthor && (
+        <section className="py-24">
+          <div className="max-w-4xl mx-auto px-4 lg:px-8 text-center">
+            <div className="scroll-animate fade-up">
+              <blockquote className="text-3xl lg:text-4xl font-display italic text-black mb-8 leading-relaxed">
+                "{caseStudy.testimonial}"
+              </blockquote>
+              <footer className="text-xl text-gray-600 font-medium">
+                — {caseStudy.testimonialAuthor}
+              </footer>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="py-24 bg-black text-white">

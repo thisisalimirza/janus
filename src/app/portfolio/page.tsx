@@ -258,15 +258,17 @@ export default async function Portfolio() {
                         </ul>
                       </div>
                       
-                      {/* Testimonial */}
-                      <blockquote className="border-l-4 border-janus-blue pl-6 mb-6">
-                        <p className="text-lg italic text-gray-700 mb-2">
-                          "{study.testimonial}"
-                        </p>
-                        <footer className="text-gray-600 font-medium">
-                          — {study.testimonialAuthor}
-                        </footer>
-                      </blockquote>
+                      {/* Testimonial - Only show if testimonial exists */}
+                      {study.testimonial && study.testimonialAuthor && (
+                        <blockquote className="border-l-4 border-janus-blue pl-6 mb-6">
+                          <p className="text-lg italic text-gray-700 mb-2">
+                            "{study.testimonial}"
+                          </p>
+                          <footer className="text-gray-600 font-medium">
+                            — {study.testimonialAuthor}
+                          </footer>
+                        </blockquote>
+                      )}
                       
                       <Link
                         href={`/portfolio/${study.slug}`}
