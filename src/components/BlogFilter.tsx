@@ -1,0 +1,225 @@
+'use client'
+
+import { useState, useMemo, useEffect } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { BlogPost } from '../lib/notion'
+
+interface BlogFilterProps {
+  posts: BlogPost[]
+}
+
+export default function BlogFilter({ posts }: BlogFilterProps) {
+  const [activeCategory, setActiveCategory] = useState('All')
+  const [searchQuery, setSearchQuery] = useState('')
+
+  // Get unique categories from posts
+  const categories = useMemo(() => {
+    const cats = posts.map(post => post.category)
+    const uniqueCats = Array.from(new Set(cats)).filter(Boolean)
+    return ['All', ...uniqueCats.sort()]
+  }, [posts])
+
+  // Connect to hero search bar and populate categories
+  useEffect(() => {
+    const heroSearch = document.getElementById('hero-search') as HTMLInputElement
+    
+    if (heroSearch) {
+      const handleSearch = (e: Event) => {
+        const target = e.target as HTMLInputElement
+        setSearchQuery(target.value)
+      }
+      
+      heroSearch.addEventListener('input', handleSearch)
+      heroSearch.value = searchQuery
+      
+      return () => {
+        heroSearch.removeEventListener('input', handleSearch)
+      }
+    }
+  }, [searchQuery])
+
+  // Populate hero categories
+  useEffect(() => {
+    const heroCategories = document.getElementById('hero-categories')
+    if (heroCategories) {
+      heroCategories.innerHTML = categories.map(category => `
+        <button
+          onclick="window.handleCategoryClick('${category}')"
+          class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+            category === activeCategory 
+              ? 'bg-janus-blue text-white shadow-lg transform scale-105' 
+              : 'bg-white/60 text-gray-700 hover:bg-white/80 backdrop-blur-sm border border-white/40'
+          }"
+        >
+          ${category}
+        </button>
+      `).join('')
+    }
+  }, [categories, activeCategory])
+
+  // Set up global category click handler
+  useEffect(() => {
+    (window as any).handleCategoryClick = (category: string) => {
+      setActiveCategory(category)
+    }
+    
+    return () => {
+      delete (window as any).handleCategoryClick
+    }
+  }, [])
+
+  // Filter posts based on category and search
+  const filteredPosts = useMemo(() => {
+    let filtered = posts
+
+    // Filter by category
+    if (activeCategory !== 'All') {
+      filtered = filtered.filter(post => post.category === activeCategory)
+    }
+
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase()
+      filtered = filtered.filter(post => 
+        post.title.toLowerCase().includes(query) ||
+        post.excerpt.toLowerCase().includes(query) ||
+        post.category.toLowerCase().includes(query)
+      )
+    }
+
+    return filtered
+  }, [posts, activeCategory, searchQuery])
+
+  return (
+    <div className="space-y-8">
+      {/* Results Count */}
+      <div className="text-center py-4">
+        <p className="text-sm text-gray-600">
+          Showing {filteredPosts.length} of {posts.length} articles
+          {searchQuery && (
+            <span className="ml-2">
+              for "<span className="font-semibold text-janus-blue">{searchQuery}</span>"
+            </span>
+          )}
+        </p>
+      </div>
+
+      {/* No Results State */}
+      {filteredPosts.length === 0 && (
+        <div className="text-center py-16">
+          <div className="bg-gray-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.467-.881-6.063-2.333M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">No articles found</h3>
+          <p className="text-gray-600 mb-4">
+            {searchQuery 
+              ? `No articles match "${searchQuery}" in the ${activeCategory} category.`
+              : `No articles found in the ${activeCategory} category.`
+            }
+          </p>
+          <button
+            onClick={() => {
+              setSearchQuery('')
+              setActiveCategory('All')
+              // Clear hero search bar
+              const heroSearch = document.getElementById('hero-search') as HTMLInputElement
+              if (heroSearch) heroSearch.value = ''
+              // Categories will automatically update via useEffect
+            }}
+            className="inline-flex items-center px-4 py-2 bg-janus-blue text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Clear filters
+          </button>
+        </div>
+      )}
+
+      {/* Blog Posts Grid */}
+      {filteredPosts.length > 0 && (
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          {filteredPosts.map((post, index) => {
+            const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })
+            
+            return (
+              <article key={post.id} className={`scroll-animate ${index % 2 === 0 ? 'slide-left' : 'slide-right'} delay-${Math.min((index + 1) * 100, 500)} group`}>
+                <Link href={`/insights/${post.slug}`} className="block">
+                  <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover-rise janus-shadow group-hover:border-janus-blue/20 transition-all duration-300">
+                    <div className="aspect-video bg-gray-100 relative overflow-hidden">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-janus-blue text-white px-3 py-1 text-xs font-semibold rounded-full">
+                          {post.category}
+                        </span>
+                      </div>
+                      {/* Search highlight indicator */}
+                      {searchQuery && post.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
+                        <div className="absolute top-4 right-4">
+                          <div className="bg-yellow-400 text-yellow-900 px-2 py-1 text-xs font-semibold rounded-full">
+                            Match
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div className="p-8">
+                      <div className="flex items-center text-sm text-gray-500 mb-4">
+                        <span>{formattedDate}</span>
+                        <span className="mx-2">•</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                      
+                      <h2 className="font-display text-2xl lg:text-3xl font-bold text-black mb-4 leading-tight group-hover:text-janus-blue transition-colors">
+                        {searchQuery && post.title.toLowerCase().includes(searchQuery.toLowerCase()) ? (
+                          <span dangerouslySetInnerHTML={{
+                            __html: post.title.replace(
+                              new RegExp(`(${searchQuery})`, 'gi'),
+                              '<mark class="bg-yellow-200 px-1 rounded">$1</mark>'
+                            )
+                          }} />
+                        ) : (
+                          post.title
+                        )}
+                      </h2>
+                      
+                      <p className="text-gray-600 leading-relaxed mb-6">
+                        {searchQuery && post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ? (
+                          <span dangerouslySetInnerHTML={{
+                            __html: post.excerpt.replace(
+                              new RegExp(`(${searchQuery})`, 'gi'),
+                              '<mark class="bg-yellow-200 px-1 rounded">$1</mark>'
+                            )
+                          }} />
+                        ) : (
+                          post.excerpt
+                        )}
+                      </p>
+                      
+                      <div className="flex items-center text-janus-blue font-semibold group-hover:text-blue-700 transition-colors">
+                        <span>Read Article</span>
+                        <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </article>
+            )
+          })}
+        </div>
+      )}
+    </div>
+  )
+}

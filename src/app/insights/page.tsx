@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import ScrollAnimations from '../../components/ScrollAnimations'
+import BlogFilter from '../../components/BlogFilter'
 import { getBlogPosts } from '../../lib/notion'
 
 export default async function Insights() {
@@ -84,7 +85,6 @@ export default async function Insights() {
 
   // Use Notion data if available, otherwise fallback
   const posts = blogPosts.length > 0 ? blogPosts : fallbackPosts
-  const categories = ["All", "Strategy", "Case Study", "Conversion", "Messaging", "Growth"]
 
   return (
     <div className="bg-white">
@@ -154,89 +154,37 @@ export default async function Insights() {
                 The strategies, case studies, and frameworks behind high-converting SaaS messaging. 
                 Learn how the best startups turn clarity into growth.
               </p>
+              
+              {/* Integrated Search Bar */}
+              <div className="max-w-2xl mx-auto mb-8">
+                <div className="relative mb-6">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <svg className="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                  <input
+                    id="hero-search"
+                    type="text"
+                    placeholder="Search insights..."
+                    className="block w-full pl-12 pr-4 py-4 text-lg border-0 rounded-xl bg-white/80 backdrop-blur-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-janus-blue focus:bg-white transition-all duration-300 janus-shadow"
+                  />
+                </div>
+                
+                {/* Category Tags */}
+                <div id="hero-categories" className="flex flex-wrap justify-center gap-3">
+                  {/* Categories will be populated by BlogFilter component */}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Filter Categories */}
-      <section className="py-8 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="scroll-animate fade-up flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                  category === "All" 
-                    ? "bg-janus-blue text-white" 
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Blog Posts Grid */}
+      {/* Blog Filter and Posts */}
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-            {posts.map((post, index) => {
-              const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })
-              
-              return (
-                <article key={post.id} className={`scroll-animate ${index % 2 === 0 ? 'slide-left' : 'slide-right'} delay-${Math.min((index + 1) * 100, 500)} group`}>
-                  <Link href={`/insights/${post.slug}`} className="block">
-                    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover-rise janus-shadow group-hover:border-janus-blue/20 transition-all duration-300">
-                      <div className="aspect-video bg-gray-100 relative overflow-hidden">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          width={600}
-                          height={400}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute top-4 left-4">
-                          <span className="bg-janus-blue text-white px-3 py-1 text-xs font-semibold rounded-full">
-                            {post.category}
-                          </span>
-                        </div>
-                      </div>
-                      
-                      <div className="p-8">
-                        <div className="flex items-center text-sm text-gray-500 mb-4">
-                          <span>{formattedDate}</span>
-                          <span className="mx-2">•</span>
-                          <span>{post.readTime}</span>
-                        </div>
-                        
-                        <h2 className="font-display text-2xl lg:text-3xl font-bold text-black mb-4 leading-tight group-hover:text-janus-blue transition-colors">
-                          {post.title}
-                        </h2>
-                        
-                        <p className="text-gray-600 leading-relaxed mb-6">
-                          {post.excerpt}
-                        </p>
-                        
-                        <div className="flex items-center text-janus-blue font-semibold group-hover:text-blue-700 transition-colors">
-                          <span>Read Article</span>
-                          <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </article>
-              )
-            })}
-          </div>
+          <BlogFilter posts={posts} />
         </div>
       </section>
 
