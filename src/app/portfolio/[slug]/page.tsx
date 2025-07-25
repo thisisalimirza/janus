@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { getCaseStudy, getCaseStudies } from '../../../lib/notion'
 import ScrollAnimations from '../../../components/ScrollAnimations'
 import NotionContent from '../../../components/NotionContent'
+import AdaptiveImage from '../../../components/AdaptiveImage'
 
 export async function generateStaticParams() {
   const caseStudies = await getCaseStudies()
@@ -129,15 +130,15 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               </div>
               
               <div className="scroll-animate scale-in delay-200">
-                <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden">
-                  <Image
-                    src={caseStudy.image}
-                    alt={caseStudy.title}
-                    width={600}
-                    height={600}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <AdaptiveImage
+                  src={caseStudy.image}
+                  alt={caseStudy.title}
+                  width={600}
+                  height={450}
+                  className="w-full h-auto object-contain max-h-96 p-6"
+                  containerClassName="aspect-[4/3] w-full flex items-center justify-center"
+                  priority={true}
+                />
               </div>
             </div>
           </div>

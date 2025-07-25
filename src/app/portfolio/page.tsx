@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import ScrollAnimations from '../../components/ScrollAnimations'
+import AdaptiveImage from '../../components/AdaptiveImage'
 import { getCaseStudies } from '../../lib/notion'
 
 export default async function Portfolio() {
@@ -276,17 +277,15 @@ export default async function Portfolio() {
                     </div>
                     
                     {/* Image */}
-                    <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                      <div className="aspect-square lg:aspect-auto lg:h-full relative bg-gray-100">
-                        <Image
-                          src={study.image}
-                          alt={study.title}
-                          width={600}
-                          height={600}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                      </div>
+                    <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} flex items-center`}>
+                      <AdaptiveImage
+                        src={study.image}
+                        alt={study.title}
+                        width={600}
+                        height={450}
+                        className="w-full h-auto object-contain max-h-96 p-6"
+                        containerClassName="aspect-[4/3] lg:aspect-auto lg:h-full w-full"
+                      />
                     </div>
                   </div>
                 </div>
