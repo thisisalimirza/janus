@@ -3,6 +3,7 @@ import Link from 'next/link'
 import ScrollAnimations from '../components/ScrollAnimations'
 import ROICalculator from '../components/ROICalculator'
 import CalBooking from '../components/CalBooking'
+import ClientLogo from '../components/ClientLogo'
 import { getClientLogos } from '../lib/notion'
 
 export default async function Home() {
@@ -134,66 +135,29 @@ export default async function Home() {
             </blockquote>
           </div>
           
-          {/* Dynamic client logos from Notion CMS */}
+          {/* Client logos - Dynamic from Notion CMS with professional fallbacks */}
           <div className="scroll-animate scale-in delay-400 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 items-center">
             {clientLogos.length > 0 ? (
               clientLogos.map((client) => (
-                <div 
-                  key={client.id} 
-                  className="h-16 bg-gray-50 border border-gray-100 rounded-lg flex items-center justify-center hover:border-gray-200 transition-colors group"
-                >
-                  {client.website ? (
-                    <a 
-                      href={client.website} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center w-full h-full"
-                    >
-                      {client.logo ? (
-                        <Image
-                          src={client.logo}
-                          alt={client.name}
-                          width={120}
-                          height={60}
-                          className="max-w-28 max-h-14 lg:max-w-32 lg:max-h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                        />
-                      ) : (
-                        <div className="text-center">
-                          <div className="w-8 h-8 bg-gray-200 rounded mx-auto mb-1"></div>
-                          <span className="text-xs text-gray-400 font-medium">{client.name}</span>
-                        </div>
-                      )}
-                    </a>
-                  ) : (
-                    <div className="flex items-center justify-center w-full h-full">
-                      {client.logo ? (
-                        <Image
-                          src={client.logo}
-                          alt={client.name}
-                          width={120}
-                          height={60}
-                          className="max-w-28 max-h-14 lg:max-w-32 lg:max-h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                        />
-                      ) : (
-                        <div className="text-center">
-                          <div className="w-8 h-8 bg-gray-200 rounded mx-auto mb-1"></div>
-                          <span className="text-xs text-gray-400 font-medium">{client.name}</span>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
+                <ClientLogo key={client.id} client={client} />
               ))
             ) : (
-              // Fallback placeholders if no logos are available
-              Array.from({ length: 4 }).map((_, index) => (
+              // Professional fallback placeholders when Notion CMS is not configured
+              [
+                { name: "TechFlow", initial: "T" },
+                { name: "DataVault", initial: "D" },
+                { name: "CloudSync", initial: "C" },
+                { name: "SecureBase", initial: "S" }
+              ].map((placeholder, index) => (
                 <div 
                   key={index} 
-                  className="h-16 bg-gray-50 border border-gray-100 rounded-lg flex items-center justify-center hover:border-gray-200 transition-colors"
+                  className="h-16 bg-gray-50 border border-gray-100 rounded-lg flex items-center justify-center hover:border-gray-200 transition-colors group"
                 >
                   <div className="text-center">
-                    <div className="w-8 h-8 bg-gray-200 rounded mx-auto mb-1"></div>
-                    <span className="text-xs text-gray-400 font-medium">Client {index + 1}</span>
+                    <div className="w-10 h-10 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mx-auto mb-1 flex items-center justify-center group-hover:from-gray-300 group-hover:to-gray-400 transition-all duration-300">
+                      <span className="text-gray-600 font-bold text-sm">{placeholder.initial}</span>
+                    </div>
+                    <span className="text-xs text-gray-400 font-medium">{placeholder.name}</span>
                   </div>
                 </div>
               ))
