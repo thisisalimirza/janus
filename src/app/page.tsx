@@ -86,7 +86,7 @@ export default async function Home() {
         
         <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center text-white pt-20 pb-16">
           <div className="animate-fade-in-up">
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 letter-tighter leading-tight">
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 letter-tighter leading-tight">
               Most SaaS teams have great products
               <br />
               and <span className="text-janus-blue italic">garbage messaging</span>.
