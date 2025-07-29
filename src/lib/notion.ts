@@ -296,12 +296,13 @@ export async function getClientLogos(): Promise<ClientLogo[]> {
 // Helper function to map Notion page to BlogPost
 function mapNotionPageToBlogPost(page: any): BlogPost {
   const properties = page.properties
+  
 
   return {
     id: page.id,
     title: getPlainText(properties.Title?.title || []),
     slug: getPlainText(properties.Slug?.rich_text || []),
-    excerpt: getPlainText(properties.Excerpt?.rich_text || []),
+    excerpt: getPlainText(properties.Exercpt?.rich_text || []),
     content: [],
     date: properties.Date?.date?.start || new Date().toISOString(),
     readTime: getPlainText(properties['Read Time']?.rich_text || []) || '5 min read',

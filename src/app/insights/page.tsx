@@ -10,6 +10,7 @@ export const revalidate = 600
 export default async function Insights() {
   const blogPosts = await getBlogPosts()
   
+  
   // Fallback data if Notion isn't configured yet
   const fallbackPosts = [
     {
@@ -88,6 +89,7 @@ export default async function Insights() {
 
   // Use Notion data if available, otherwise fallback
   const posts = blogPosts.length > 0 ? blogPosts : fallbackPosts
+  const usingNotionData = blogPosts.length > 0
 
   return (
     <div className="bg-white">
