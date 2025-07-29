@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import ScrollAnimations from '../components/ScrollAnimations'
-import ClientLogo from '../components/ClientLogo'
+import ClientLogoCarousel from '../components/ClientLogoCarousel'
 import { getClientLogos } from '../lib/notion'
 
 // Lazy load heavy components
@@ -47,7 +47,7 @@ export default async function Home() {
                 href="#contact"
                 className="bg-black text-white px-6 py-2.5 text-sm font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
               >
-                See How We'd Fix Your Messaging
+                Get A Personalized Strategy
               </Link>
             </nav>
             
@@ -63,8 +63,8 @@ export default async function Home() {
                 href="#contact"
                 className="bg-black text-white px-3 py-2 text-xs font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
               >
-                <span className="hidden sm:inline">Fix My Messaging</span>
-                <span className="sm:hidden">Fix</span>
+                <span className="hidden sm:inline">Get Your Strategy</span>
+                <span className="sm:hidden">Get Your Strategy</span>
               </Link>
             </div>
           </div>
@@ -115,11 +115,11 @@ export default async function Home() {
               Start seeing ROI in weeks — not months.
             </p>
             <CalBooking className="inline-block bg-janus-blue text-white px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold tracking-wide hover:bg-blue-700 transition-all duration-300 hover-rise janus-shadow-xl rounded-sm whitespace-nowrap">
-              <span className="hidden sm:inline">See How We'd Fix Your Messaging</span>
-              <span className="sm:hidden">Fix My Messaging</span>
+              <span className="hidden sm:inline">Grow My LTV/CAC</span>
+              <span className="sm:hidden">Grow My LTV/CAC</span>
             </CalBooking>
             <p className="text-xs text-white/70 mt-3">
-              Free 15-minute strategy call
+              Free intro strategy call
             </p>
           </div>
         </div>
@@ -143,33 +143,9 @@ export default async function Home() {
             </blockquote>
           </div>
           
-          {/* Client logos - Dynamic from Notion CMS with professional fallbacks */}
-          <div className="scroll-animate scale-in delay-400 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 items-center">
-            {clientLogos.length > 0 ? (
-              clientLogos.map((client) => (
-                <ClientLogo key={client.id} client={client} />
-              ))
-            ) : (
-              // Professional fallback placeholders when Notion CMS is not configured
-              [
-                { name: "TechFlow", initial: "T" },
-                { name: "DataVault", initial: "D" },
-                { name: "CloudSync", initial: "C" },
-                { name: "SecureBase", initial: "S" }
-              ].map((placeholder, index) => (
-                <div 
-                  key={index} 
-                  className="h-16 bg-gray-50 border border-gray-100 rounded-lg flex items-center justify-center hover:border-gray-200 transition-colors group"
-                >
-                  <div className="text-center">
-                    <div className="w-10 h-10 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mx-auto mb-1 flex items-center justify-center group-hover:from-gray-300 group-hover:to-gray-400 transition-all duration-300">
-                      <span className="text-gray-600 font-bold text-sm">{placeholder.initial}</span>
-                    </div>
-                    <span className="text-xs text-gray-400 font-medium">{placeholder.name}</span>
-                  </div>
-                </div>
-              ))
-            )}
+          {/* Client logos - Horizontal scrolling carousel with fade edges */}
+          <div className="scroll-animate scale-in delay-400">
+            <ClientLogoCarousel clientLogos={clientLogos} />
           </div>
         </div>
       </section>

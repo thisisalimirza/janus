@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { BlogPost } from '../lib/notion'
+import BlogLoadingAnimation from './BlogLoadingAnimation'
 
 interface BlogFilterProps {
   posts: BlogPost[]
@@ -12,6 +13,7 @@ interface BlogFilterProps {
 export default function BlogFilter({ posts }: BlogFilterProps) {
   const [activeCategory, setActiveCategory] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   
 
 
@@ -79,7 +81,9 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
 
   
   return (
-    <div className="space-y-8">
+    <>
+      {isLoading && <BlogLoadingAnimation />}
+      <div className="space-y-8">
       {/* Results Count */}
       <div className="text-center py-4">
         <p className="text-sm text-gray-600">
@@ -168,7 +172,11 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
                 key={post.id} 
                 className="group"
               >
-                <Link href={`/insights/${post.slug}`} className="block">
+                <Link 
+                  href={`/insights/${post.slug}`} 
+                  className="block"
+                  onClick={() => setIsLoading(true)}
+                >
                   <div className={`rounded-xl border overflow-hidden hover-rise janus-shadow transition-all duration-200 h-full flex flex-col ${
                     isWhitePaper 
                       ? 'bg-gradient-to-br from-gray-900 to-gray-800 border-gray-600 group-hover:border-yellow-400/60' 
@@ -286,5 +294,6 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
         </div>
       )}
     </div>
+    </>
   )
 }
