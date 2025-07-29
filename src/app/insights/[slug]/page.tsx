@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getBlogPost, getBlogPosts } from '../../../lib/notion'
 import ScrollAnimations from '../../../components/ScrollAnimations'
+import Navigation from '../../../components/Navigation'
 import NotionContent from '../../../components/NotionContent'
 import TableOfContents from '../../../components/TableOfContents'
 import PrintablePost from '../../../components/PrintablePost'
@@ -59,58 +60,9 @@ export default async function BlogPost({ params, searchParams }: {
   return (
     <div className="bg-white">
       <ScrollAnimations />
-      
-      {/* Header */}
-      <header className="print-hide fixed top-0 w-full z-50 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="flex justify-between items-center py-3 lg:py-4">
-            <div>
-              <Link href="/">
-                <Image
-                  src="/JANUS-Logo-transparentBG.png"
-                  alt="JANUS"
-                  width={120}
-                  height={40}
-                  className="h-6 lg:h-8 w-auto"
-                />
-              </Link>
-            </div>
-            
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              <Link href="/insights" className="text-janus-blue hover:text-blue-700 transition-colors font-medium">
-                Insights
-              </Link>
-              <Link href="/portfolio" className="text-gray-700 hover:text-black transition-colors font-medium">
-                Portfolio
-              </Link>
-              <Link
-                href="/#contact"
-                className="bg-black text-white px-6 py-2.5 text-sm font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
-              >
-                See How We'd Fix Your Messaging
-              </Link>
-            </nav>
-            
-            {/* Mobile Navigation */}
-            <div className="lg:hidden flex items-center space-x-4">
-              <Link href="/insights" className="text-janus-blue hover:text-blue-700 transition-colors text-sm font-medium">
-                Insights
-              </Link>
-              <Link href="/portfolio" className="text-gray-700 hover:text-black transition-colors text-sm font-medium">
-                Portfolio
-              </Link>
-              <Link
-                href="/#contact"
-                className="bg-black text-white px-3 py-2 text-xs font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
-              >
-                <span className="hidden sm:inline">Fix My Messaging</span>
-                <span className="sm:hidden">Fix</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </header>
+      <div className="print-hide">
+        <Navigation currentPage="insights" />
+      </div>
 
       {/* Article Header */}
       <section className="pt-24 pb-8 lg:pt-32 lg:pb-12">
