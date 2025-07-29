@@ -148,7 +148,7 @@ export default async function Insights() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 lg:pt-32 lg:pb-18 bg-gray-50">
+      <section className="pt-24 pb-12 lg:pt-32 lg:pb-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="scroll-animate fade-up">
@@ -176,9 +176,9 @@ export default async function Insights() {
                   />
                 </div>
                 
-                {/* Category Tags */}
-                <div id="hero-categories" className="flex flex-wrap justify-center gap-3">
-                  {/* Categories will be populated by BlogFilter component */}
+                {/* Category Tags - Hidden for now, search is sufficient */}
+                <div id="hero-categories" className="hidden flex flex-wrap justify-center gap-3">
+                  {/* Categories disabled - search functionality is sufficient */}
                 </div>
               </div>
             </div>
@@ -187,7 +187,7 @@ export default async function Insights() {
       </section>
 
       {/* Blog Filter and Posts */}
-      <section className="py-16 lg:py-24">
+      <section className="py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <BlogFilter posts={posts} />
         </div>

@@ -12,15 +12,17 @@ interface BlogFilterProps {
 export default function BlogFilter({ posts }: BlogFilterProps) {
   const [activeCategory, setActiveCategory] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
+  
 
-  // Get unique categories from posts
-  const categories = useMemo(() => {
-    const cats = posts.map(post => post.category)
-    const uniqueCats = Array.from(new Set(cats)).filter(Boolean)
-    return ['All', ...uniqueCats.sort()]
-  }, [posts])
 
-  // Connect to hero search bar and populate categories
+  // Categories hidden for now - search functionality is sufficient
+  // const categories = useMemo(() => {
+  //   const cats = posts.map(post => post.category)
+  //   const uniqueCats = Array.from(new Set(cats)).filter(Boolean)
+  //   return ['All', ...uniqueCats.sort()]
+  // }, [posts])
+
+  // Connect to hero search bar - setup once
   useEffect(() => {
     const heroSearch = document.getElementById('hero-search') as HTMLInputElement
     
@@ -31,67 +33,51 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
       }
       
       heroSearch.addEventListener('input', handleSearch)
-      heroSearch.value = searchQuery
       
       return () => {
         heroSearch.removeEventListener('input', handleSearch)
       }
     }
+  }, []) // Only run once on mount
+  
+  // Sync input value when searchQuery changes (for clear button)
+  useEffect(() => {
+    const heroSearch = document.getElementById('hero-search') as HTMLInputElement
+    if (heroSearch && heroSearch.value !== searchQuery) {
+      heroSearch.value = searchQuery
+    }
   }, [searchQuery])
 
-  // Populate hero categories with better performance
-  useEffect(() => {
-    const heroCategories = document.getElementById('hero-categories')
-    if (heroCategories) {
-      // Use React-like approach for better performance
-      heroCategories.innerHTML = categories.map(category => `
-        <button
-          onclick="window.handleCategoryClick('${category}')"
-          class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-150 ${
-            category === activeCategory 
-              ? 'bg-janus-blue text-white' 
-              : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-          }"
-        >
-          ${category}
-        </button>
-      `).join('')
-    }
-  }, [categories, activeCategory])
 
-  // Set up global category click handler
-  useEffect(() => {
-    (window as any).handleCategoryClick = (category: string) => {
-      setActiveCategory(category)
-    }
-    
-    return () => {
-      delete (window as any).handleCategoryClick
-    }
-  }, [])
+  // Category filtering disabled - using search only
+  // useEffect(() => {
+  //   const heroCategories = document.getElementById('hero-categories')
+  //   if (heroCategories) {
+  //     heroCategories.innerHTML = '' // Clear any category buttons
+  //   }
+  // }, [])
 
-  // Filter posts based on category and search
+  // Filter posts based on search only
   const filteredPosts = useMemo(() => {
-    let filtered = posts
+    let filtered = posts.slice() // Create a fresh copy
 
-    // Filter by category
-    if (activeCategory !== 'All') {
-      filtered = filtered.filter(post => post.category === activeCategory)
-    }
-
-    // Filter by search query
-    if (searchQuery.trim()) {
+    // Filter by search query only
+    if (searchQuery && searchQuery.trim()) {
       const query = searchQuery.toLowerCase()
-      filtered = filtered.filter(post => 
-        post.title.toLowerCase().includes(query) ||
-        post.excerpt.toLowerCase().includes(query) ||
-        post.category.toLowerCase().includes(query)
-      )
+      
+      filtered = filtered.filter(post => {
+        const titleMatch = post.title?.toLowerCase().includes(query)
+        const excerptMatch = post.excerpt?.toLowerCase().includes(query)
+        const categoryMatch = post.category?.toLowerCase().includes(query)
+        
+        return titleMatch || excerptMatch || categoryMatch
+      })
     }
 
     return filtered
-  }, [posts, activeCategory, searchQuery])
+  }, [posts, searchQuery])
 
+  
   return (
     <div className="space-y-8">
       {/* Results Count */}
@@ -117,22 +103,24 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
           <h3 className="text-xl font-semibold text-gray-900 mb-2">No articles found</h3>
           <p className="text-gray-600 mb-4">
             {searchQuery 
-              ? `No articles match "${searchQuery}" in the ${activeCategory} category.`
-              : `No articles found in the ${activeCategory} category.`
+              ? `No articles match "${searchQuery}".`
+              : `No articles found.`
             }
           </p>
           <button
             onClick={() => {
               setSearchQuery('')
-              setActiveCategory('All')
               // Clear hero search bar
               const heroSearch = document.getElementById('hero-search') as HTMLInputElement
-              if (heroSearch) heroSearch.value = ''
-              // Categories will automatically update via useEffect
+              if (heroSearch) {
+                heroSearch.value = ''
+                // Trigger the input event to sync state
+                heroSearch.dispatchEvent(new Event('input', { bubbles: true }))
+              }
             }}
             className="inline-flex items-center px-4 py-2 bg-janus-blue text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
-            Clear filters
+            Clear search
           </button>
         </div>
       )}
@@ -149,10 +137,36 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
             
             const isWhitePaper = post.category?.toLowerCase() === 'white paper'
             
+            // Handle download functionality for white papers
+            const handleDownload = (e: React.MouseEvent) => {
+              e.preventDefault()
+              e.stopPropagation()
+              
+              // Track download event
+              if (typeof window !== 'undefined' && (window as any).gtag) {
+                (window as any).gtag('event', 'download', {
+                  'event_category': 'White Paper',
+                  'event_label': post.title,
+                  'value': 1
+                })
+              }
+              
+              // Simple console tracking for development
+              console.log('White Paper Download:', {
+                title: post.title,
+                slug: post.slug,
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent
+              })
+              
+              // Open the blog post in a new window for printing/PDF saving
+              window.open(`/insights/${post.slug}?print=true`, '_blank')
+            }
+            
             return (
               <article 
                 key={post.id} 
-                className={`scroll-animate ${index % 2 === 0 ? 'slide-left' : 'slide-right'} delay-${Math.min((index + 1) * 100, 500)} group`}
+                className="group"
               >
                 <Link href={`/insights/${post.slug}`} className="block">
                   <div className={`rounded-xl border overflow-hidden hover-rise janus-shadow transition-all duration-200 h-full flex flex-col ${
@@ -237,20 +251,32 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
                         )}
                       </p>
                       
-                      <div className={`flex items-center font-semibold transition-colors text-sm ${
-                        isWhitePaper 
-                          ? 'text-yellow-400 group-hover:text-yellow-300' 
-                          : 'text-janus-blue group-hover:text-blue-700'
-                      }`}>
-                        <span>{isWhitePaper ? 'Download White Paper' : 'Read Article'}</span>
-                        <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={
-                            isWhitePaper 
-                              ? "M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                              : "M17 8l4 4m0 0l-4 4m4-4H3"
-                          } />
-                        </svg>
-                      </div>
+                      {isWhitePaper ? (
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center font-semibold transition-colors text-sm text-yellow-400 group-hover:text-yellow-300">
+                            <span>Read White Paper</span>
+                            <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </div>
+                          <button
+                            onClick={handleDownload}
+                            className="flex items-center font-semibold text-sm text-yellow-400 hover:text-yellow-300 transition-colors bg-gray-700 hover:bg-gray-600 px-3 py-1.5 rounded-md ml-4"
+                          >
+                            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <span>PDF</span>
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="flex items-center font-semibold transition-colors text-sm text-janus-blue group-hover:text-blue-700">
+                          <span>Read Article</span>
+                          <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Link>

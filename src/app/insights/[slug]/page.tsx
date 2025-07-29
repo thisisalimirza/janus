@@ -5,6 +5,7 @@ import { getBlogPost, getBlogPosts } from '../../../lib/notion'
 import ScrollAnimations from '../../../components/ScrollAnimations'
 import NotionContent from '../../../components/NotionContent'
 import TableOfContents from '../../../components/TableOfContents'
+import PrintablePost from '../../../components/PrintablePost'
 
 // Revalidate every 10 minutes
 export const revalidate = 600
@@ -32,9 +33,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BlogPost({ params, searchParams }: { 
+  params: Promise<{ slug: string }>
+  searchParams?: Promise<{ print?: string }>
+}) {
   const { slug } = await params
   const post = await getBlogPost(slug)
+  const search = await searchParams
+  const isPrint = search?.print === 'true'
 
   if (!post) {
     notFound()
@@ -46,12 +52,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     day: 'numeric',
   })
 
+  if (isPrint) {
+    return <PrintablePost post={post} formattedDate={formattedDate} />
+  }
+
   return (
     <div className="bg-white">
       <ScrollAnimations />
       
       {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
+      <header className="print-hide fixed top-0 w-full z-50 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center py-3 lg:py-4">
             <div>
@@ -206,7 +216,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       </article>
 
       {/* Related Articles */}
-      <section className="py-16 bg-gray-50">
+      <section className="print-hide py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-display text-3xl lg:text-4xl font-bold text-black mb-4">
@@ -229,7 +239,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-16 border-t border-gray-100">
+      <footer className="print-hide bg-white py-16 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
