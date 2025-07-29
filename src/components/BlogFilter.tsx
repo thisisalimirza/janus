@@ -152,155 +152,107 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
             return (
               <article 
                 key={post.id} 
-                className={`scroll-animate ${index % 2 === 0 ? 'slide-left' : 'slide-right'} delay-${Math.min((index + 1) * 100, 500)} group ${
-                  isWhitePaper ? 'md:col-span-2 lg:col-span-3' : ''
-                }`}
+                className={`scroll-animate ${index % 2 === 0 ? 'slide-left' : 'slide-right'} delay-${Math.min((index + 1) * 100, 500)} group`}
               >
                 <Link href={`/insights/${post.slug}`} className="block">
-                  {isWhitePaper ? (
-                    // Special White Paper Layout
-                    <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-black rounded-xl border border-gray-700 overflow-hidden hover-rise janus-shadow-xl group-hover:border-yellow-400/50 transition-all duration-200 h-full">
-                      <div className="lg:grid lg:grid-cols-2 lg:gap-0">
-                        {/* White Paper Image */}
-                        <div className="aspect-video lg:aspect-square bg-gray-800 relative overflow-hidden">
-                          <Image
-                            src={post.image}
-                            alt={post.title}
-                            width={600}
-                            height={400}
-                            loading="lazy"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200 opacity-90"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                          <div className="absolute top-4 left-4">
-                            <span className="bg-yellow-400 text-black px-3 py-1.5 text-xs font-bold rounded-full uppercase tracking-wide">
-                              📄 White Paper
-                            </span>
-                          </div>
-                          {/* Search highlight indicator */}
-                          {searchQuery && post.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
-                            <div className="absolute top-4 right-4">
-                              <div className="bg-yellow-400 text-black px-2 py-1 text-xs font-semibold rounded-full">
-                                Match
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                        
-                        {/* White Paper Content */}
-                        <div className="p-8 lg:p-10 flex flex-col justify-center">
-                          <div className="flex items-center text-sm text-gray-300 mb-4">
-                            <span>{formattedDate}</span>
-                            <span className="mx-2">•</span>
-                            <span>{post.readTime}</span>
-                          </div>
-                          
-                          <h2 className="font-display text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight group-hover:text-yellow-400 transition-colors">
-                            {searchQuery && post.title.toLowerCase().includes(searchQuery.toLowerCase()) ? (
-                              <span dangerouslySetInnerHTML={{
-                                __html: post.title.replace(
-                                  new RegExp(`(${searchQuery})`, 'gi'),
-                                  '<mark class="bg-yellow-200 text-black px-1 rounded">$1</mark>'
-                                )
-                              }} />
-                            ) : (
-                              post.title
-                            )}
-                          </h2>
-                          
-                          <p className="text-gray-300 leading-relaxed mb-6 text-base">
-                            {searchQuery && post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ? (
-                              <span dangerouslySetInnerHTML={{
-                                __html: post.excerpt.replace(
-                                  new RegExp(`(${searchQuery})`, 'gi'),
-                                  '<mark class="bg-yellow-200 text-black px-1 rounded">$1</mark>'
-                                )
-                              }} />
-                            ) : (
-                              post.excerpt
-                            )}
-                          </p>
-                          
-                          <div className="flex items-center text-yellow-400 font-semibold group-hover:text-yellow-300 transition-colors">
-                            <span>Download White Paper</span>
-                            <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                          </div>
-                        </div>
+                  <div className={`rounded-xl border overflow-hidden hover-rise janus-shadow transition-all duration-200 h-full flex flex-col ${
+                    isWhitePaper 
+                      ? 'bg-gradient-to-br from-gray-900 to-gray-800 border-gray-600 group-hover:border-yellow-400/60' 
+                      : 'bg-white border-gray-200 group-hover:border-janus-blue/20'
+                  }`}>
+                    <div className="aspect-video bg-gray-100 relative overflow-hidden">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        width={400}
+                        height={225}
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-200 ${
+                          isWhitePaper ? 'opacity-85' : ''
+                        }`}
+                      />
+                      {isWhitePaper && (
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+                      )}
+                      <div className="absolute top-3 left-3">
+                        <span className={`px-2 py-1 text-xs font-semibold rounded-full ${
+                          isWhitePaper 
+                            ? 'bg-yellow-400 text-black font-bold uppercase tracking-wide'
+                            : 'bg-janus-blue text-white'
+                        }`}>
+                          {isWhitePaper ? '📄 White Paper' : post.category}
+                        </span>
                       </div>
-                    </div>
-                  ) : (
-                    // Regular Blog Post Layout
-                    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover-rise janus-shadow group-hover:border-janus-blue/20 transition-all duration-200 h-full flex flex-col">
-                      <div className="aspect-video bg-gray-100 relative overflow-hidden">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          width={400}
-                          height={225}
-                          loading="lazy"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-                        />
-                        <div className="absolute top-3 left-3">
-                          <span className="bg-janus-blue text-white px-2 py-1 text-xs font-semibold rounded-full">
-                            {post.category}
-                          </span>
-                        </div>
-                        {/* Search highlight indicator */}
-                        {searchQuery && post.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
-                          <div className="absolute top-3 right-3">
-                            <div className="bg-yellow-400 text-yellow-900 px-2 py-1 text-xs font-semibold rounded-full">
-                              Match
-                            </div>
+                      {/* Search highlight indicator */}
+                      {searchQuery && post.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
+                        <div className="absolute top-3 right-3">
+                          <div className={`px-2 py-1 text-xs font-semibold rounded-full ${
+                            isWhitePaper ? 'bg-yellow-400 text-black' : 'bg-yellow-400 text-yellow-900'
+                          }`}>
+                            Match
                           </div>
-                        )}
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className={`flex items-center text-sm mb-3 ${
+                        isWhitePaper ? 'text-gray-300' : 'text-gray-500'
+                      }`}>
+                        <span>{formattedDate}</span>
+                        <span className="mx-2">•</span>
+                        <span>{post.readTime}</span>
                       </div>
                       
-                      <div className="p-6 flex-1 flex flex-col">
-                        <div className="flex items-center text-sm text-gray-500 mb-3">
-                          <span>{formattedDate}</span>
-                          <span className="mx-2">•</span>
-                          <span>{post.readTime}</span>
-                        </div>
-                        
-                        <h2 className="font-display text-xl font-bold text-black mb-3 leading-tight group-hover:text-janus-blue transition-colors">
-                          {searchQuery && post.title.toLowerCase().includes(searchQuery.toLowerCase()) ? (
-                            <span dangerouslySetInnerHTML={{
-                              __html: post.title.replace(
-                                new RegExp(`(${searchQuery})`, 'gi'),
-                                '<mark class="bg-yellow-200 px-1 rounded">$1</mark>'
-                              )
-                            }} />
-                          ) : (
-                            post.title
-                          )}
-                        </h2>
-                        
-                        <p className="text-gray-600 leading-relaxed mb-4 text-sm flex-1">
-                          {searchQuery && post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ? (
-                            <span dangerouslySetInnerHTML={{
-                              __html: post.excerpt.replace(
-                                new RegExp(`(${searchQuery})`, 'gi'),
-                                '<mark class="bg-yellow-200 px-1 rounded">$1</mark>'
-                              )
-                            }} />
-                          ) : (
-                            post.excerpt
-                          )}
-                        </p>
-                        
-                        <div className="flex items-center text-janus-blue font-semibold group-hover:text-blue-700 transition-colors text-sm">
-                          <span>Read Article</span>
-                          <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </div>
+                      <h2 className={`font-display text-xl font-bold mb-3 leading-tight transition-colors ${
+                        isWhitePaper 
+                          ? 'text-white group-hover:text-yellow-400' 
+                          : 'text-black group-hover:text-janus-blue'
+                      }`}>
+                        {searchQuery && post.title.toLowerCase().includes(searchQuery.toLowerCase()) ? (
+                          <span dangerouslySetInnerHTML={{
+                            __html: post.title.replace(
+                              new RegExp(`(${searchQuery})`, 'gi'),
+                              `<mark class="bg-yellow-200 ${isWhitePaper ? 'text-black' : ''} px-1 rounded">$1</mark>`
+                            )
+                          }} />
+                        ) : (
+                          post.title
+                        )}
+                      </h2>
+                      
+                      <p className={`leading-relaxed mb-4 text-sm flex-1 ${
+                        isWhitePaper ? 'text-gray-300' : 'text-gray-600'
+                      }`}>
+                        {searchQuery && post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ? (
+                          <span dangerouslySetInnerHTML={{
+                            __html: post.excerpt.replace(
+                              new RegExp(`(${searchQuery})`, 'gi'),
+                              `<mark class="bg-yellow-200 ${isWhitePaper ? 'text-black' : ''} px-1 rounded">$1</mark>`
+                            )
+                          }} />
+                        ) : (
+                          post.excerpt
+                        )}
+                      </p>
+                      
+                      <div className={`flex items-center font-semibold transition-colors text-sm ${
+                        isWhitePaper 
+                          ? 'text-yellow-400 group-hover:text-yellow-300' 
+                          : 'text-janus-blue group-hover:text-blue-700'
+                      }`}>
+                        <span>{isWhitePaper ? 'Download White Paper' : 'Read Article'}</span>
+                        <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={
+                            isWhitePaper 
+                              ? "M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                              : "M17 8l4 4m0 0l-4 4m4-4H3"
+                          } />
+                        </svg>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </Link>
               </article>
             )
