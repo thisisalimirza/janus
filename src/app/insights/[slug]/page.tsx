@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { getBlogPost, getBlogPosts } from '../../../lib/notion'
 import ScrollAnimations from '../../../components/ScrollAnimations'
 import NotionContent from '../../../components/NotionContent'
+import TableOfContents from '../../../components/TableOfContents'
 
 // Revalidate every 10 minutes
 export const revalidate = 600
@@ -50,7 +51,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <ScrollAnimations />
       
       {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <header className="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center py-3 lg:py-4">
             <div>
@@ -103,8 +104,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
       {/* Article Header */}
       <section className="pt-24 pb-8 lg:pt-32 lg:pb-12">
-        <div className="max-w-4xl mx-auto px-4 lg:px-8">
-          <div className="scroll-animate fade-up">
+        <div className="max-w-5xl mx-auto px-4 lg:px-8">
+          <div>
             <Link 
               href="/insights" 
               className="inline-flex items-center text-janus-blue hover:text-blue-700 font-medium mb-8 transition-colors"
@@ -114,6 +115,19 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               </svg>
               Back to Insights
             </Link>
+
+            {/* Featured Image */}
+            <div className="mb-8">
+              <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={1200}
+                  height={630}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
 
             <div className="mb-8">
               <span className="bg-janus-blue text-white px-4 py-2 text-sm font-semibold rounded-full">
@@ -138,55 +152,55 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
-      {/* Featured Image */}
-      <section className="mb-16">
-        <div className="max-w-5xl mx-auto px-4 lg:px-8">
-          <div className="scroll-animate scale-in delay-200">
-            <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
-              <Image
-                src={post.image}
-                alt={post.title}
-                width={1200}
-                height={630}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Article Content */}
       <article className="pb-16">
-        <div className="max-w-4xl mx-auto px-4 lg:px-8">
-          <div className="scroll-animate fade-up delay-300 prose prose-lg max-w-none">
-            {post.content && post.content.length > 0 ? (
-              <div className="article-content">
-                <NotionContent blocks={post.content} />
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="lg:grid lg:grid-cols-4 lg:gap-8">
+            {/* Table of Contents - Desktop Sidebar */}
+            <div className="hidden lg:block lg:col-span-1">
+              <div className="sticky top-32">
+                <TableOfContents blocks={post.content || []} />
               </div>
-            ) : (
-              <div className="text-gray-700 leading-relaxed space-y-6">
-                <p>
-                  This is where the full article content would appear when connected to your Notion database. 
-                  The content management system is ready to pull rich content from Notion including:
-                </p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Formatted text with headings and paragraphs</li>
-                  <li>Bulleted and numbered lists</li>
-                  <li>Block quotes and callouts</li>
-                  <li>Images and media embeds</li>
-                  <li>Code blocks and syntax highlighting</li>
-                </ul>
-                <p>
-                  To connect this to your Notion workspace, you'll need to:
-                </p>
-                <ol className="list-decimal pl-6 space-y-2">
-                  <li>Create a Notion integration at <a href="https://www.notion.so/my-integrations" className="text-janus-blue hover:text-blue-700">notion.so/my-integrations</a></li>
-                  <li>Add your integration token to the .env.local file</li>
-                  <li>Create a database in Notion with the required properties</li>
-                  <li>Share your database with your integration</li>
-                </ol>
+            </div>
+            
+            {/* Article Content */}
+            <div className="lg:col-span-3">
+              {/* Mobile Table of Contents */}
+              <div className="lg:hidden mb-8">
+                <TableOfContents blocks={post.content || []} />
               </div>
-            )}
+              
+              <div className="prose prose-lg max-w-none">
+                {post.content && post.content.length > 0 ? (
+                  <div className="article-content">
+                    <NotionContent blocks={post.content} />
+                  </div>
+                ) : (
+                  <div className="text-gray-700 leading-relaxed space-y-6">
+                    <p>
+                      This is where the full article content would appear when connected to your Notion database. 
+                      The content management system is ready to pull rich content from Notion including:
+                    </p>
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>Formatted text with headings and paragraphs</li>
+                      <li>Bulleted and numbered lists</li>
+                      <li>Block quotes and callouts</li>
+                      <li>Images and media embeds</li>
+                      <li>Code blocks and syntax highlighting</li>
+                    </ul>
+                    <p>
+                      To connect this to your Notion workspace, you'll need to:
+                    </p>
+                    <ol className="list-decimal pl-6 space-y-2">
+                      <li>Create a Notion integration at <a href="https://www.notion.so/my-integrations" className="text-janus-blue hover:text-blue-700">notion.so/my-integrations</a></li>
+                      <li>Add your integration token to the .env.local file</li>
+                      <li>Create a database in Notion with the required properties</li>
+                      <li>Share your database with your integration</li>
+                    </ol>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </article>
@@ -195,10 +209,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="scroll-animate fade-up font-display text-3xl lg:text-4xl font-bold text-black mb-4">
+            <h2 className="font-display text-3xl lg:text-4xl font-bold text-black mb-4">
               More Insights
             </h2>
-            <p className="scroll-animate fade-up delay-200 text-gray-600">
+            <p className="text-gray-600">
               Continue reading our latest thoughts on SaaS growth and messaging.
             </p>
           </div>
@@ -206,7 +220,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <div className="text-center">
             <Link
               href="/insights"
-              className="scroll-animate scale-in delay-300 inline-block bg-janus-blue text-white px-8 py-4 font-semibold hover:bg-blue-700 transition-colors duration-300 rounded-sm"
+              className="inline-block bg-janus-blue text-white px-8 py-4 font-semibold hover:bg-blue-700 transition-colors duration-300 rounded-sm"
             >
               View All Articles
             </Link>

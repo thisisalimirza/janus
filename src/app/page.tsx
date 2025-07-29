@@ -1,10 +1,18 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import ScrollAnimations from '../components/ScrollAnimations'
-import ROICalculator from '../components/ROICalculator'
-import CalBooking from '../components/CalBooking'
 import ClientLogo from '../components/ClientLogo'
 import { getClientLogos } from '../lib/notion'
+
+// Lazy load heavy components
+const ROICalculator = dynamic(() => import('../components/ROICalculator'), {
+  loading: () => <div className="h-64 bg-gray-100 animate-pulse rounded-lg"></div>
+})
+
+const CalBooking = dynamic(() => import('../components/CalBooking'), {
+  loading: () => <div className="inline-block bg-gray-300 animate-pulse h-12 w-48 rounded-sm"></div>
+})
 
 export default async function Home() {
   const clientLogos = await getClientLogos()
@@ -12,7 +20,7 @@ export default async function Home() {
     <div className="bg-white">
       <ScrollAnimations />
       {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <header className="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center py-3 lg:py-4">
             <div>

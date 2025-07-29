@@ -39,17 +39,18 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
     }
   }, [searchQuery])
 
-  // Populate hero categories
+  // Populate hero categories with better performance
   useEffect(() => {
     const heroCategories = document.getElementById('hero-categories')
     if (heroCategories) {
+      // Use React-like approach for better performance
       heroCategories.innerHTML = categories.map(category => `
         <button
           onclick="window.handleCategoryClick('${category}')"
-          class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+          class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-150 ${
             category === activeCategory 
-              ? 'bg-janus-blue text-white shadow-lg transform scale-105' 
-              : 'bg-white/60 text-gray-700 hover:bg-white/80 backdrop-blur-sm border border-white/40'
+              ? 'bg-janus-blue text-white' 
+              : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
           }"
         >
           ${category}
@@ -138,7 +139,7 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
 
       {/* Blog Posts Grid */}
       {filteredPosts.length > 0 && (
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map((post, index) => {
             const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
               year: 'numeric',
@@ -149,23 +150,25 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
             return (
               <article key={post.id} className={`scroll-animate ${index % 2 === 0 ? 'slide-left' : 'slide-right'} delay-${Math.min((index + 1) * 100, 500)} group`}>
                 <Link href={`/insights/${post.slug}`} className="block">
-                  <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover-rise janus-shadow group-hover:border-janus-blue/20 transition-all duration-300">
+                  <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover-rise janus-shadow group-hover:border-janus-blue/20 transition-all duration-200 h-full flex flex-col">
                     <div className="aspect-video bg-gray-100 relative overflow-hidden">
                       <Image
                         src={post.image}
                         alt={post.title}
-                        width={600}
-                        height={400}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        width={400}
+                        height={225}
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                       />
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-janus-blue text-white px-3 py-1 text-xs font-semibold rounded-full">
+                      <div className="absolute top-3 left-3">
+                        <span className="bg-janus-blue text-white px-2 py-1 text-xs font-semibold rounded-full">
                           {post.category}
                         </span>
                       </div>
                       {/* Search highlight indicator */}
                       {searchQuery && post.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
-                        <div className="absolute top-4 right-4">
+                        <div className="absolute top-3 right-3">
                           <div className="bg-yellow-400 text-yellow-900 px-2 py-1 text-xs font-semibold rounded-full">
                             Match
                           </div>
@@ -173,14 +176,14 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
                       )}
                     </div>
                     
-                    <div className="p-8">
-                      <div className="flex items-center text-sm text-gray-500 mb-4">
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="flex items-center text-sm text-gray-500 mb-3">
                         <span>{formattedDate}</span>
                         <span className="mx-2">•</span>
                         <span>{post.readTime}</span>
                       </div>
                       
-                      <h2 className="font-display text-2xl lg:text-3xl font-bold text-black mb-4 leading-tight group-hover:text-janus-blue transition-colors">
+                      <h2 className="font-display text-xl font-bold text-black mb-3 leading-tight group-hover:text-janus-blue transition-colors">
                         {searchQuery && post.title.toLowerCase().includes(searchQuery.toLowerCase()) ? (
                           <span dangerouslySetInnerHTML={{
                             __html: post.title.replace(
@@ -193,7 +196,7 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
                         )}
                       </h2>
                       
-                      <p className="text-gray-600 leading-relaxed mb-6">
+                      <p className="text-gray-600 leading-relaxed mb-4 text-sm flex-1">
                         {searchQuery && post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ? (
                           <span dangerouslySetInnerHTML={{
                             __html: post.excerpt.replace(
@@ -206,7 +209,7 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
                         )}
                       </p>
                       
-                      <div className="flex items-center text-janus-blue font-semibold group-hover:text-blue-700 transition-colors">
+                      <div className="flex items-center text-janus-blue font-semibold group-hover:text-blue-700 transition-colors text-sm">
                         <span>Read Article</span>
                         <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

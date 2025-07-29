@@ -56,23 +56,35 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
   }
 
   try {
-    const response = await notion.databases.query({
-      database_id: process.env.NOTION_BLOG_DATABASE_ID!,
-      filter: {
-        property: 'Published',
-        checkbox: {
-          equals: true,
-        },
-      },
-      sorts: [
-        {
-          property: 'Date',
-          direction: 'descending',
-        },
-      ],
-    })
+    let allResults: any[] = []
+    let hasMore = true
+    let nextCursor: string | undefined = undefined
 
-    return response.results.map(mapNotionPageToBlogPost)
+    while (hasMore) {
+      const response = await notion.databases.query({
+        database_id: process.env.NOTION_BLOG_DATABASE_ID!,
+        filter: {
+          property: 'Published',
+          checkbox: {
+            equals: true,
+          },
+        },
+        sorts: [
+          {
+            property: 'Date',
+            direction: 'descending',
+          },
+        ],
+        page_size: 100,
+        start_cursor: nextCursor,
+      })
+
+      allResults = allResults.concat(response.results)
+      hasMore = response.has_more
+      nextCursor = response.next_cursor || undefined
+    }
+
+    return allResults.map(mapNotionPageToBlogPost)
   } catch (error) {
     console.error('Error fetching blog posts:', error)
     return []
@@ -112,12 +124,24 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
 
     const post = mapNotionPageToBlogPost(response.results[0])
     
-    // Get page content
-    const pageContent = await notion.blocks.children.list({
-      block_id: post.id,
-    })
+    // Get page content with pagination
+    let allBlocks: any[] = []
+    let hasMore = true
+    let nextCursor: string | undefined = undefined
+
+    while (hasMore) {
+      const pageContent = await notion.blocks.children.list({
+        block_id: post.id,
+        page_size: 100,
+        start_cursor: nextCursor,
+      })
+      
+      allBlocks = allBlocks.concat(pageContent.results)
+      hasMore = pageContent.has_more
+      nextCursor = pageContent.next_cursor || undefined
+    }
     
-    post.content = pageContent.results
+    post.content = allBlocks
 
     return post
   } catch (error) {
@@ -133,23 +157,35 @@ export async function getCaseStudies(): Promise<CaseStudy[]> {
   }
 
   try {
-    const response = await notion.databases.query({
-      database_id: process.env.NOTION_PORTFOLIO_DATABASE_ID!,
-      filter: {
-        property: 'Published',
-        checkbox: {
-          equals: true,
-        },
-      },
-      sorts: [
-        {
-          property: 'Order',
-          direction: 'ascending',
-        },
-      ],
-    })
+    let allResults: any[] = []
+    let hasMore = true
+    let nextCursor: string | undefined = undefined
 
-    return response.results.map(mapNotionPageToCaseStudy)
+    while (hasMore) {
+      const response = await notion.databases.query({
+        database_id: process.env.NOTION_PORTFOLIO_DATABASE_ID!,
+        filter: {
+          property: 'Published',
+          checkbox: {
+            equals: true,
+          },
+        },
+        sorts: [
+          {
+            property: 'Order',
+            direction: 'ascending',
+          },
+        ],
+        page_size: 100,
+        start_cursor: nextCursor,
+      })
+
+      allResults = allResults.concat(response.results)
+      hasMore = response.has_more
+      nextCursor = response.next_cursor || undefined
+    }
+
+    return allResults.map(mapNotionPageToCaseStudy)
   } catch (error) {
     console.error('Error fetching case studies:', error)
     return []
@@ -189,12 +225,24 @@ export async function getCaseStudy(slug: string): Promise<CaseStudy | null> {
 
     const caseStudy = mapNotionPageToCaseStudy(response.results[0])
     
-    // Get page content
-    const pageContent = await notion.blocks.children.list({
-      block_id: caseStudy.id,
-    })
+    // Get page content with pagination
+    let allBlocks: any[] = []
+    let hasMore = true
+    let nextCursor: string | undefined = undefined
+
+    while (hasMore) {
+      const pageContent = await notion.blocks.children.list({
+        block_id: caseStudy.id,
+        page_size: 100,
+        start_cursor: nextCursor,
+      })
+      
+      allBlocks = allBlocks.concat(pageContent.results)
+      hasMore = pageContent.has_more
+      nextCursor = pageContent.next_cursor || undefined
+    }
     
-    caseStudy.content = pageContent.results
+    caseStudy.content = allBlocks
 
     return caseStudy
   } catch (error) {
@@ -210,23 +258,35 @@ export async function getClientLogos(): Promise<ClientLogo[]> {
   }
 
   try {
-    const response = await notion.databases.query({
-      database_id: process.env.NOTION_CLIENTS_DATABASE_ID!,
-      filter: {
-        property: 'Published',
-        checkbox: {
-          equals: true,
-        },
-      },
-      sorts: [
-        {
-          property: 'Order',
-          direction: 'ascending',
-        },
-      ],
-    })
+    let allResults: any[] = []
+    let hasMore = true
+    let nextCursor: string | undefined = undefined
 
-    return response.results.map(mapNotionPageToClientLogo)
+    while (hasMore) {
+      const response = await notion.databases.query({
+        database_id: process.env.NOTION_CLIENTS_DATABASE_ID!,
+        filter: {
+          property: 'Published',
+          checkbox: {
+            equals: true,
+          },
+        },
+        sorts: [
+          {
+            property: 'Order',
+            direction: 'ascending',
+          },
+        ],
+        page_size: 100,
+        start_cursor: nextCursor,
+      })
+
+      allResults = allResults.concat(response.results)
+      hasMore = response.has_more
+      nextCursor = response.next_cursor || undefined
+    }
+
+    return allResults.map(mapNotionPageToClientLogo)
   } catch (error) {
     console.error('Error fetching client logos:', error)
     return []

@@ -101,10 +101,11 @@ body {
   }
 }
 
-/* Scroll-triggered animation classes */
+/* Optimized scroll-triggered animation classes */
 .scroll-animate {
   opacity: 0;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  will-change: opacity, transform;
 }
 
 .scroll-animate.animate-in {
@@ -112,7 +113,7 @@ body {
 }
 
 .scroll-animate.fade-up {
-  transform: translateY(60px);
+  transform: translateY(30px);
 }
 
 .scroll-animate.fade-up.animate-in {
@@ -120,7 +121,7 @@ body {
 }
 
 .scroll-animate.slide-left {
-  transform: translateX(-60px);
+  transform: translateX(-30px);
 }
 
 .scroll-animate.slide-left.animate-in {
@@ -128,7 +129,7 @@ body {
 }
 
 .scroll-animate.slide-right {
-  transform: translateX(60px);
+  transform: translateX(30px);
 }
 
 .scroll-animate.slide-right.animate-in {
@@ -136,19 +137,19 @@ body {
 }
 
 .scroll-animate.scale-in {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 .scroll-animate.scale-in.animate-in {
   transform: scale(1);
 }
 
-/* Staggered animation delays */
-.scroll-animate.delay-100 { transition-delay: 100ms; }
-.scroll-animate.delay-200 { transition-delay: 200ms; }
-.scroll-animate.delay-300 { transition-delay: 300ms; }
-.scroll-animate.delay-400 { transition-delay: 400ms; }
-.scroll-animate.delay-500 { transition-delay: 500ms; }
+/* Reduced animation delays for better performance */
+.scroll-animate.delay-100 { transition-delay: 50ms; }
+.scroll-animate.delay-200 { transition-delay: 100ms; }
+.scroll-animate.delay-300 { transition-delay: 150ms; }
+.scroll-animate.delay-400 { transition-delay: 200ms; }
+.scroll-animate.delay-500 { transition-delay: 250ms; }
 
 /* Hero section animations - start invisible */
 .animate-fade-in-up {
@@ -205,14 +206,15 @@ body {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-/* Sophisticated hover effects */
+/* Optimized hover effects */
 .hover-rise {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  will-change: transform, box-shadow;
 }
 
 .hover-rise:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 35px 70px -12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
 }
 
 /* Typography enhancements */
