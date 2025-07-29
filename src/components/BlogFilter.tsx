@@ -6,6 +6,52 @@ import Link from 'next/link'
 import { BlogPost } from '../lib/notion'
 import BlogLoadingAnimation from './BlogLoadingAnimation'
 
+// BlogPostImage component with skeleton loading
+function BlogPostImage({ src, alt, isWhitePaper }: { src: string; alt: string; isWhitePaper: boolean }) {
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const [imageError, setImageError] = useState(false)
+
+  return (
+    <div className="w-full h-full relative">
+      {/* Skeleton loader */}
+      {!imageLoaded && !imageError && (
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 animate-pulse">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent animate-shimmer"></div>
+        </div>
+      )}
+      
+      {/* Actual image */}
+      {!imageError && (
+        <Image
+          src={src}
+          alt={alt}
+          width={400}
+          height={225}
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-200 ${
+            isWhitePaper ? 'opacity-85' : ''
+          } ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageError(true)}
+        />
+      )}
+      
+      {/* Fallback for broken images */}
+      {imageError && (
+        <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+          <div className="text-center text-gray-400">
+            <svg className="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span className="text-xs">Image unavailable</span>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 interface BlogFilterProps {
   posts: BlogPost[]
 }
@@ -183,16 +229,10 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
                       : 'bg-white border-gray-200 group-hover:border-janus-blue/20'
                   }`}>
                     <div className="aspect-video bg-gray-100 relative overflow-hidden">
-                      <Image
+                      <BlogPostImage
                         src={post.image}
                         alt={post.title}
-                        width={400}
-                        height={225}
-                        loading="lazy"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-200 ${
-                          isWhitePaper ? 'opacity-85' : ''
-                        }`}
+                        isWhitePaper={isWhitePaper}
                       />
                       {isWhitePaper && (
                         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>

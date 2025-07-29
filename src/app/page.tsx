@@ -1007,7 +1007,7 @@ export default async function Home() {
           </h2>
           
           <p className="scroll-animate fade-up delay-300 text-xl mb-16 opacity-80 max-w-3xl mx-auto">
-            Schedule a 15-minute discovery call and see if the JANUS Clarity Engine™ is a fit for your startup.
+            Schedule a strategy session and see if the JANUS Clarity Engine™ is a fit for your company.
           </p>
           
           <div className="scroll-animate scale-in delay-400 bg-gray-900 p-12 rounded-lg max-w-2xl mx-auto">
@@ -1038,13 +1038,17 @@ export default async function Home() {
               </div>
               
               <Link
-                href="mailto:hello@janusny.com?subject=Send me the messaging clarity checklist"
+                href="https://tally.so/r/nrMgY2"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full border border-gray-600 text-white py-3 text-base font-medium hover:border-gray-500 hover:bg-gray-800 transition-colors duration-300 rounded-sm"
               >
-                Get our messaging clarity checklist
+                Request 2 Free Ads for Your Company
               </Link>
               <Link
-                href="mailto:hello@janusny.com?subject=Free landing page copy teardown"
+                href="https://tally.so/r/n9jxRE"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full border border-gray-600 text-white py-3 text-base font-medium hover:border-gray-500 hover:bg-gray-800 transition-colors duration-300 rounded-sm"
               >
                 Get a teardown of your landing page copy — free
