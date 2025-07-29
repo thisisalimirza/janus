@@ -302,7 +302,7 @@ function mapNotionPageToBlogPost(page: any): BlogPost {
     id: page.id,
     title: getPlainText(properties.Title?.title || []),
     slug: getPlainText(properties.Slug?.rich_text || []),
-    excerpt: getPlainText(properties.Exercpt?.rich_text || []),
+    excerpt: getPlainText(properties.Excerpt?.rich_text || []),
     content: [],
     date: properties.Date?.date?.start || new Date().toISOString(),
     readTime: getPlainText(properties['Read Time']?.rich_text || []) || '5 min read',
