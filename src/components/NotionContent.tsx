@@ -2,10 +2,35 @@
 
 import React from 'react'
 
+// Helper function to get background color class from Notion color
+function getBackgroundColorClass(color: string): string {
+  const colorMap: { [key: string]: string } = {
+    'yellow': 'bg-yellow-200',
+    'orange': 'bg-orange-200',
+    'red': 'bg-red-200',
+    'pink': 'bg-pink-200',
+    'purple': 'bg-purple-200',
+    'blue': 'bg-blue-200',
+    'green': 'bg-green-200',
+    'gray': 'bg-gray-200',
+    'brown': 'bg-yellow-100',
+    'default': 'bg-gray-100'
+  }
+  return colorMap[color] || colorMap['default']
+}
+
 // Helper function to render rich text with formatting
 function renderRichText(richText: any[]): React.ReactElement[] {
   return richText.map((text, index) => {
-    let element = <span key={index}>{text.plain_text}</span>
+    // Handle line breaks within text (Shift+Enter creates \n in plain_text)
+    const textWithBreaks = text.plain_text.split('\n').map((line: string, lineIndex: number) => (
+      <React.Fragment key={`${index}-${lineIndex}`}>
+        {line}
+        {lineIndex < text.plain_text.split('\n').length - 1 && <br />}
+      </React.Fragment>
+    ))
+    
+    let element = <span key={index}>{textWithBreaks}</span>
     
     if (text.annotations) {
       if (text.annotations.bold) {
@@ -22,6 +47,12 @@ function renderRichText(richText: any[]): React.ReactElement[] {
       }
       if (text.annotations.code) {
         element = <code key={index} className="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">{element}</code>
+      }
+      // Handle background color highlighting
+      if (text.annotations.color && text.annotations.color.includes('_background')) {
+        const color = text.annotations.color.replace('_background', '')
+        const bgClass = getBackgroundColorClass(color)
+        element = <span key={index} className={`${bgClass} px-1 py-0.5 rounded`}>{element}</span>
       }
     }
     
@@ -222,7 +253,7 @@ export default function NotionContent({ blocks }: NotionContentProps) {
                   {renderRichText(block.toggle.rich_text)}
                 </summary>
                 <div className="mt-3 pl-4">
-                  {block.children && (
+                  {block.children && block.children.length > 0 && (
                     <NotionContent blocks={block.children} />
                   )}
                 </div>

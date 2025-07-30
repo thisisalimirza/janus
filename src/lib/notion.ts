@@ -124,23 +124,8 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
 
     const post = mapNotionPageToBlogPost(response.results[0])
     
-    // Get page content with pagination
-    let allBlocks: any[] = []
-    let hasMore = true
-    let nextCursor: string | undefined = undefined
-
-    while (hasMore) {
-      const pageContent = await notion.blocks.children.list({
-        block_id: post.id,
-        page_size: 100,
-        start_cursor: nextCursor,
-      })
-      
-      allBlocks = allBlocks.concat(pageContent.results)
-      hasMore = pageContent.has_more
-      nextCursor = pageContent.next_cursor || undefined
-    }
-    
+    // Get page content with pagination and child blocks
+    const allBlocks = await getBlocksWithChildren(post.id)
     post.content = allBlocks
 
     return post
@@ -225,23 +210,8 @@ export async function getCaseStudy(slug: string): Promise<CaseStudy | null> {
 
     const caseStudy = mapNotionPageToCaseStudy(response.results[0])
     
-    // Get page content with pagination
-    let allBlocks: any[] = []
-    let hasMore = true
-    let nextCursor: string | undefined = undefined
-
-    while (hasMore) {
-      const pageContent = await notion.blocks.children.list({
-        block_id: caseStudy.id,
-        page_size: 100,
-        start_cursor: nextCursor,
-      })
-      
-      allBlocks = allBlocks.concat(pageContent.results)
-      hasMore = pageContent.has_more
-      nextCursor = pageContent.next_cursor || undefined
-    }
-    
+    // Get page content with pagination and child blocks
+    const allBlocks = await getBlocksWithChildren(caseStudy.id)
     caseStudy.content = allBlocks
 
     return caseStudy
@@ -349,6 +319,47 @@ function mapNotionPageToClientLogo(page: any): ClientLogo {
     order: properties.Order?.number || 0,
     published: properties.Published?.checkbox || false,
   }
+}
+
+// Helper function to recursively fetch blocks with their children
+async function getBlocksWithChildren(blockId: string): Promise<any[]> {
+  let allBlocks: any[] = []
+  let hasMore = true
+  let nextCursor: string | undefined = undefined
+
+  while (hasMore) {
+    try {
+      const response = await notion.blocks.children.list({
+        block_id: blockId,
+        page_size: 100,
+        start_cursor: nextCursor,
+      })
+      
+      const blocks = response.results
+      
+      // For each block, check if it has children and fetch them
+      for (const block of blocks) {
+        if ('has_children' in block && block.has_children) {
+          try {
+            const children = await getBlocksWithChildren(block.id)
+            ;(block as any).children = children
+          } catch (error) {
+            console.warn(`Failed to fetch children for block ${block.id}:`, error)
+            ;(block as any).children = []
+          }
+        }
+      }
+      
+      allBlocks = allBlocks.concat(blocks)
+      hasMore = response.has_more
+      nextCursor = response.next_cursor || undefined
+    } catch (error) {
+      console.error(`Error fetching blocks for ${blockId}:`, error)
+      break
+    }
+  }
+
+  return allBlocks
 }
 
 // Helper function to extract plain text from Notion rich text
