@@ -47,10 +47,10 @@ export default function PrintablePost({ post, formattedDate }: PrintablePostProp
         <div className="flex justify-between items-center">
           <div>
             <h3 className="text-lg font-bold">JANUS</h3>
-            <p className="text-sm text-gray-600">Premium SaaS Messaging Agency</p>
+            <p className="text-sm text-gray-600">Premium SaaS Conversion Agency</p>
           </div>
           <div className="text-sm text-gray-600">
-            <p>Downloaded from janus.agency</p>
+            <p>Downloaded from janusny.com</p>
             <p>{formattedDate}</p>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default function PrintablePost({ post, formattedDate }: PrintablePostProp
 
         {/* Print Footer */}
         <div className="mt-12 pt-8 border-t text-center text-sm text-gray-500">
-          <p>© 2025 JANUS. Downloaded from janus.agency/insights/{post.slug}</p>
+          <p>© 2025 JANUS Marketing. Downloaded from janusny.com/insights/{post.slug}</p>
         </div>
       </article>
     </div>
