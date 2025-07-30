@@ -713,7 +713,7 @@ export default async function Home() {
               <h3 className="font-display text-3xl lg:text-4xl font-bold text-white mb-4">Core Engine</h3>
               <p className="text-blue-100 mb-6 lg:mb-8 text-lg">Full JANUS Clarity Engine™</p>
               <div className="mb-6 lg:mb-8">
-                <span className="text-5xl lg:text-6xl font-bold text-white">$5,000</span>
+                <span className="text-5xl lg:text-5xl font-bold text-white">$5,000</span>
                 <span className="text-blue-200 ml-2 text-lg">one-time</span>
               </div>
               
