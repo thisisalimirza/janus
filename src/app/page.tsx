@@ -714,17 +714,17 @@ export default async function Home() {
               <p className="text-blue-100 mb-6 lg:mb-8 text-lg">Full JANUS Clarity Engine™</p>
               <div className="mb-6 lg:mb-8">
                 <span className="text-5xl lg:text-6xl font-bold text-white">$5,000</span>
-                <span className="text-blue-200 ml-2 text-lg">/month</span>
+                <span className="text-blue-200 ml-2 text-lg">one-time</span>
               </div>
               
               {/* What's Included */}
               <div className="mb-8">
                 <p className="text-sm font-semibold text-blue-100 mb-3">What's included:</p>
                 <ul className="text-sm text-blue-100 space-y-1">
-                  <li>• Full messaging transformation</li>
-                  <li>• Hero + landing video</li>
-                  <li>• 2–3 feature explainer videos</li>
-                  <li>• Sales enablement asset pack</li>
+                  <li>• Full buildout of Clarity Engine™</li>
+                  <li>• 2 free months of post-install service</li>
+                  <li>• 3 signature Clarity videos</li>
+                  <li>• 30 pieces of short form content</li>
                   <li>• Monthly strategy call</li>
                 </ul>
               </div>
@@ -740,22 +740,21 @@ export default async function Home() {
             {/* Starter - Grayed out */}
             <div className="scroll-animate scale-in delay-300 bg-gray-50 p-6 lg:p-10 rounded-lg border border-gray-200 hover:bg-gray-100 transition-all duration-300 opacity-75 order-3 lg:order-1">
               <h3 className="font-display text-2xl font-bold text-gray-700 mb-4">Starter</h3>
-              <p className="text-gray-500 mb-6">Landing page clarity</p>
+              <p className="text-gray-500 mb-6">Retainer for early-stage companies</p>
               <div className="mb-6">
-                <span className="text-4xl font-bold text-gray-700">$2,500</span>
-                <span className="text-gray-400 ml-2">one-time</span>
+                <span className="text-4xl font-bold text-gray-700">$3,000</span>
+                <span className="text-gray-400 ml-2">/month</span>
               </div>
               
               {/* What's Included */}
               <div className="mb-8">
                 <p className="text-sm font-semibold text-gray-600 mb-3">What's included:</p>
                 <ul className="text-sm text-gray-500 space-y-1">
-                  <li>• Landing page messaging review</li>
-                  <li>• Clarity framework application</li>
-                  <li>• Live heatmap installation</li>
-                  <li>• Advanced conversion optimization</li>
-                  <li>• 30s signature Clarity video</li>
-                  <li>• One revision round</li>
+                  <li>• Full-time dedicated video editor</li>
+                  <li>• Full-time dedicated copywriter</li>
+                  <li>• Full-time dedicated designer</li>
+                  <li>• 30 pieces of content per month</li>
+                  <li>• Advanced ad campaign management</li>
                 </ul>
               </div>
               
