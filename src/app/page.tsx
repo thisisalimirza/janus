@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import ScrollAnimations from '../components/ScrollAnimations'
 import ClientLogoCarousel from '../components/ClientLogoCarousel'
 import Navigation from '../components/Navigation'
+import Footer from '../components/Footer'
 import { getClientLogos } from '../lib/notion'
 
 // Lazy load heavy components
@@ -181,15 +182,33 @@ export default async function Home() {
             {/* Component 1 */}
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="scroll-animate slide-left order-2 lg:order-1">
-                <div className="aspect-video bg-gradient-to-br from-janus-blue to-blue-700 rounded-lg image-overlay flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
-                      </svg>
+                <div className="aspect-video rounded-lg overflow-hidden relative group cursor-pointer hover-rise transition-transform duration-300">
+                  <Link
+                    href="https://drive.google.com/drive/folders/1dG9RqcvmCKRgwLpnMfz8v-WqjHY4bums"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full h-full"
+                  >
+                    <Image
+                      src="/clarity-videos.png"
+                      alt="60-Second SaaS Clarity Video - Click to view portfolio"
+                      width={600}
+                      height={400}
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Interactive play button overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 group-hover:scale-110 transition-all duration-300">
+                        <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
+                        </svg>
+                      </div>
                     </div>
-                    <p className="text-sm opacity-80">60-Second SaaS Clarity Video</p>
-                  </div>
+                    
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Link>
                 </div>
               </div>
               
@@ -237,15 +256,14 @@ export default async function Home() {
               </div>
               
               <div className="scroll-animate slide-right delay-200">
-                <div className="aspect-video bg-gradient-to-br from-black to-gray-800 rounded-lg image-overlay flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <div className="grid grid-cols-3 gap-2 mb-4">
-                      <div className="w-8 h-8 bg-white/20 rounded"></div>
-                      <div className="w-8 h-8 bg-white/20 rounded"></div>
-                      <div className="w-8 h-8 bg-white/20 rounded"></div>
-                    </div>
-                    <p className="text-sm opacity-80">Feature Video Suite</p>
-                  </div>
+                <div className="aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-gray-900 to-black p-8 flex items-center justify-center">
+                  <Image
+                    src="/feature-system.png"
+                    alt="Feature Adoption System - Three video interface showing feature explanations"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto max-w-md"
+                  />
                 </div>
               </div>
             </div>
@@ -253,15 +271,14 @@ export default async function Home() {
             {/* Component 3 */}
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="scroll-animate slide-left order-2 lg:order-1">
-                <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg image-overlay flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <div className="flex space-x-2 mb-4">
-                      <div className="w-6 h-6 bg-gray-400 rounded"></div>
-                      <div className="w-6 h-6 bg-gray-400 rounded"></div>
-                      <div className="w-6 h-6 bg-gray-400 rounded"></div>
-                    </div>
-                    <p className="text-sm">Paid + Organic Ad Kit</p>
-                  </div>
+                <div className="aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-yellow-400 to-orange-500 p-6 flex items-center justify-center">
+                  <Image
+                    src="/kit.gif"
+                    alt="Paid + Organic Ad Kit - Laptop showing content creation workflow"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto max-w-lg"
+                  />
                 </div>
               </div>
               
@@ -775,6 +792,49 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Website Offer Callout */}
+      <section className="py-16 bg-janus-blue relative overflow-hidden">
+        {/* Background Graphics */}
+        <div className="absolute inset-0">
+          <div className="absolute top-4 left-8 w-16 h-16 border border-white/10 rotate-45"></div>
+          <div className="absolute top-8 right-12 w-12 h-12 border border-white/20 rounded-full"></div>
+          <div className="absolute bottom-4 left-1/4 w-8 h-8 bg-white/5 rotate-45"></div>
+          <div className="absolute bottom-8 right-8 w-10 h-10 border-2 border-white/15"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-radial from-white/5 to-transparent"></div>
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center relative z-10">
+          <div className="scroll-animate fade-up">
+            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+              <svg className="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="text-white text-sm font-medium">Not Ready for the Full System?</span>
+            </div>
+            
+            <h3 className="font-display text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
+              Start with a High-ROI Website
+            </h3>
+            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Don't need the full integrated content system yet? Our website development service gets you started 
+              with conversion-focused design. If you later want the complete Clarity Engine™, we'll roll over your investment — you only pay the difference.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                href="/websites"
+                className="inline-block bg-white text-janus-blue px-8 py-4 text-lg font-bold hover:bg-gray-50 transition-all duration-300 hover-rise janus-shadow-xl rounded-sm"
+              >
+                Explore Website Options
+              </Link>
+              <p className="text-blue-200 text-sm">
+                Starting at $2,500 • Upgrade anytime
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Confusion Cost Section with ROI Calculator */}
       <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1012,54 +1072,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white py-16 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <Link href="/">
-                <Image
-                  src="/JANUS-Logo-transparentBG.png"
-                  alt="JANUS"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto mb-6"
-                />
-              </Link>
-              <p className="text-lg text-gray-600 font-medium mb-4">
-                Built for founders who refuse to settle.
-              </p>
-              <p className="text-gray-500">
-                Premium creative agency for SaaS companies.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-black mb-4">Pages</h4>
-              <div className="space-y-2 text-gray-600">
-                <Link href="/" className="block hover:text-black transition-colors">Home</Link>
-                <Link href="/insights" className="block hover:text-black transition-colors">Insights</Link>
-                <Link href="/portfolio" className="block hover:text-black transition-colors">Portfolio</Link>
-                <Link href="#contact" className="block hover:text-black transition-colors">Contact</Link>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-black mb-4">Legal</h4>
-              <div className="space-y-2 text-gray-600">
-                <Link href="/privacy" className="block hover:text-black transition-colors">Privacy Policy</Link>
-                <Link href="/terms" className="block hover:text-black transition-colors">Terms of Service</Link>
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-100 mt-12 pt-8 text-center">
-            <p className="text-gray-500">
-              &copy; 2025 JANUS. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

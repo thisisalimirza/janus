@@ -3,6 +3,7 @@ import Link from 'next/link'
 import ScrollAnimations from '../../components/ScrollAnimations'
 import BlogFilter from '../../components/BlogFilter'
 import Navigation from '../../components/Navigation'
+import Footer from '../../components/Footer'
 import { getBlogPosts } from '../../lib/notion'
 
 // Revalidate every 10 minutes
@@ -167,54 +168,7 @@ export default async function Insights() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white py-16 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <Link href="/">
-                <Image
-                  src="/JANUS-Logo-transparentBG.png"
-                  alt="JANUS"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto mb-6"
-                />
-              </Link>
-              <p className="text-lg text-gray-600 font-medium mb-4">
-                Built for founders who refuse to settle.
-              </p>
-              <p className="text-gray-500">
-                Premium creative agency for SaaS companies.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-black mb-4">Pages</h4>
-              <div className="space-y-2 text-gray-600">
-                <Link href="/" className="block hover:text-black transition-colors">Home</Link>
-                <Link href="/insights" className="block hover:text-black transition-colors">Insights</Link>
-                <Link href="/portfolio" className="block hover:text-black transition-colors">Portfolio</Link>
-                <Link href="/#contact" className="block hover:text-black transition-colors">Contact</Link>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-black mb-4">Legal</h4>
-              <div className="space-y-2 text-gray-600">
-                <Link href="/privacy" className="block hover:text-black transition-colors">Privacy Policy</Link>
-                <Link href="/terms" className="block hover:text-black transition-colors">Terms of Service</Link>
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-100 mt-12 pt-8 text-center">
-            <p className="text-gray-500">
-              &copy; 2025 JANUS. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
