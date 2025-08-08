@@ -308,12 +308,23 @@ function mapNotionPageToCaseStudy(page: any): CaseStudy {
 // Helper function to map Notion page to ClientLogo
 function mapNotionPageToClientLogo(page: any): ClientLogo {
   const properties = page.properties
+  
+  // Handle both URL property and File property for Logo
+  let logoUrl = ''
+  if (properties.Logo?.url) {
+    // URL property type
+    logoUrl = properties.Logo.url
+  } else if (properties.Logo?.files?.[0]) {
+    // File property type - handle both uploaded files and external links
+    const logoFile = properties.Logo.files[0]
+    logoUrl = logoFile.file?.url || logoFile.external?.url || ''
+  }
 
   return {
     id: page.id,
     name: getPlainText(properties.Name?.title || []),
-    logo: properties.Logo?.url || '', // URL property returns string directly
-    website: properties.Website?.url || undefined, // URL property returns string directly
+    logo: logoUrl,
+    website: properties.Website?.url || undefined,
     industry: properties.Industry?.select?.name || 'SaaS',
     stage: properties.Stage?.select?.name || 'Startup',
     order: properties.Order?.number || 0,

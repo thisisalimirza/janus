@@ -1,7 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { getOptimizedImageUrl, isNotionImageUrl } from '../utils/imageUtils'
+import { useImagePreloader } from '../hooks/useImagePreloader'
 
 interface ClientLogoProps {
   client: {
@@ -14,10 +16,23 @@ interface ClientLogoProps {
 }
 
 export default function ClientLogo({ client, variant = 'default' }: ClientLogoProps) {
-  const [imageError, setImageError] = useState(false)
+  const [imageSrc, setImageSrc] = useState('')
+
+  useEffect(() => {
+    if (client.logo) {
+      // Get optimized URL for the logo
+      const optimizedUrl = getOptimizedImageUrl(client.logo, 160)
+      setImageSrc(optimizedUrl)
+    } else {
+      setImageSrc('')
+    }
+  }, [client.logo])
+
+  // Use the image preloader hook for better loading management
+  const { loaded: imageLoaded, error: imageError, loading: imageLoading } = useImagePreloader(imageSrc)
 
   const LogoContent = () => {
-    if (imageError || !client.logo) {
+    if (imageError || !imageSrc) {
       if (variant === 'carousel') {
         return (
           <div className="text-center opacity-50 hover:opacity-75 transition-opacity">
@@ -40,18 +55,31 @@ export default function ClientLogo({ client, variant = 'default' }: ClientLogoPr
     }
 
     return (
-      <Image
-        src={client.logo}
-        alt={client.name}
-        width={120}
-        height={60}
-        className={variant === 'carousel' 
-          ? "max-w-28 max-h-14 lg:max-w-32 lg:max-h-16 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
-          : "max-w-28 max-h-14 lg:max-w-32 lg:max-h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-        }
-        onError={() => setImageError(true)}
-        priority={false}
-      />
+      <div className="relative">
+        {imageLoading && (
+          <div className={variant === 'carousel' 
+            ? "absolute inset-0 bg-gray-100 animate-pulse rounded max-w-28 max-h-14 lg:max-w-32 lg:max-h-16"
+            : "absolute inset-0 bg-gray-100 animate-pulse rounded-lg max-w-28 max-h-14 lg:max-w-32 lg:max-h-16"
+          } />
+        )}
+        <Image
+          src={imageSrc}
+          alt={client.name}
+          width={120}
+          height={60}
+          className={`transition-all duration-300 ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          } ${variant === 'carousel' 
+            ? "max-w-28 max-h-14 lg:max-w-32 lg:max-h-16 object-contain opacity-60 hover:opacity-100"
+            : "max-w-28 max-h-14 lg:max-w-32 lg:max-h-16 object-contain filter grayscale group-hover:grayscale-0"
+          }`}
+          priority={false}
+          sizes="(max-width: 640px) 112px, (max-width: 1024px) 128px, 128px"
+          {...(isNotionImageUrl(imageSrc) && {
+            referrerPolicy: 'no-referrer'
+          })}
+        />
+      </div>
     )
   }
 

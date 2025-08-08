@@ -22,8 +22,16 @@ export default function ClientLogoCarousel({ clientLogos }: ClientLogoCarouselPr
     { id: "6", name: "SyncPro", logo: "", website: "" }
   ]
 
-  // Use actual logos or fallback
+  // Use actual logos or fallback, but prioritize Notion data
   const logosToDisplay = clientLogos.length > 0 ? clientLogos : fallbackLogos
+  
+  // Log for debugging (only in development)
+  if (process.env.NODE_ENV === 'development') {
+    console.log('ClientLogoCarousel - Logos received:', clientLogos.length)
+    console.log('ClientLogoCarousel - Sample logo URLs:', 
+      clientLogos.slice(0, 2).map(logo => ({ name: logo.name, logo: logo.logo?.substring(0, 50) + '...' }))
+    )
+  }
 
   // Create enough copies to ensure seamless infinite scrolling
   // We need at least 3 full sets to ensure there's always content visible
