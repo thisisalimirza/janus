@@ -327,6 +327,37 @@ export default async function Home() {
               </div>
             </div>
           </div>
+
+          {/* Engine summary bar */}
+          <div className="scroll-animate fade-up delay-300 mt-20 bg-gray-50 border border-gray-100 rounded-2xl p-8 lg:p-10">
+            <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
+              <div className="flex-1 text-center lg:text-left">
+                <h3 className="font-display text-2xl font-bold text-black mb-2">
+                  Three components. One system. 21 days.
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
+                  You can start with just one component, or get the full Clarity Engine™ built at once —
+                  whichever fits where you are right now. Every tier leads to the same outcome: a funnel that converts.
+                </p>
+              </div>
+              <div className="flex items-center gap-3 text-sm shrink-0">
+                <div className="text-center px-4 py-3 bg-white border border-gray-200 rounded-xl">
+                  <p className="font-bold text-black text-lg">① only</p>
+                  <p className="text-gray-400 text-xs mt-0.5">Foundation</p>
+                </div>
+                <div className="text-gray-300 font-light text-xl">→</div>
+                <div className="text-center px-4 py-3 bg-janus-blue rounded-xl">
+                  <p className="font-bold text-white text-lg">① ② ③</p>
+                  <p className="text-blue-200 text-xs mt-0.5">Core Engine</p>
+                </div>
+                <div className="text-gray-300 font-light text-xl">→</div>
+                <div className="text-center px-4 py-3 bg-white border border-gray-200 rounded-xl">
+                  <p className="font-bold text-black text-lg">① ② ③ +∞</p>
+                  <p className="text-gray-400 text-xs mt-0.5">Embedded</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -517,30 +548,35 @@ export default async function Home() {
               Pricing
             </p>
             <h2 className="scroll-animate fade-up delay-200 font-display text-4xl lg:text-5xl font-bold text-black leading-tight mb-4">
-              Simple, transparent options
+              Start with one component.<br className="hidden lg:block" /> Scale when you&apos;re ready.
             </h2>
             <p className="scroll-animate fade-up delay-300 text-gray-500 max-w-xl mx-auto">
-              A single senior creative hire costs $7,000–10,000/month before benefits and management time.
-              JANUS is your entire team — strategy, production, and delivery included.
+              Every tier builds on the same Clarity Engine™ system — you choose how much of it to activate.
+              Hiring a single senior creative costs $7–10k/month. JANUS is your entire system.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-6 items-stretch">
 
-            {/* Starter */}
+            {/* Foundation — Component 1 only */}
             <div className="scroll-animate scale-in delay-300 bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
               <div className="flex-1">
-                <h3 className="font-display text-xl font-bold text-black mb-1">Starter Retainer</h3>
-                <p className="text-gray-400 text-sm mb-6">For early-stage teams that need ongoing content</p>
+                <div className="inline-flex items-center gap-1.5 mb-4">
+                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">1</span>
+                  <span className="text-xs text-gray-400 font-medium uppercase tracking-wide">Component ① only</span>
+                </div>
+                <h3 className="font-display text-xl font-bold text-black mb-1">Foundation</h3>
+                <p className="text-gray-400 text-sm mb-6">Start with the highest-impact asset first</p>
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-black">$3,000</span>
-                  <span className="text-gray-400 text-sm ml-2">/month</span>
+                  <span className="text-gray-400 text-sm ml-2">one-time</span>
                 </div>
                 <ul className="space-y-2 text-sm text-gray-500 mb-8">
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> 8 short-form videos per month</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Scripts and copy included</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Monthly strategy call</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Cancel anytime, no penalty</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> 60-second SaaS explainer video</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Script written by SaaS positioning specialists</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Professional motion animation + voiceover</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Delivered in MP4, WebM, and thumbnail</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Two revision rounds included</li>
                 </ul>
               </div>
               <CalBooking className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm">
@@ -548,7 +584,7 @@ export default async function Home() {
               </CalBooking>
             </div>
 
-            {/* Core Engine */}
+            {/* Core Engine — All 3 components */}
             <div className="scroll-animate scale-in delay-400 bg-janus-blue rounded-xl p-8 flex flex-col relative lg:scale-105">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                 <span className="bg-black text-white px-5 py-1.5 text-xs font-bold tracking-widest rounded-full uppercase whitespace-nowrap">
@@ -556,16 +592,22 @@ export default async function Home() {
                 </span>
               </div>
               <div className="flex-1">
+                <div className="inline-flex items-center gap-1.5 mb-4">
+                  <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-white text-xs font-bold">①</span>
+                  <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-white text-xs font-bold">②</span>
+                  <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-white text-xs font-bold">③</span>
+                  <span className="text-xs text-blue-200 font-medium uppercase tracking-wide ml-1">All 3 components</span>
+                </div>
                 <h3 className="font-display text-xl font-bold text-white mb-1">Core Engine</h3>
-                <p className="text-blue-200 text-sm mb-6">The complete JANUS Clarity Engine™, built once</p>
+                <p className="text-blue-200 text-sm mb-6">The complete JANUS Clarity Engine™, built at once</p>
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-white">$5,000</span>
                   <span className="text-blue-200 text-sm ml-2">one-time</span>
                 </div>
                 <ul className="space-y-2 text-sm text-blue-100 mb-8">
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 60-second SaaS explainer video</li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 3 feature adoption videos</li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 10 short-form ad videos with copy</li>
+                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 60-second SaaS explainer video <span className="text-blue-300 text-xs">(①)</span></li>
+                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 3 feature adoption videos, 60–90 sec each <span className="text-blue-300 text-xs">(②)</span></li>
+                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 10 short-form ad videos with scripts <span className="text-blue-300 text-xs">(③)</span></li>
                   <li className="flex gap-2"><span className="text-white font-bold">✓</span> Brand messaging framework</li>
                   <li className="flex gap-2"><span className="text-white font-bold">✓</span> 2 months of post-launch support</li>
                 </ul>
@@ -575,20 +617,28 @@ export default async function Home() {
               </CalBooking>
             </div>
 
-            {/* Embedded */}
+            {/* Embedded — Core Engine + ongoing */}
             <div className="scroll-animate scale-in delay-500 bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
               <div className="flex-1">
+                <div className="inline-flex items-center gap-1.5 mb-4">
+                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">①</span>
+                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">②</span>
+                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">③</span>
+                  <span className="text-gray-300 font-light text-sm mx-0.5">+</span>
+                  <span className="text-xs text-gray-400 font-medium uppercase tracking-wide">Ongoing</span>
+                </div>
                 <h3 className="font-display text-xl font-bold text-black mb-1">Embedded Creative</h3>
-                <p className="text-gray-400 text-sm mb-6">For scaling companies that need continuous output</p>
+                <p className="text-gray-400 text-sm mb-6">Full Engine in month one, then continuous output</p>
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-black">$7,500+</span>
                   <span className="text-gray-400 text-sm ml-2">/month</span>
                 </div>
                 <ul className="space-y-2 text-sm text-gray-500 mb-8">
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> 30+ pieces of content per month</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Dedicated creative team</li>
+                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Full Core Engine delivered in month 1</li>
+                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> 30+ pieces of content monthly after that</li>
+                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Dedicated creative team, no management overhead</li>
                   <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Weekly strategy sessions</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Ad campaign management</li>
+                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Ad campaign management included</li>
                   <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Cancel anytime, no penalty</li>
                 </ul>
               </div>
