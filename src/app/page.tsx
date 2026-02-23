@@ -46,7 +46,7 @@ export default async function Home() {
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <p className="text-lg lg:text-xl font-light mb-10 max-w-3xl mx-auto leading-relaxed text-gray-300">
-              JANUS builds the motion videos, messaging, and ad content that turn SaaS visitors into demos —
+              JANUS builds the motion videos, landing pages, and ad content that turn SaaS visitors into demos —
               delivered in 21 days, without the overhead of hiring a creative team.
             </p>
           </div>
@@ -326,6 +326,65 @@ export default async function Home() {
                 </ul>
               </div>
             </div>
+
+            {/* Component 4 */}
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div className="scroll-animate slide-left">
+                <div className="inline-flex items-center gap-2 mb-6">
+                  <span className="w-7 h-7 bg-janus-blue rounded-full flex items-center justify-center text-white text-xs font-bold">4</span>
+                  <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">Component Four</span>
+                </div>
+                <h3 className="font-display text-3xl lg:text-4xl font-bold text-black mb-5 leading-tight">
+                  Landing Page Redesign
+                </h3>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  A full conversion-focused redesign of your hero section and landing page — built around the explainer video and the messaging framework we develop together. Visitors who land on your page will finally understand your product in under 10 seconds.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-500">
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Full page copy rewrite, from headline to CTA</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Conversion-optimized layout and section structure</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Explainer video integrated into the hero</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Delivered as Figma file + developer-ready specs</li>
+                </ul>
+              </div>
+
+              <div className="scroll-animate slide-right delay-200">
+                <div className="aspect-video rounded-xl overflow-hidden bg-gray-950 flex flex-col">
+                  {/* Browser chrome */}
+                  <div className="flex items-center gap-1.5 px-4 py-3 bg-gray-900 border-b border-white/10 shrink-0">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                    <div className="ml-3 flex-1 bg-white/5 rounded px-3 py-1 text-gray-500 text-xs font-mono">yourproduct.com</div>
+                  </div>
+                  {/* Page mockup */}
+                  <div className="flex-1 p-6 flex flex-col justify-between">
+                    <div>
+                      <div className="w-20 h-1.5 bg-janus-blue/60 rounded mb-3" />
+                      <div className="w-3/4 h-4 bg-white/20 rounded mb-2" />
+                      <div className="w-1/2 h-4 bg-white/10 rounded mb-5" />
+                      <div className="w-full h-2 bg-white/10 rounded mb-1.5" />
+                      <div className="w-5/6 h-2 bg-white/10 rounded mb-1.5" />
+                      <div className="w-4/6 h-2 bg-white/10 rounded mb-6" />
+                      <div className="inline-block bg-janus-blue px-5 py-2 rounded-sm">
+                        <div className="w-24 h-2 bg-white/80 rounded" />
+                      </div>
+                    </div>
+                    <div className="border border-white/10 rounded-lg p-3 flex items-center gap-3">
+                      <div className="w-8 h-8 bg-janus-blue/20 rounded flex items-center justify-center shrink-0">
+                        <svg className="w-4 h-4 text-janus-blue" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <div className="w-3/4 h-1.5 bg-white/20 rounded mb-1" />
+                        <div className="w-1/2 h-1.5 bg-white/10 rounded" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Engine summary bar */}
@@ -333,7 +392,7 @@ export default async function Home() {
             <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
               <div className="flex-1 text-center lg:text-left">
                 <h3 className="font-display text-2xl font-bold text-black mb-2">
-                  Three components. One system. 21 days.
+                  Four components. One system. 21 days.
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
                   You can start with just one component, or get the full Clarity Engine™ built at once —
@@ -347,12 +406,12 @@ export default async function Home() {
                 </div>
                 <div className="text-gray-300 font-light text-xl">→</div>
                 <div className="text-center px-4 py-3 bg-janus-blue rounded-xl">
-                  <p className="font-bold text-white text-lg">① ② ③</p>
+                  <p className="font-bold text-white text-lg">① ② ③ ④</p>
                   <p className="text-blue-200 text-xs mt-0.5">Core Engine</p>
                 </div>
                 <div className="text-gray-300 font-light text-xl">→</div>
                 <div className="text-center px-4 py-3 bg-white border border-gray-200 rounded-xl">
-                  <p className="font-bold text-black text-lg">① ② ③ +∞</p>
+                  <p className="font-bold text-black text-lg">① ② ③ ④ +∞</p>
                   <p className="text-gray-400 text-xs mt-0.5">Embedded</p>
                 </div>
               </div>
@@ -584,7 +643,7 @@ export default async function Home() {
               </CalBooking>
             </div>
 
-            {/* Core Engine — All 3 components */}
+            {/* Core Engine — All 4 components */}
             <div className="scroll-animate scale-in delay-400 bg-janus-blue rounded-xl p-8 flex flex-col relative lg:scale-105">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                 <span className="bg-black text-white px-5 py-1.5 text-xs font-bold tracking-widest rounded-full uppercase whitespace-nowrap">
@@ -596,7 +655,8 @@ export default async function Home() {
                   <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-white text-xs font-bold">①</span>
                   <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-white text-xs font-bold">②</span>
                   <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-white text-xs font-bold">③</span>
-                  <span className="text-xs text-blue-200 font-medium uppercase tracking-wide ml-1">All 3 components</span>
+                  <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-white text-xs font-bold">④</span>
+                  <span className="text-xs text-blue-200 font-medium uppercase tracking-wide ml-1">All 4 components</span>
                 </div>
                 <h3 className="font-display text-xl font-bold text-white mb-1">Core Engine</h3>
                 <p className="text-blue-200 text-sm mb-6">The complete JANUS Clarity Engine™, built at once</p>
@@ -608,6 +668,7 @@ export default async function Home() {
                   <li className="flex gap-2"><span className="text-white font-bold">✓</span> 60-second SaaS explainer video <span className="text-blue-300 text-xs">(①)</span></li>
                   <li className="flex gap-2"><span className="text-white font-bold">✓</span> 3 feature adoption videos, 60–90 sec each <span className="text-blue-300 text-xs">(②)</span></li>
                   <li className="flex gap-2"><span className="text-white font-bold">✓</span> 10 short-form ad videos with scripts <span className="text-blue-300 text-xs">(③)</span></li>
+                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> Landing page redesign, copy + layout <span className="text-blue-300 text-xs">(④)</span></li>
                   <li className="flex gap-2"><span className="text-white font-bold">✓</span> Brand messaging framework</li>
                   <li className="flex gap-2"><span className="text-white font-bold">✓</span> 2 months of post-launch support</li>
                 </ul>
@@ -624,6 +685,7 @@ export default async function Home() {
                   <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">①</span>
                   <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">②</span>
                   <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">③</span>
+                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">④</span>
                   <span className="text-gray-300 font-light text-sm mx-0.5">+</span>
                   <span className="text-xs text-gray-400 font-medium uppercase tracking-wide">Ongoing</span>
                 </div>
@@ -686,7 +748,7 @@ export default async function Home() {
             {[
               {
                 q: 'What exactly do I get with the Core Engine?',
-                a: 'You get the complete JANUS Clarity Engine™: one 60-second SaaS explainer video, three feature adoption videos, ten short-form ad videos with scripts, and a brand messaging framework — all produced in 21 days. Two months of post-launch iteration support is included.',
+                a: 'You get the complete JANUS Clarity Engine™: one 60-second SaaS explainer video, three feature adoption videos, ten short-form ad videos with scripts, a full landing page redesign (copy + layout), and a brand messaging framework — all produced in 21 days. Two months of post-launch iteration support is included.',
               },
               {
                 q: 'How fast will I see results?',
