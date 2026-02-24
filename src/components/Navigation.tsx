@@ -24,21 +24,21 @@ export default function Navigation({ currentPage }: NavigationProps) {
           
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <Link 
-              href="/insights" 
-              className={`transition-colors font-medium ${
-                currentPage === 'insights' 
-                  ? 'text-janus-blue' 
+            <Link
+              href="/insights"
+              className={`link-line transition-all duration-200 font-medium ${
+                currentPage === 'insights'
+                  ? 'text-janus-blue'
                   : 'text-gray-700 hover:text-black'
               }`}
             >
               Insights
             </Link>
-            <Link 
-              href="/portfolio" 
-              className={`transition-colors font-medium ${
-                currentPage === 'portfolio' 
-                  ? 'text-janus-blue' 
+            <Link
+              href="/portfolio"
+              className={`link-line transition-all duration-200 font-medium ${
+                currentPage === 'portfolio'
+                  ? 'text-janus-blue'
                   : 'text-gray-700 hover:text-black'
               }`}
             >
@@ -46,7 +46,7 @@ export default function Navigation({ currentPage }: NavigationProps) {
             </Link>
             <Link
               href="/#contact"
-              className="bg-black text-white px-6 py-2.5 text-sm font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
+              className="bg-black text-white px-6 py-2.5 text-sm font-semibold tracking-wide hover:bg-gray-900 hover:-translate-y-0.5 transition-all duration-200 rounded-sm whitespace-nowrap btn-press"
             >
               Get A Personalized Strategy
             </Link>
@@ -54,21 +54,21 @@ export default function Navigation({ currentPage }: NavigationProps) {
           
           {/* Mobile Navigation */}
           <div className="lg:hidden flex items-center space-x-4">
-            <Link 
-              href="/insights" 
-              className={`transition-colors text-sm font-medium ${
-                currentPage === 'insights' 
-                  ? 'text-janus-blue' 
+            <Link
+              href="/insights"
+              className={`link-line transition-all duration-200 text-sm font-medium ${
+                currentPage === 'insights'
+                  ? 'text-janus-blue'
                   : 'text-gray-700 hover:text-black'
               }`}
             >
               Insights
             </Link>
-            <Link 
-              href="/portfolio" 
-              className={`transition-colors text-sm font-medium ${
-                currentPage === 'portfolio' 
-                  ? 'text-janus-blue' 
+            <Link
+              href="/portfolio"
+              className={`link-line transition-all duration-200 text-sm font-medium ${
+                currentPage === 'portfolio'
+                  ? 'text-janus-blue'
                   : 'text-gray-700 hover:text-black'
               }`}
             >
@@ -76,7 +76,7 @@ export default function Navigation({ currentPage }: NavigationProps) {
             </Link>
             <Link
               href="/#contact"
-              className="bg-black text-white px-3 py-2 text-xs font-semibold tracking-wide hover:bg-gray-900 transition-colors duration-300 rounded-sm whitespace-nowrap"
+              className="bg-black text-white px-3 py-2 text-xs font-semibold tracking-wide hover:bg-gray-900 hover:-translate-y-0.5 transition-all duration-200 rounded-sm whitespace-nowrap btn-press"
             >
               <span className="hidden sm:inline">Get Your Strategy</span>
               <span className="sm:hidden">Get Your Strategy</span>

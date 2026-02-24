@@ -665,7 +665,7 @@ export default async function Home() {
                   ))}
                 </ul>
               </div>
-              <CalBooking className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm">
+              <CalBooking className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 hover:-translate-y-0.5 transition-all duration-200 rounded-sm btn-press">
                 Book a Strategy Call
               </CalBooking>
             </div>
@@ -707,7 +707,7 @@ export default async function Home() {
                   ))}
                 </ul>
               </div>
-              <CalBooking className="block w-full text-center bg-white text-janus-blue py-4 font-bold hover:bg-gray-50 transition-colors duration-300 rounded-sm text-base">
+              <CalBooking className="block w-full text-center bg-white text-janus-blue py-4 font-bold hover:bg-gray-50 hover:-translate-y-0.5 transition-all duration-200 rounded-sm text-base btn-press">
                 Book a Strategy Call
               </CalBooking>
             </div>
@@ -738,7 +738,7 @@ export default async function Home() {
                   ))}
                 </ul>
               </div>
-              <CalBooking className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm">
+              <CalBooking className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 hover:-translate-y-0.5 transition-all duration-200 rounded-sm btn-press">
                 Book a Strategy Call
               </CalBooking>
             </div>
@@ -756,7 +756,7 @@ export default async function Home() {
             </div>
             <Link
               href="/traction-kit"
-              className="shrink-0 bg-white text-black px-6 py-3 text-sm font-bold hover:bg-gray-100 transition-colors duration-200 rounded-sm whitespace-nowrap"
+              className="shrink-0 bg-white text-black px-6 py-3 text-sm font-bold hover:bg-gray-100 hover:-translate-y-0.5 transition-all duration-200 rounded-sm whitespace-nowrap btn-press"
             >
               Learn more
               <svg className="inline-block w-4 h-4 ml-1.5 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -777,7 +777,7 @@ export default async function Home() {
                   href="https://tally.so/r/nrMgY2"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 border border-gray-200 rounded-xl px-5 py-4 hover:border-janus-blue/40 hover:bg-gray-50 transition-all duration-200 group"
+                  className="flex items-center gap-3 border border-gray-200 rounded-xl px-5 py-4 hover:border-janus-blue/40 hover:bg-gray-50 hover:-translate-y-0.5 transition-all duration-200 group btn-press"
                 >
                   <div className="w-8 h-8 bg-janus-blue/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-janus-blue/20 transition-colors duration-200">
                     <svg className="w-4 h-4 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -796,7 +796,7 @@ export default async function Home() {
                   href="https://tally.so/r/n9jxRE"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 border border-gray-200 rounded-xl px-5 py-4 hover:border-janus-blue/40 hover:bg-gray-50 transition-all duration-200 group"
+                  className="flex items-center gap-3 border border-gray-200 rounded-xl px-5 py-4 hover:border-janus-blue/40 hover:bg-gray-50 hover:-translate-y-0.5 transition-all duration-200 group btn-press"
                 >
                   <div className="w-8 h-8 bg-janus-blue/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-janus-blue/20 transition-colors duration-200">
                     <svg className="w-4 h-4 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -930,7 +930,7 @@ export default async function Home() {
             </div>
 
             <div className="space-y-3">
-              <CalBooking className="w-full bg-janus-blue text-white py-4 text-base font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
+              <CalBooking className="w-full bg-janus-blue text-white py-4 text-base font-bold hover:bg-blue-700 hover:-translate-y-0.5 transition-all duration-200 rounded-sm btn-press">
                 Book a Free Strategy Call
               </CalBooking>
 
@@ -940,7 +940,7 @@ export default async function Home() {
                 href="https://tally.so/r/nrMgY2"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full border border-white/10 text-gray-300 py-3 text-sm font-medium hover:border-white/20 hover:bg-white/5 transition-colors duration-300 rounded-sm"
+                className="block w-full border border-white/10 text-gray-300 py-3 text-sm font-medium hover:border-white/20 hover:bg-white/5 hover:-translate-y-0.5 transition-all duration-200 rounded-sm btn-press"
               >
                 Request 2 free ad videos for your company &rarr;
               </Link>
@@ -948,7 +948,7 @@ export default async function Home() {
                 href="https://tally.so/r/n9jxRE"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full border border-white/10 text-gray-300 py-3 text-sm font-medium hover:border-white/20 hover:bg-white/5 transition-colors duration-300 rounded-sm"
+                className="block w-full border border-white/10 text-gray-300 py-3 text-sm font-medium hover:border-white/20 hover:bg-white/5 hover:-translate-y-0.5 transition-all duration-200 rounded-sm btn-press"
               >
                 Get a free teardown of your landing page copy &rarr;
               </Link>

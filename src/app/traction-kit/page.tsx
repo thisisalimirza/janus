@@ -60,7 +60,7 @@ export default function TractionKit() {
           </div>
 
           <div className="animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4" style={{ animationDelay: '0.4s' }}>
-            <BuyButton className="inline-block bg-janus-blue text-white px-10 py-4 text-lg font-semibold tracking-wide hover:bg-blue-700 transition-all duration-300 rounded-sm">
+            <BuyButton className="inline-block bg-janus-blue text-white px-10 py-4 text-lg font-semibold tracking-wide hover:bg-blue-700 hover:-translate-y-0.5 transition-all duration-200 rounded-sm btn-press">
               Get Your Kit — $299
             </BuyButton>
             <p className="text-white/40 text-sm">
@@ -405,7 +405,7 @@ export default function TractionKit() {
                 <p className="text-sm text-gray-600 leading-relaxed">
                   <strong className="text-black">Already have traction and ready to scale?</strong> The Traction Kit is the starting point.
                   Once you have users and momentum, the{' '}
-                  <Link href="/" className="text-janus-blue font-semibold hover:underline">
+                  <Link href="/" className="text-janus-blue font-semibold link-line">
                     JANUS Clarity Engine™
                   </Link>{' '}
                   is built to turn that into a full conversion system — landing pages, videos, and ad content that compounds.
@@ -460,7 +460,7 @@ export default function TractionKit() {
               ))}
             </ul>
 
-            <BuyButton className="block w-full text-center bg-janus-blue text-white py-4 text-base font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
+            <BuyButton className="block w-full text-center bg-janus-blue text-white py-4 text-base font-bold hover:bg-blue-700 hover:-translate-y-0.5 transition-all duration-200 rounded-sm btn-press">
               Get Your Traction Kit — $299
             </BuyButton>
 
@@ -474,7 +474,7 @@ export default function TractionKit() {
               Have questions before purchasing?{' '}
               <Link
                 href="/"
-                className="text-janus-blue hover:underline font-medium"
+                className="text-janus-blue font-medium link-line"
               >
                 Book a free 15-minute call first &rarr;
               </Link>
@@ -556,7 +556,7 @@ export default function TractionKit() {
           </p>
 
           <div className="scroll-animate scale-in delay-300 flex flex-col items-center gap-4">
-            <BuyButton className="inline-block bg-janus-blue text-white px-12 py-5 text-lg font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
+            <BuyButton className="inline-block bg-janus-blue text-white px-12 py-5 text-lg font-bold hover:bg-blue-700 hover:-translate-y-0.5 transition-all duration-200 rounded-sm btn-press">
               Get Your Traction Kit — $299
             </BuyButton>
             <p className="text-gray-600 text-sm">

@@ -27,30 +27,30 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-black mb-4">Services</h4>
             <div className="space-y-2 text-gray-600">
-              <Link href="/" className="block hover:text-black transition-colors">Full Service</Link>
-              <Link href="/websites" className="block hover:text-black transition-colors">Websites Offer</Link>
-              <Link href="/careframe" className="block hover:text-black transition-colors">Careframe for Doctors</Link>
+              <Link href="/" className="block hover:text-black hover:translate-x-0.5 transition-all duration-150">Full Service</Link>
+              <Link href="/websites" className="block hover:text-black hover:translate-x-0.5 transition-all duration-150">Websites Offer</Link>
+              <Link href="/careframe" className="block hover:text-black hover:translate-x-0.5 transition-all duration-150">Careframe for Doctors</Link>
             </div>
             
             <h4 className="font-bold text-black mb-4 mt-8">Company</h4>
             <div className="space-y-2 text-gray-600">
-              <Link href="/insights" className="block hover:text-black transition-colors">Insights</Link>
-              <Link href="/portfolio" className="block hover:text-black transition-colors">Portfolio</Link>
+              <Link href="/insights" className="block hover:text-black hover:translate-x-0.5 transition-all duration-150">Insights</Link>
+              <Link href="/portfolio" className="block hover:text-black hover:translate-x-0.5 transition-all duration-150">Portfolio</Link>
             </div>
           </div>
           
           <div>
             <h4 className="font-bold text-black mb-4">Legal</h4>
             <div className="space-y-2 text-gray-600">
-              <Link href="/privacy" className="block hover:text-black transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="block hover:text-black transition-colors">Terms of Service</Link>
+              <Link href="/privacy" className="block hover:text-black hover:translate-x-0.5 transition-all duration-150">Privacy Policy</Link>
+              <Link href="/terms" className="block hover:text-black hover:translate-x-0.5 transition-all duration-150">Terms of Service</Link>
             </div>
             
             <h4 className="font-bold text-black mb-4 mt-8">Contact</h4>
             <div className="space-y-2 text-gray-600">
-              <Link href="/#contact" className="block hover:text-black transition-colors">Book a Call</Link>
-              <Link href="https://tally.so/r/nrMgY2" target="_blank" rel="noopener noreferrer" className="block hover:text-black transition-colors">Get 2 Free Ads</Link>
-              <Link href="https://tally.so/r/n9jxRE" target="_blank" rel="noopener noreferrer" className="block hover:text-black transition-colors">Request a Free Website Review</Link>
+              <Link href="/#contact" className="block hover:text-black hover:translate-x-0.5 transition-all duration-150">Book a Call</Link>
+              <Link href="https://tally.so/r/nrMgY2" target="_blank" rel="noopener noreferrer" className="block hover:text-black hover:translate-x-0.5 transition-all duration-150">Get 2 Free Ads</Link>
+              <Link href="https://tally.so/r/n9jxRE" target="_blank" rel="noopener noreferrer" className="block hover:text-black hover:translate-x-0.5 transition-all duration-150">Request a Free Website Review</Link>
             </div>
           </div>
         </div>
