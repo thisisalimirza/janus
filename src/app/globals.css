@@ -269,6 +269,9 @@ body {
 .scroll-animate.delay-300 { transition-delay: 150ms; }
 .scroll-animate.delay-400 { transition-delay: 200ms; }
 .scroll-animate.delay-500 { transition-delay: 250ms; }
+.scroll-animate.delay-550 { transition-delay: 275ms; }
+.scroll-animate.delay-600 { transition-delay: 300ms; }
+.scroll-animate.delay-700 { transition-delay: 350ms; }
 
 /* Hero section animations - start invisible */
 .animate-fade-in-up {
@@ -334,6 +337,52 @@ body {
 .hover-rise:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtle card lift — lighter than hover-rise */
+.card-lift {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  will-change: transform;
+}
+
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.10);
+}
+
+/* Button press feedback */
+.btn-press:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+/* Animated underline for inline text links */
+.link-line {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s ease-out;
+  text-decoration: none;
+}
+
+.link-line:hover {
+  background-size: 100% 1px;
+}
+
+/* Selection colour */
+::selection {
+  background: rgba(37, 99, 235, 0.12);
+}
+
+/* Pulsing ring for primary CTA */
+@keyframes ring-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.45); }
+  60%       { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+}
+
+.cta-pulse {
+  animation: ring-pulse 2.8s ease-out infinite;
 }
 
 /* Typography enhancements */

@@ -52,7 +52,7 @@ export default async function Home() {
           </div>
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <CalBooking className="inline-block bg-janus-blue text-white px-10 py-4 text-lg font-semibold tracking-wide hover:bg-blue-700 transition-all duration-300 hover-rise janus-shadow-xl rounded-sm">
+            <CalBooking className="inline-block bg-janus-blue text-white px-10 py-4 text-lg font-semibold tracking-wide hover:bg-blue-700 transition-all duration-300 hover-rise cta-pulse janus-shadow-xl rounded-sm btn-press">
               Book a Free Strategy Call
             </CalBooking>
             <p className="text-xs text-white/50 mt-4">
@@ -101,8 +101,8 @@ export default async function Home() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-6">
-            <div className="scroll-animate scale-in delay-300 border border-gray-100 rounded-xl p-8 hover:border-janus-blue/30 hover:shadow-lg transition-all duration-300">
-              <div className="w-10 h-10 bg-janus-blue/10 rounded-lg flex items-center justify-center mb-5">
+            <div className="scroll-animate scale-in delay-300 card-lift group border border-gray-100 rounded-xl p-8 hover:border-janus-blue/20">
+              <div className="w-10 h-10 bg-janus-blue/10 rounded-lg flex items-center justify-center mb-5 group-hover:bg-janus-blue/20 transition-colors duration-200">
                 <svg className="w-5 h-5 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
@@ -115,8 +115,8 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="scroll-animate scale-in delay-400 border border-gray-100 rounded-xl p-8 hover:border-janus-blue/30 hover:shadow-lg transition-all duration-300">
-              <div className="w-10 h-10 bg-janus-blue/10 rounded-lg flex items-center justify-center mb-5">
+            <div className="scroll-animate scale-in delay-400 card-lift group border border-gray-100 rounded-xl p-8 hover:border-janus-blue/20">
+              <div className="w-10 h-10 bg-janus-blue/10 rounded-lg flex items-center justify-center mb-5 group-hover:bg-janus-blue/20 transition-colors duration-200">
                 <svg className="w-5 h-5 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                 </svg>
@@ -129,8 +129,8 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="scroll-animate scale-in delay-500 border border-gray-100 rounded-xl p-8 hover:border-janus-blue/30 hover:shadow-lg transition-all duration-300">
-              <div className="w-10 h-10 bg-janus-blue/10 rounded-lg flex items-center justify-center mb-5">
+            <div className="scroll-animate scale-in delay-500 card-lift group border border-gray-100 rounded-xl p-8 hover:border-janus-blue/20">
+              <div className="w-10 h-10 bg-janus-blue/10 rounded-lg flex items-center justify-center mb-5 group-hover:bg-janus-blue/20 transition-colors duration-200">
                 <svg className="w-5 h-5 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
@@ -191,7 +191,7 @@ export default async function Home() {
                   label: 'Ad spend burning without converting because your creative does not stop the scroll',
                 },
               ].map((item, i) => (
-                <div key={i} className="flex gap-4 items-start bg-white/5 border border-white/10 rounded-xl p-5">
+                <div key={i} className="flex gap-4 items-start bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/8 hover:border-white/20 transition-colors duration-200">
                   <div className="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       {item.svg}
@@ -268,11 +268,13 @@ export default async function Home() {
                 <p className="text-gray-600 leading-relaxed mb-6">
                   A motion video that tells your product story in 60 seconds or less. Lives on your hero section and turns bouncing visitors into booked demos.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500">
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Script written by SaaS positioning specialists</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Professional motion animation and voiceover</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Delivered in all formats: MP4, WebM, thumbnail</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Two revision rounds included</li>
+                <ul className="space-y-3 text-sm text-gray-500">
+                  {['Script written by SaaS positioning specialists', 'Professional motion animation and voiceover', 'Delivered in all formats: MP4, WebM, thumbnail', 'Two revision rounds included'].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <svg className="w-4 h-4 text-janus-blue shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -290,11 +292,13 @@ export default async function Home() {
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Three short videos that explain your most powerful features — the ones users miss, misunderstand, or abandon before they see the value.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500">
-                  <li className="flex gap-2"><span className="text-black font-bold">✓</span> 3 feature videos, 60–90 seconds each</li>
-                  <li className="flex gap-2"><span className="text-black font-bold">✓</span> Embedded in onboarding emails and in-app tours</li>
-                  <li className="flex gap-2"><span className="text-black font-bold">✓</span> Reduces support tickets and early churn</li>
-                  <li className="flex gap-2"><span className="text-black font-bold">✓</span> Drives upsell to higher-tier plans</li>
+                <ul className="space-y-3 text-sm text-gray-500">
+                  {['3 feature videos, 60–90 seconds each', 'Embedded in onboarding emails and in-app tours', 'Reduces support tickets and early churn', 'Drives upsell to higher-tier plans'].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <svg className="w-4 h-4 text-black shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -336,11 +340,13 @@ export default async function Home() {
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Up to 30 optimized short-form videos built for LinkedIn, Meta, and YouTube — using creative frameworks proven to convert in B2B SaaS.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500">
-                  <li className="flex gap-2"><span className="text-gray-500 font-bold">✓</span> Hook-first creative designed to stop the scroll</li>
-                  <li className="flex gap-2"><span className="text-gray-500 font-bold">✓</span> Scripts and captions included for every video</li>
-                  <li className="flex gap-2"><span className="text-gray-500 font-bold">✓</span> Optimized for paid and organic distribution</li>
-                  <li className="flex gap-2"><span className="text-gray-500 font-bold">✓</span> Ready to plug into your existing ad accounts</li>
+                <ul className="space-y-3 text-sm text-gray-500">
+                  {['Hook-first creative designed to stop the scroll', 'Scripts and captions included for every video', 'Optimized for paid and organic distribution', 'Ready to plug into your existing ad accounts'].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <svg className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -358,11 +364,13 @@ export default async function Home() {
                 <p className="text-gray-600 leading-relaxed mb-6">
                   A full conversion-focused redesign of your hero section and landing page — built around the explainer video and the messaging framework we develop together. Visitors who land on your page will finally understand your product in under 10 seconds.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500">
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Full page copy rewrite, from headline to CTA</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Conversion-optimized layout and section structure</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Explainer video integrated into the hero</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Delivered as Figma file + developer-ready specs</li>
+                <ul className="space-y-3 text-sm text-gray-500">
+                  {['Full page copy rewrite, from headline to CTA', 'Conversion-optimized layout and section structure', 'Explainer video integrated into the hero', 'Delivered as Figma file + developer-ready specs'].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <svg className="w-4 h-4 text-janus-blue shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -570,7 +578,7 @@ export default async function Home() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            <div className="scroll-animate slide-left delay-300 bg-gray-50 border border-gray-100 p-10 rounded-xl">
+            <div className="scroll-animate slide-left delay-300 card-lift bg-gray-50 border border-gray-100 p-10 rounded-xl">
               <div className="flex gap-1 mb-6">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <svg key={i} className="w-4 h-4 text-janus-blue" fill="currentColor" viewBox="0 0 20 20">
@@ -592,7 +600,7 @@ export default async function Home() {
               </div>
             </div>
 
-            <div className="scroll-animate slide-right delay-400 bg-gray-50 border border-gray-100 p-10 rounded-xl">
+            <div className="scroll-animate slide-right delay-400 card-lift bg-gray-50 border border-gray-100 p-10 rounded-xl">
               <div className="flex gap-1 mb-6">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <svg key={i} className="w-4 h-4 text-janus-blue" fill="currentColor" viewBox="0 0 20 20">
@@ -636,7 +644,7 @@ export default async function Home() {
           <div className="grid lg:grid-cols-3 gap-6 items-stretch">
 
             {/* Foundation — Landing Page only */}
-            <div className="scroll-animate scale-in delay-300 bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
+            <div className="scroll-animate scale-in delay-300 card-lift bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
               <div className="flex-1">
                 <div className="inline-flex items-center gap-1.5 mb-4">
                   <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">④</span>
@@ -648,12 +656,13 @@ export default async function Home() {
                   <span className="text-4xl font-bold text-black">$3,000</span>
                   <span className="text-gray-400 text-sm ml-2">one-time</span>
                 </div>
-                <ul className="space-y-2 text-sm text-gray-500 mb-8">
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Full landing page copy rewrite, headline to CTA</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Conversion-optimized layout and section structure</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Brand messaging framework included</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Delivered as Figma file + developer-ready specs</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Two revision rounds included</li>
+                <ul className="space-y-3 text-sm text-gray-500 mb-8">
+                  {['Full landing page copy rewrite, headline to CTA', 'Conversion-optimized layout and section structure', 'Brand messaging framework included', 'Delivered as Figma file + developer-ready specs', 'Two revision rounds included'].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <svg className="w-4 h-4 text-janus-blue shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
               <CalBooking className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm">
@@ -682,13 +691,20 @@ export default async function Home() {
                   <span className="text-4xl font-bold text-white">$5,000</span>
                   <span className="text-blue-200 text-sm ml-2">one-time</span>
                 </div>
-                <ul className="space-y-2 text-sm text-blue-100 mb-8">
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 60-second SaaS explainer video <span className="text-blue-300 text-xs">(①)</span></li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 3 feature adoption videos, 60–90 sec each <span className="text-blue-300 text-xs">(②)</span></li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 10 short-form ad videos with scripts <span className="text-blue-300 text-xs">(③)</span></li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> Landing page redesign, copy + layout <span className="text-blue-300 text-xs">(④)</span></li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> Brand messaging framework</li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 2 months of post-launch support</li>
+                <ul className="space-y-3 text-sm text-blue-100 mb-8">
+                  {[
+                    ['60-second SaaS explainer video', '①'],
+                    ['3 feature adoption videos, 60–90 sec each', '②'],
+                    ['10 short-form ad videos with scripts', '③'],
+                    ['Landing page redesign, copy + layout', '④'],
+                    ['Brand messaging framework', ''],
+                    ['2 months of post-launch support', ''],
+                  ].map(([label, badge]) => (
+                    <li key={label} className="flex items-start gap-2.5">
+                      <svg className="w-4 h-4 text-white/80 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      {label}{badge && <span className="text-blue-300 text-xs ml-1">({badge})</span>}
+                    </li>
+                  ))}
                 </ul>
               </div>
               <CalBooking className="block w-full text-center bg-white text-janus-blue py-4 font-bold hover:bg-gray-50 transition-colors duration-300 rounded-sm text-base">
@@ -697,7 +713,7 @@ export default async function Home() {
             </div>
 
             {/* Embedded — Core Engine + ongoing */}
-            <div className="scroll-animate scale-in delay-500 bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
+            <div className="scroll-animate scale-in delay-500 card-lift bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
               <div className="flex-1">
                 <div className="inline-flex items-center gap-1.5 mb-4">
                   <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">①</span>
@@ -713,13 +729,13 @@ export default async function Home() {
                   <span className="text-4xl font-bold text-black">$7,500+</span>
                   <span className="text-gray-400 text-sm ml-2">/month</span>
                 </div>
-                <ul className="space-y-2 text-sm text-gray-500 mb-8">
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Full Core Engine delivered in month 1</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> 30+ pieces of content monthly after that</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Dedicated creative team, no management overhead</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Weekly strategy sessions</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Ad campaign management included</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Cancel anytime, no penalty</li>
+                <ul className="space-y-3 text-sm text-gray-500 mb-8">
+                  {['Full Core Engine delivered in month 1', '30+ pieces of content monthly after that', 'Dedicated creative team, no management overhead', 'Weekly strategy sessions', 'Ad campaign management included', 'Cancel anytime, no penalty'].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <svg className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
               <CalBooking className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm">
