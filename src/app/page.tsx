@@ -739,7 +739,7 @@ export default async function Home() {
               </p>
             </div>
             <Link
-              href="/raise-ready"
+              href="/traction-kit"
               className="shrink-0 bg-white text-black px-6 py-3 text-sm font-bold hover:bg-gray-100 transition-colors duration-200 rounded-sm whitespace-nowrap"
             >
               Learn more

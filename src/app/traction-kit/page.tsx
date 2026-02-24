@@ -25,7 +25,7 @@ function BuyButton({ className, children }: { className: string; children: React
   )
 }
 
-export default function RaiseReady() {
+export default function TractionKit() {
   return (
     <div className="bg-white">
       <ScrollAnimations />
@@ -107,24 +107,40 @@ export default function RaiseReady() {
             <div className="scroll-animate slide-right delay-200 space-y-4">
               {[
                 {
-                  icon: '◌',
+                  icon: (
+                    <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                    </svg>
+                  ),
                   label: 'You can\'t get your first 10 real users because you don\'t know which channel to start with or how to talk about what you built',
                 },
                 {
-                  icon: '≡',
+                  icon: (
+                    <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  ),
                   label: 'When you do pitch — to users, investors, or partners — it falls flat because you\'re describing features, not telling a story that makes people lean in',
                 },
                 {
-                  icon: '⌀',
+                  icon: (
+                    <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  ),
                   label: 'Your GTM plan says "we\'ll do content, paid ads, and outbound" — but with no data behind which of those actually works for your specific product and market',
                 },
                 {
-                  icon: '◷',
+                  icon: (
+                    <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  ),
                   label: 'You\'re moving in every direction at once and gaining traction in none of them — because nobody has helped you decide what to do first',
                 },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 items-start bg-gray-50 border border-gray-100 rounded-xl p-5">
-                  <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0 text-red-500 text-sm font-bold">
+                  <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     {item.icon}
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed">{item.label}</p>
@@ -240,7 +256,9 @@ export default function RaiseReady() {
                   'Delivered as editable Google Slides + PDF export',
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 text-sm">
-                    <span className="text-janus-blue font-bold mt-0.5 shrink-0">✓</span>
+                    <svg className="w-4 h-4 text-janus-blue shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
                     <span className="text-gray-300 leading-relaxed">{item}</span>
                   </li>
                 ))}
@@ -278,7 +296,9 @@ export default function RaiseReady() {
                   'Scale playbook for when you have traction and are ready to pour fuel on it',
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 text-sm">
-                    <span className="text-black font-bold mt-0.5 shrink-0">✓</span>
+                    <svg className="w-4 h-4 text-black shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
                     <span className="text-gray-600 leading-relaxed">{item}</span>
                   </li>
                 ))}
@@ -432,7 +452,9 @@ export default function RaiseReady() {
                 'Delivered in 7 business days',
               ].map((item, i) => (
                 <li key={i} className="flex gap-3 text-sm">
-                  <span className="text-janus-blue font-bold mt-0.5 shrink-0">✓</span>
+                  <svg className="w-4 h-4 text-janus-blue shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
                   <span className="text-gray-700">{item}</span>
                 </li>
               ))}
@@ -478,7 +500,7 @@ export default function RaiseReady() {
               },
               {
                 q: 'How is this different from using ChatGPT or another AI tool?',
-                a: 'AI can write slides. It cannot find your lede. The most valuable part of the Raise-Ready Kit is the research call — where we ask you the questions that surface the story you have not been telling. AI does not know what you know, what you have seen, or what makes your insight non-obvious. We do the thinking, then we do the writing.',
+                a: 'AI can write slides. It cannot find your lede. The most valuable part of the Traction Kit is the research call — where we ask you the questions that surface the story you have not been telling. AI does not know what you know, what you have seen, or what makes your insight non-obvious. We do the thinking, then we do the writing.',
               },
               {
                 q: 'What stage should I be at to get the most from this?',
