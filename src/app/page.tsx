@@ -61,10 +61,14 @@ export default async function Home() {
           </div>
 
           <div className="animate-fade-in-up flex flex-wrap justify-center gap-6 mt-14 text-white/40 text-sm" style={{ animationDelay: '0.6s' }}>
-            <span>✓ 21-day launch</span>
-            <span>✓ No long-term contracts</span>
-            <span>✓ SaaS-only focus</span>
-            <span>✓ Cancel anytime</span>
+            {['21-day launch', 'No long-term contracts', 'SaaS-only focus', 'Cancel anytime'].map((item) => (
+              <span key={item} className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 text-white/30 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                {item}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -170,14 +174,28 @@ export default async function Home() {
 
             <div className="scroll-animate slide-right delay-200 space-y-4">
               {[
-                { icon: '↓', label: 'Landing page bounces because visitors cannot grasp what you do in under 10 seconds' },
-                { icon: '⇆', label: 'Sales calls that start with "Wait, can you explain what your product does again?"' },
-                { icon: '⬆', label: 'Churn from users who never understood your key features before cancelling' },
-                { icon: '$', label: 'Ad spend burning without converting because your creative does not stop the scroll' },
+                {
+                  svg: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />,
+                  label: 'Landing page bounces because visitors cannot grasp what you do in under 10 seconds',
+                },
+                {
+                  svg: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />,
+                  label: 'Sales calls that start with "Wait, can you explain what your product does again?"',
+                },
+                {
+                  svg: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />,
+                  label: 'Churn from users who never understood your key features before cancelling',
+                },
+                {
+                  svg: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />,
+                  label: 'Ad spend burning without converting because your creative does not stop the scroll',
+                },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 items-start bg-white/5 border border-white/10 rounded-xl p-5">
-                  <div className="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center flex-shrink-0 text-red-400 text-sm font-bold">
-                    {item.icon}
+                  <div className="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      {item.svg}
+                    </svg>
                   </div>
                   <p className="text-gray-300 text-sm leading-relaxed">{item.label}</p>
                 </div>
@@ -710,8 +728,29 @@ export default async function Home() {
             </div>
           </div>
 
+          {/* Traction Kit — pre-funding bridge */}
+          <div className="scroll-animate fade-up delay-550 mt-10 bg-gray-950 border border-white/10 rounded-2xl p-7 flex flex-col sm:flex-row items-center gap-6">
+            <div className="flex-1 text-center sm:text-left">
+              <p className="text-xs uppercase tracking-widest text-janus-blue font-semibold mb-1">Pre-funding or early-stage?</p>
+              <p className="font-display text-lg font-bold text-white">The Traction Kit™ — $299</p>
+              <p className="text-gray-400 text-sm mt-1 max-w-lg">
+                A founder narrative deck and data-backed GTM strategy built around your story.
+                Get your first real users — then scale with the Engine when you&apos;re ready.
+              </p>
+            </div>
+            <Link
+              href="/raise-ready"
+              className="shrink-0 bg-white text-black px-6 py-3 text-sm font-bold hover:bg-gray-100 transition-colors duration-200 rounded-sm whitespace-nowrap"
+            >
+              Learn more
+              <svg className="inline-block w-4 h-4 ml-1.5 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+
           {/* Lead magnets for not-yet-ready visitors */}
-          <div className="scroll-animate fade-up delay-600 mt-10 bg-white border border-gray-200 rounded-2xl p-8">
+          <div className="scroll-animate fade-up delay-600 mt-4 bg-white border border-gray-200 rounded-2xl p-8">
             <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
               <div className="text-center lg:text-left shrink-0">
                 <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">Not ready to commit?</p>
