@@ -401,7 +401,7 @@ export default async function Home() {
               </div>
               <div className="flex items-center gap-3 text-sm shrink-0">
                 <div className="text-center px-4 py-3 bg-white border border-gray-200 rounded-xl">
-                  <p className="font-bold text-black text-lg">① only</p>
+                  <p className="font-bold text-black text-lg">④ only</p>
                   <p className="text-gray-400 text-xs mt-0.5">Foundation</p>
                 </div>
                 <div className="text-gray-300 font-light text-xl">→</div>
@@ -617,24 +617,24 @@ export default async function Home() {
 
           <div className="grid lg:grid-cols-3 gap-6 items-stretch">
 
-            {/* Foundation — Component 1 only */}
+            {/* Foundation — Landing Page only */}
             <div className="scroll-animate scale-in delay-300 bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
               <div className="flex-1">
                 <div className="inline-flex items-center gap-1.5 mb-4">
-                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">1</span>
-                  <span className="text-xs text-gray-400 font-medium uppercase tracking-wide">Component ① only</span>
+                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">④</span>
+                  <span className="text-xs text-gray-400 font-medium uppercase tracking-wide">Landing page only</span>
                 </div>
                 <h3 className="font-display text-xl font-bold text-black mb-1">Foundation</h3>
-                <p className="text-gray-400 text-sm mb-6">Start with the highest-impact asset first</p>
+                <p className="text-gray-400 text-sm mb-6">Start with your most important conversion point</p>
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-black">$3,000</span>
                   <span className="text-gray-400 text-sm ml-2">one-time</span>
                 </div>
                 <ul className="space-y-2 text-sm text-gray-500 mb-8">
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> 60-second SaaS explainer video</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Script written by SaaS positioning specialists</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Professional motion animation + voiceover</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Delivered in MP4, WebM, and thumbnail</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Full landing page copy rewrite, headline to CTA</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Conversion-optimized layout and section structure</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Brand messaging framework included</li>
+                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Delivered as Figma file + developer-ready specs</li>
                   <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Two revision rounds included</li>
                 </ul>
               </div>
@@ -710,7 +710,57 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="scroll-animate fade-up delay-600 text-center mt-8">
+          {/* Lead magnets for not-yet-ready visitors */}
+          <div className="scroll-animate fade-up delay-600 mt-10 bg-white border border-gray-200 rounded-2xl p-8">
+            <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
+              <div className="text-center lg:text-left shrink-0">
+                <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">Not ready to commit?</p>
+                <p className="font-display text-lg font-bold text-black">Get something valuable first — free.</p>
+              </div>
+              <div className="flex-1 grid sm:grid-cols-2 gap-3 w-full">
+                <Link
+                  href="https://tally.so/r/nrMgY2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 border border-gray-200 rounded-xl px-5 py-4 hover:border-janus-blue/40 hover:bg-gray-50 transition-all duration-200 group"
+                >
+                  <div className="w-8 h-8 bg-janus-blue/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-janus-blue/20 transition-colors duration-200">
+                    <svg className="w-4 h-4 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.069A1 1 0 0121 8.867V15.5a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Get 2 free ad videos</p>
+                    <p className="text-gray-400 text-xs">We'll make them for your product, no strings attached</p>
+                  </div>
+                  <svg className="w-4 h-4 text-gray-300 ml-auto shrink-0 group-hover:text-janus-blue transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  href="https://tally.so/r/n9jxRE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 border border-gray-200 rounded-xl px-5 py-4 hover:border-janus-blue/40 hover:bg-gray-50 transition-all duration-200 group"
+                >
+                  <div className="w-8 h-8 bg-janus-blue/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-janus-blue/20 transition-colors duration-200">
+                    <svg className="w-4 h-4 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-black text-sm">Free landing page teardown</p>
+                    <p className="text-gray-400 text-xs">We'll review your copy and tell you exactly what to fix</p>
+                  </div>
+                  <svg className="w-4 h-4 text-gray-300 ml-auto shrink-0 group-hover:text-janus-blue transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="scroll-animate fade-up delay-700 text-center mt-6">
             <p className="text-sm text-gray-400">
               Performance-based pricing available for funded startups. Ask on your strategy call.
             </p>
