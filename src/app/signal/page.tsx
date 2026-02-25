@@ -6,9 +6,9 @@ import Footer from '../../components/Footer'
 import ScrollAnimations from '../../components/ScrollAnimations'
 
 export const metadata: Metadata = {
-  title: 'The Signal™ — Healthcare Distribution for Startups | JANUS',
+  title: 'The Signal™ — Healthcare Startup Coverage & GTM Strategy | JANUS',
   description:
-    'Get your healthcare startup in front of senior executives, physicians, and decision-makers. One 1-hour call. Custom GTM strategy. Live distribution. $399 one-time.',
+    'Get your healthcare startup featured. We interview founders, build their GTM strategy, and publish their story to the healthcare community we\'ve spent years building. $399 one-time.',
 }
 
 function BuyButton({ className, children }: { className: string; children: React.ReactNode }) {
@@ -51,24 +51,24 @@ export default function Signal() {
 
           <div className="animate-fade-in-up">
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
-              Get your startup in front of
+              Get your healthcare startup
               <br />
-              <span className="text-janus-blue italic">the people running healthcare.</span>
+              <span className="text-janus-blue italic">featured and found.</span>
             </h1>
           </div>
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <p className="text-xl font-light mb-10 max-w-xl mx-auto leading-relaxed text-gray-400">
-              One hour. We find your story, build your GTM strategy, and put your best moments
-              in front of senior healthcare leaders — directly.
+              We interview you, build your go-to-market strategy, and publish your story
+              to the healthcare community we&apos;ve spent years earning the trust of.
             </p>
           </div>
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <BuyButton className="inline-block bg-janus-blue text-white px-10 py-4 text-lg font-semibold tracking-wide hover:bg-blue-700 transition-all duration-300 rounded-sm">
-              Get Your Signal — $399
+              Apply for a Feature — $399
             </BuyButton>
-            <p className="text-white/30 text-sm mt-4">Limited spots per month &nbsp;·&nbsp; Full refund if not satisfied</p>
+            <p className="text-white/30 text-sm mt-4">We only accept companies we genuinely believe in &nbsp;·&nbsp; Limited spots per month</p>
           </div>
 
           <div className="animate-fade-in-up mt-16 grid sm:grid-cols-2 gap-4 max-w-lg mx-auto text-left" style={{ animationDelay: '0.6s' }}>
@@ -78,7 +78,7 @@ export default function Signal() {
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-5">
               <p className="text-janus-blue font-bold text-xs uppercase tracking-widest mb-1">Deliverable 2</p>
-              <p className="font-display text-lg font-bold text-white">Live Distribution</p>
+              <p className="font-display text-lg font-bold text-white">Editorial Coverage</p>
             </div>
           </div>
         </div>
@@ -91,46 +91,51 @@ export default function Signal() {
           <h2 className="scroll-animate fade-up delay-100 font-display text-4xl lg:text-5xl font-bold text-black leading-tight mb-6">
             Great product.
             <br />
-            <span className="text-janus-blue italic">Wrong room.</span>
+            <span className="text-janus-blue italic">Nobody&apos;s heard of you.</span>
           </h2>
           <p className="scroll-animate fade-up delay-200 text-gray-500 text-xl max-w-xl mx-auto leading-relaxed">
-            Healthcare runs on relationships. The CMOs, directors, and physicians you need to reach
-            don&apos;t respond to cold outreach — and they&apos;re not finding you on their own.
+            Healthcare runs on trust. Cold outreach doesn&apos;t build it.
+            Ads don&apos;t build it. Being covered by someone your audience already trusts does.
           </p>
         </div>
       </section>
 
-      {/* ── THE NETWORK ──────────────────────────────────────────────────── */}
+      {/* ── THE APPROACH ─────────────────────────────────────────────────── */}
       <section className="py-24 lg:py-32 bg-gray-950 text-white">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="scroll-animate fade-up text-xs uppercase tracking-widest text-janus-blue font-semibold mb-6">Our Audience</p>
-            <h2 className="scroll-animate fade-up delay-100 font-display text-4xl lg:text-5xl font-bold leading-tight">
-              We already have
-              <br />
-              <span className="text-janus-blue italic">their attention.</span>
-            </h2>
-          </div>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <p className="scroll-animate fade-up text-xs uppercase tracking-widest text-janus-blue font-semibold mb-6">Why It Works</p>
+          <h2 className="scroll-animate fade-up delay-100 font-display text-4xl lg:text-5xl font-bold leading-tight mb-8">
+            Earned credibility.
+            <br />
+            <span className="text-janus-blue italic">Not paid reach.</span>
+          </h2>
+          <p className="scroll-animate fade-up delay-200 text-gray-400 text-xl max-w-2xl mx-auto leading-relaxed mb-16">
+            There&apos;s a difference between an ad showing up in someone&apos;s feed and a voice they
+            already follow telling them about a company worth knowing. We&apos;ve spent years building
+            credibility in the healthcare space. When we cover a startup, it lands differently.
+          </p>
 
-          <div className="scroll-animate fade-up delay-200 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="scroll-animate fade-up delay-300 grid md:grid-cols-3 gap-6 text-left">
             {[
-              { title: 'Chief Medical Officers', sub: 'Health system executives' },
-              { title: 'Hospital Directors', sub: 'Operations & patient experience' },
-              { title: 'Senior Physicians', sub: 'Department chiefs & attendings' },
-              { title: 'Health System CIOs', sub: 'Technology decision-makers' },
-              { title: 'Healthcare Investors', sub: 'Healthtech & medtech VCs' },
-              { title: 'Next-Gen Practitioners', sub: 'Residents & early adopters' },
+              {
+                title: 'We act as journalists',
+                desc: 'We interview you like journalists — digging for the real story, the non-obvious insight, the thing that makes your company matter.',
+              },
+              {
+                title: 'We only cover what we believe in',
+                desc: 'We decline more than we accept. That selectivity is what makes being featured meaningful — for you and for the people who see it.',
+              },
+              {
+                title: 'Coverage > advertising',
+                desc: 'Being written up by a trusted voice opens doors that no ad budget can. The healthcare world is small and referral-driven. Reputation travels.',
+              },
             ].map((item, i) => (
-              <div key={i} className={`scroll-animate fade-up delay-${(i + 2) * 100} bg-white/5 border border-white/10 rounded-xl p-5`}>
-                <p className="font-semibold text-white text-sm mb-1">{item.title}</p>
-                <p className="text-gray-500 text-xs">{item.sub}</p>
+              <div key={i} className={`scroll-animate fade-up delay-${(i + 3) * 100} bg-white/5 border border-white/10 rounded-xl p-6`}>
+                <h3 className="font-display text-lg font-bold text-white mb-3">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
-
-          <p className="scroll-animate fade-up delay-400 text-center text-gray-500 text-sm mt-10 max-w-xl mx-auto">
-            Personal LinkedIn connections — not an ad audience. When your story appears here, it&apos;s credibility by association.
-          </p>
         </div>
       </section>
 
@@ -143,19 +148,21 @@ export default function Signal() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
+
+            {/* GTM Strategy */}
             <div className="scroll-animate slide-left delay-200 bg-gray-950 rounded-2xl p-10 text-white">
               <p className="text-janus-blue text-xs font-semibold uppercase tracking-widest mb-3">Deliverable 1</p>
               <h3 className="font-display text-3xl font-bold text-white mb-4">Custom GTM Strategy</h3>
               <p className="text-gray-400 leading-relaxed mb-8">
-                We interview you like journalists — not consultants. We find the story that makes a healthcare
-                leader stop and pay attention. Then we build your go-to-market strategy around it.
+                The interview surfaces your real story. We use it to build a go-to-market
+                strategy that reflects how healthcare buyers actually make decisions.
               </p>
               <ul className="space-y-3">
                 {[
-                  'Your narrative — the hook that actually lands',
+                  'Your narrative — the hook that cuts through',
                   'Channel strategy built for healthcare buyers',
-                  'First 90 days: prioritized, specific, actionable',
-                  'Messaging that speaks to both clinical and financial ROI',
+                  'First 90 days: prioritized and specific',
+                  'Messaging that lands with both clinicians and buyers',
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 text-sm">
                     <Check />
@@ -165,19 +172,21 @@ export default function Signal() {
               </ul>
             </div>
 
+            {/* Editorial Coverage */}
             <div className="scroll-animate slide-right delay-300 bg-gray-50 border border-gray-100 rounded-2xl p-10">
               <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-3">Deliverable 2</p>
-              <h3 className="font-display text-3xl font-bold text-black mb-4">Live Distribution</h3>
+              <h3 className="font-display text-3xl font-bold text-black mb-4">Editorial Coverage</h3>
               <p className="text-gray-600 leading-relaxed mb-8">
-                We clip the sharpest moments from your interview and post them to our LinkedIn — directly
-                into the feeds of the healthcare leaders you&apos;ve been trying to reach.
+                We clip the sharpest moments from your interview and publish them — the same way
+                a podcast or newsletter would feature a company worth knowing about.
+                Your story, told by someone the healthcare community already trusts.
               </p>
               <ul className="space-y-3">
                 {[
                   'Edited clips from your 1-hour interview',
-                  'Published to our senior healthcare audience',
-                  'Your voice, your story — we handle the framing',
-                  'Drives inbound curiosity and direct outreach',
+                  'Published as editorial content, not advertising',
+                  'Framed to spark curiosity and inbound conversations',
+                  'Evergreen — keeps working after it goes live',
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 text-sm">
                     <svg className="w-4 h-4 text-black shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -200,9 +209,9 @@ export default function Signal() {
 
           <div className="grid md:grid-cols-3 gap-10">
             {[
-              { step: '01', title: 'Book your call', desc: 'Purchase, fill a short intake form, and pick a time.' },
-              { step: '02', title: 'We interview you', desc: 'One hour. We ask the questions that surface your real story.' },
-              { step: '03', title: 'We build and broadcast', desc: 'Strategy delivered. Clips go live. Your audience finds you.' },
+              { step: '01', title: 'Apply and book', desc: 'Tell us about your startup. If it\'s a fit, you\'ll get a calendar link and a short intake form.' },
+              { step: '02', title: 'We interview you', desc: 'One hour. We find the story that makes your work worth knowing about.' },
+              { step: '03', title: 'We publish and deliver', desc: 'Your GTM strategy lands in your inbox. Your story goes live.' },
             ].map((s, i) => (
               <div key={i} className={`scroll-animate scale-in delay-${(i + 3) * 100}`}>
                 <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mx-auto mb-5">
@@ -224,9 +233,9 @@ export default function Signal() {
 
           <div className="scroll-animate fade-up delay-200 grid md:grid-cols-3 gap-6 mb-12">
             {[
-              { label: 'Conference booth', cost: '$5K–$30K', note: 'Business cards. No buyers.' },
-              { label: 'Healthcare PR agency', cost: '$5K+/mo', note: 'Months of pitching. Maybe a mention.' },
-              { label: 'LinkedIn ads', cost: '$3K–$10K+', note: '"Healthcare professionals." Mostly nurses.' },
+              { label: 'Conference booth', cost: '$5K–$30K', note: 'Three days. A stack of cards. Zero follow-through.' },
+              { label: 'Healthcare PR agency', cost: '$5K+/mo', note: 'Months of pitching. Maybe a mention somewhere.' },
+              { label: 'LinkedIn ads', cost: '$3K–$10K+', note: 'Paid reach with none of the trust that comes from earned coverage.' },
             ].map((item, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 text-left">
                 <p className="text-gray-400 text-sm mb-1">{item.label}</p>
@@ -239,7 +248,7 @@ export default function Signal() {
           <div className="scroll-animate scale-in delay-300 bg-janus-blue rounded-2xl p-10">
             <p className="text-blue-200 text-xs uppercase tracking-widest font-semibold mb-2">The Signal™</p>
             <p className="font-display text-6xl font-bold text-white mb-3">$399</p>
-            <p className="text-blue-100 text-lg">GTM strategy + direct access to a senior healthcare audience.</p>
+            <p className="text-blue-100 text-lg">A custom GTM strategy and editorial coverage from a voice healthcare trusts.</p>
           </div>
         </div>
       </section>
@@ -261,10 +270,10 @@ export default function Signal() {
 
             <ul className="space-y-3 mb-8 border-t border-white/10 pt-8">
               {[
-                '1-hour investigative interview',
+                '1-hour investigative founder interview',
                 'Custom GTM strategy document',
                 'Edited video clips from your interview',
-                'Live distribution to our healthcare LinkedIn audience',
+                'Published as editorial content to our healthcare community',
                 'Delivered within 5 business days',
                 'One revision round included',
               ].map((item, i) => (
@@ -276,10 +285,10 @@ export default function Signal() {
             </ul>
 
             <BuyButton className="block w-full text-center bg-janus-blue text-white py-4 text-base font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
-              Get The Signal — $399
+              Apply for a Feature — $399
             </BuyButton>
             <p className="text-center text-gray-600 text-xs mt-4">
-              Limited spots per month &nbsp;·&nbsp; Full refund if not satisfied
+              We review every application &nbsp;·&nbsp; Full refund if not satisfied
             </p>
           </div>
 
@@ -301,16 +310,16 @@ export default function Signal() {
           <div className="space-y-3">
             {[
               {
-                q: 'Is the healthcare audience real people or bots?',
-                a: 'Personal LinkedIn connections built over years — not a bought list or a brand page. These are senior leaders who follow because they trust the content.',
+                q: 'Does every company get accepted?',
+                a: 'No — and that\'s intentional. We only feature companies we\'d genuinely recommend. That selectivity is what makes the coverage worth having. If it\'s not a fit we\'ll tell you upfront.',
               },
               {
                 q: 'What kind of healthcare startups is this for?',
-                a: 'Any healthtech, digital health, clinical tools, practice management, or medtech startup that needs to reach clinicians, administrators, or health system leaders.',
+                a: 'Healthtech, digital health, clinical tools, practice management, medtech — any startup solving a real problem for clinicians, health systems, or patients.',
               },
               {
                 q: 'How is this different from the Traction Kit?',
-                a: 'The Traction Kit is GTM strategy for any SaaS founder. The Signal adds live distribution to a real healthcare audience — and the strategy is calibrated specifically for healthcare buying cycles and decision-makers.',
+                a: 'The Traction Kit is GTM strategy for any SaaS founder. The Signal adds editorial coverage calibrated to the healthcare market — and the strategy itself is built around healthcare buying cycles and decision-makers.',
               },
               {
                 q: 'What if I\'m not happy with the output?',
@@ -337,20 +346,20 @@ export default function Signal() {
       <section className="py-32 bg-black text-white">
         <div className="max-w-2xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="scroll-animate fade-up font-display text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            The room is full.
+            Your story deserves
             <br />
-            <span className="text-janus-blue italic">Get in it.</span>
+            <span className="text-janus-blue italic">to be told.</span>
           </h2>
 
           <p className="scroll-animate fade-up delay-200 text-gray-400 text-xl mb-12">
-            $399. One call. Your story in front of healthcare&apos;s decision-makers.
+            $399. One call. Your GTM strategy and your story in front of the healthcare community.
           </p>
 
           <div className="scroll-animate scale-in delay-300 flex flex-col items-center gap-4">
             <BuyButton className="inline-block bg-janus-blue text-white px-12 py-5 text-lg font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
-              Get The Signal — $399
+              Apply for a Feature — $399
             </BuyButton>
-            <p className="text-gray-600 text-sm">Limited spots per month &nbsp;·&nbsp; Full refund if not satisfied</p>
+            <p className="text-gray-600 text-sm">We review every application &nbsp;·&nbsp; Full refund if not satisfied</p>
           </div>
 
           <div className="scroll-animate fade-up delay-400 mt-16 pt-12 border-t border-white/10 flex items-center justify-center gap-4">
