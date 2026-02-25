@@ -48,10 +48,10 @@ export default async function Home() {
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <CalBooking className="inline-block bg-janus-blue text-white px-10 py-4 text-lg font-semibold tracking-wide hover:bg-blue-700 transition-all duration-300 hover-rise janus-shadow-xl rounded-sm">
-              Book a Free Strategy Call
+              Book a Free Call
             </CalBooking>
             <p className="text-xs text-white/50 mt-4">
-              No pitch. No pressure. We look at where you are and tell you what would actually move the needle.
+              Not sure which product fits? We&apos;ll be straight with you — even if none of them are right for you.
             </p>
           </div>
 
@@ -173,6 +173,10 @@ export default async function Home() {
                   </li>
                 ))}
               </ul>
+              <div className="border-t border-gray-100 pt-5 mb-5">
+                <span className="text-3xl font-bold text-black">$299</span>
+                <span className="text-gray-400 text-sm ml-2">one-time</span>
+              </div>
               <Link
                 href="/traction-kit"
                 className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm text-sm"
@@ -207,6 +211,10 @@ export default async function Home() {
                   </li>
                 ))}
               </ul>
+              <div className="border-t border-gray-100 pt-5 mb-5">
+                <span className="text-3xl font-bold text-black">$399</span>
+                <span className="text-gray-400 text-sm ml-2">one-time</span>
+              </div>
               <Link
                 href="/signal"
                 className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm text-sm"
@@ -247,8 +255,12 @@ export default async function Home() {
                   </li>
                 ))}
               </ul>
+              <div className="border-t border-white/10 pt-5 mb-5">
+                <span className="text-3xl font-bold text-white">$1,000</span>
+                <span className="text-blue-300 text-sm ml-2">/month</span>
+              </div>
               <CalBooking className="block w-full text-center bg-janus-blue text-white py-4 font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
-                Book a Strategy Call
+                Book a Free Call
               </CalBooking>
             </div>
           </div>
@@ -453,112 +465,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ── PRICING ──────────────────────────────────────────────────────── */}
-      <section className="py-24 lg:py-32 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="scroll-animate fade-up text-xs uppercase tracking-widest text-janus-blue font-semibold mb-4">
-              Pricing
-            </p>
-            <h2 className="scroll-animate fade-up delay-200 font-display text-4xl lg:text-5xl font-bold text-black leading-tight mb-4">
-              Simple. Transparent. No surprises.
-            </h2>
-            <p className="scroll-animate fade-up delay-300 text-gray-500 max-w-xl mx-auto">
-              Pick where you are right now. You can always move up when you&apos;re ready.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-6 items-stretch">
-
-            {/* Traction Kit */}
-            <div className="scroll-animate scale-in delay-300 bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
-              <div className="flex-1">
-                <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">For early-stage founders</p>
-                <h3 className="font-display text-2xl font-bold text-black mb-1">Traction Kit™</h3>
-                <p className="text-gray-400 text-sm mb-6">Your story and GTM strategy, built from one conversation.</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-black">$299</span>
-                  <span className="text-gray-400 text-sm ml-2">one-time</span>
-                </div>
-                <ul className="space-y-2 text-sm text-gray-500 mb-8">
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> 1-hour founder interview</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Founder narrative deck</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> GTM strategy document</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Delivered in 5 business days</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> One revision included</li>
-                </ul>
-              </div>
-              <Link
-                href="/traction-kit"
-                className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm text-sm"
-              >
-                Get the Traction Kit
-              </Link>
-            </div>
-
-            {/* Clarity Engine — HERO */}
-            <div className="scroll-animate scale-in delay-400 bg-janus-blue rounded-xl p-8 flex flex-col relative lg:scale-105">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span className="bg-black text-white px-5 py-1.5 text-xs font-bold tracking-widest rounded-full uppercase whitespace-nowrap">
-                  Most Popular
-                </span>
-              </div>
-              <div className="flex-1">
-                <p className="text-xs uppercase tracking-widest text-blue-200 font-semibold mb-2">For founders building an audience</p>
-                <h3 className="font-display text-2xl font-bold text-white mb-1">Clarity Engine™</h3>
-                <p className="text-blue-200 text-sm mb-6">Your full monthly media engine. One hour — we handle everything else.</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-white">$1,000</span>
-                  <span className="text-blue-200 text-sm ml-2">/month</span>
-                </div>
-                <ul className="space-y-2 text-sm text-blue-100 mb-8">
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 1-hour monthly session</li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> Full content production each month</li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> Social clips, posts, carousels, copy</li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> Consistent publishing schedule</li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> You own everything. Cancel anytime.</li>
-                </ul>
-              </div>
-              <CalBooking className="block w-full text-center bg-white text-janus-blue py-4 font-bold hover:bg-gray-50 transition-colors duration-300 rounded-sm text-base">
-                Book a Strategy Call
-              </CalBooking>
-            </div>
-
-            {/* The Signal */}
-            <div className="scroll-animate scale-in delay-500 bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
-              <div className="flex-1">
-                <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">For healthcare startups</p>
-                <h3 className="font-display text-2xl font-bold text-black mb-1">The Signal™</h3>
-                <p className="text-gray-400 text-sm mb-6">Editorial coverage + GTM strategy for the healthcare market.</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-black">$399</span>
-                  <span className="text-gray-400 text-sm ml-2">one-time</span>
-                </div>
-                <ul className="space-y-2 text-sm text-gray-500 mb-8">
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> 1-hour investigative interview</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Healthcare GTM strategy</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Edited video clips</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Published as editorial content</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Application-only</li>
-                </ul>
-              </div>
-              <Link
-                href="/signal"
-                className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm text-sm"
-              >
-                Apply for a Feature
-              </Link>
-            </div>
-          </div>
-
-          <div className="scroll-animate fade-up delay-700 text-center mt-8">
-            <p className="text-sm text-gray-400">
-              Not sure which is right for you? Book a free call and we&apos;ll tell you honestly.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* ── FAQ ──────────────────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
@@ -616,18 +522,19 @@ export default async function Home() {
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <div className="scroll-animate fade-up mb-6">
             <p className="text-janus-blue font-display text-lg italic mb-2">
-              If your product is great but nobody knows it —
+              Still figuring out which one is right?
             </p>
             <h2 className="font-display text-5xl lg:text-6xl font-bold leading-tight">
-              you don&apos;t have a product problem.
+              Just ask.
               <br />
-              <span className="text-janus-blue italic">You have an audience problem.</span>
+              <span className="text-janus-blue italic">We&apos;ll be honest with you.</span>
             </h2>
           </div>
 
           <p className="scroll-animate fade-up delay-200 text-gray-400 text-lg mb-12 leading-relaxed">
-            Book a free 30-minute strategy call. We&apos;ll look at where you are,
-            tell you which product makes the most sense, and show you exactly what we&apos;d do — no obligation.
+            Book a free 20-minute call. We&apos;ll listen to where you are and tell you honestly
+            which product — if any — makes sense. If something else would serve you better,
+            we&apos;ll tell you that too and point you in the right direction.
           </p>
 
           <div className="scroll-animate scale-in delay-300 bg-gray-900 border border-white/10 rounded-2xl p-10 max-w-md mx-auto">
@@ -648,12 +555,26 @@ export default async function Home() {
               </div>
             </div>
 
+            <ul className="space-y-2 text-sm text-gray-400 mb-8 text-left">
+              {[
+                'We listen to where you are — no assumptions',
+                'We tell you which product fits, if any',
+                'If something else serves you better, we\'ll say so',
+                '20 minutes. No deck. No pitch.',
+              ].map((item, i) => (
+                <li key={i} className="flex gap-2">
+                  <span className="text-janus-blue font-bold shrink-0">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
             <CalBooking className="w-full bg-janus-blue text-white py-4 text-base font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
-              Book a Free Strategy Call
+              Book a Free 20-Min Call
             </CalBooking>
 
             <p className="text-gray-600 text-xs mt-6">
-              No sales pitch — just a candid conversation about what&apos;s holding your growth back.
+              The worst outcome is you leave with a clearer picture of what you actually need.
             </p>
           </div>
         </div>
