@@ -272,266 +272,145 @@ export default async function WebsitesPage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-32 bg-gray-50 relative overflow-hidden">
-        {/* Background Graphics */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-12 w-6 h-6 border-2 border-janus-blue/30 rounded-full"></div>
-          <div className="absolute top-28 right-16 w-4 h-4 bg-gray-300/50 transform rotate-45"></div>
-          <div className="absolute bottom-28 left-20 w-8 h-8 border border-janus-blue/20 transform rotate-45"></div>
-          <div className="absolute bottom-20 right-12 w-5 h-5 bg-gray-400/40 rounded-full"></div>
-          <div className="absolute top-1/3 left-1/4 w-px h-32 bg-gradient-to-b from-transparent via-gray-300/50 to-transparent"></div>
-          <div className="absolute top-1/3 right-1/4 w-px h-32 bg-gradient-to-b from-transparent via-janus-blue/20 to-transparent"></div>
-          <div className="absolute top-1/2 left-8 w-2 h-2 bg-janus-blue/30 rounded-full"></div>
-          <div className="absolute top-1/2 right-8 w-2 h-2 bg-gray-400/50 rounded-full"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-3 h-3 border border-janus-blue/25 transform rotate-45"></div>
-          <div className="absolute top-1/4 right-1/3 w-3 h-3 border border-gray-300/60 transform rotate-45"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-janus-blue/5 to-transparent"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 lg:px-12 relative z-10">
-          <div className="text-center mb-12">
-            <p className="scroll-animate fade-up text-sm uppercase tracking-widest text-janus-blue font-medium mb-8">
+      <section className="py-24 lg:py-32 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="scroll-animate fade-up text-xs uppercase tracking-widest text-janus-blue font-semibold mb-4">
               Website Pricing
             </p>
-            <h2 className="scroll-animate fade-up delay-200 font-display text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight letter-tighter">
-              Investment Options
+            <h2 className="scroll-animate fade-up delay-200 font-display text-4xl lg:text-5xl font-bold text-black mb-4 leading-tight">
+              Transparent. Fair. No surprises.
             </h2>
-            <div className="scroll-animate fade-up delay-300 mb-12">
-              <p className="text-lg text-gray-700 font-medium">
-                Most agencies charge $8,000+ for basic websites. We deliver premium results at transparent, fair pricing.
-              </p>
-            </div>
+            <p className="scroll-animate fade-up delay-300 text-gray-500 max-w-xl mx-auto">
+              Most agencies charge $8,000+ for basic websites. We deliver the same quality at a price that makes sense for growing companies.
+            </p>
           </div>
-          
-          <div className="grid lg:grid-cols-3 gap-8 items-stretch">
-            {/* Essentials Plan */}
-            <div className="scroll-animate scale-in delay-300 bg-white p-8 lg:p-10 rounded-lg janus-shadow hover-rise">
-              <div className="mb-8">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 bg-janus-blue/20 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-janus-blue font-bold text-sm">🚧</span>
-                  </div>
-                  <h3 className="font-display text-2xl font-bold text-black">Essentials Plan</h3>
-                </div>
-                <p className="text-gray-600 mb-6">Perfect for getting online fast</p>
-                <div className="mb-8">
+
+          {/* Two build packages */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+
+            {/* Essentials */}
+            <div className="scroll-animate scale-in delay-200 bg-white border border-gray-200 rounded-xl p-8 flex flex-col hover:border-janus-blue/30 hover:shadow-lg transition-all duration-300">
+              <div className="mb-6">
+                <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">For founders who need to launch fast</p>
+                <h3 className="font-display text-2xl font-bold text-black mb-1">Essentials</h3>
+                <p className="text-gray-500 text-sm mb-6">A clean, professional site that gets you online and credible — built in two to three weeks.</p>
+                <div>
                   <span className="text-4xl font-bold text-black">$2,500</span>
-                  <span className="text-gray-500 ml-2">one-time</span>
+                  <span className="text-gray-400 text-sm ml-2">one-time</span>
                 </div>
               </div>
-              
-              {/* What's Included */}
-              <div className="mb-8">
-                <p className="text-sm font-semibold text-gray-700 mb-4">What's included:</p>
-                <ul className="text-gray-600 space-y-2 text-sm">
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2 mt-1">✓</span>
-                    <span>5 custom-designed, responsive pages</span>
+              <ul className="space-y-2 text-sm text-gray-500 flex-1 mb-8">
+                {[
+                  '5 custom-designed, responsive pages',
+                  'Mobile optimization',
+                  'Contact form integration',
+                  'Basic SEO setup',
+                  'Hosting setup and SSL',
+                  '1 round of revisions',
+                  'Delivered in 2–3 weeks',
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-janus-blue font-bold shrink-0">✓</span>
+                    {item}
                   </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2 mt-1">✓</span>
-                    <span>Mobile optimization</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2 mt-1">✓</span>
-                    <span>Contact form integration</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2 mt-1">✓</span>
-                    <span>Basic SEO setup</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2 mt-1">✓</span>
-                    <span>Hosting setup & SSL</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2 mt-1">✓</span>
-                    <span>1 round of revisions</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="border-t border-gray-100 pt-4 mb-8">
-                <p className="text-xs text-gray-500">
-                  <strong>Timeline:</strong> 2-3 weeks
-                </p>
-              </div>
-              
-              <CalBooking className="block w-full text-center bg-janus-blue text-white py-3 font-bold hover:bg-blue-700 transition-all duration-300 rounded-sm">
-                Get Started - Essentials
-              </CalBooking>
-            </div>
-            
-            {/* Growth Plan - Highlighted */}
-            <div className="scroll-animate scale-in delay-400 bg-janus-blue p-8 lg:p-10 rounded-lg janus-shadow-xl hover-rise relative transform lg:scale-105">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-black text-white px-6 py-2 text-sm font-bold tracking-wide rounded-full">RECOMMENDED</span>
-              </div>
-              
-              <div className="mb-8">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-bold text-sm">📈</span>
-                  </div>
-                  <h3 className="font-display text-2xl font-bold text-white">Growth Plan</h3>
-                </div>
-                <p className="text-blue-100 mb-6">Built to convert and scale</p>
-                <div className="mb-8">
-                  <span className="text-4xl font-bold text-white">$4,000</span>
-                  <span className="text-blue-200 ml-2">one-time</span>
-                </div>
-              </div>
-              
-              {/* What's Included */}
-              <div className="mb-8">
-                <p className="text-sm font-semibold text-blue-100 mb-4">Everything in Essentials, plus:</p>
-                <ul className="text-blue-100 space-y-2 text-sm">
-                  <li className="flex items-start">
-                    <span className="text-green-300 mr-2 mt-1">✓</span>
-                    <span>User behavior analytics</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-300 mr-2 mt-1">✓</span>
-                    <span>Automated lead capture</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-300 mr-2 mt-1">✓</span>
-                    <span>A/B testing framework</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-300 mr-2 mt-1">✓</span>
-                    <span>User feedback system</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-300 mr-2 mt-1">✓</span>
-                    <span>Advanced SEO optimization</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-300 mr-2 mt-1">✓</span>
-                    <span>Quarterly growth reports</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-300 mr-2 mt-1">✓</span>
-                    <span>Content training video</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="border-t border-white/20 pt-4 mb-8">
-                <p className="text-xs text-blue-200">
-                  <strong>Timeline:</strong> 3-4 weeks
-                </p>
-              </div>
-              
-              <CalBooking className="block w-full text-center bg-white text-janus-blue py-3 font-bold hover:bg-gray-100 transition-all duration-300 rounded-sm">
-                Get Started - Growth
+                ))}
+              </ul>
+              <CalBooking className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm text-sm">
+                Get Started
               </CalBooking>
             </div>
 
-            {/* Care & Maintenance - New Premium Option */}
-            <div className="scroll-animate scale-in delay-500 bg-gray-900 text-white p-8 lg:p-10 rounded-lg janus-shadow-xl hover-rise relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-janus-blue text-white px-6 py-2 text-sm font-bold tracking-wide rounded-full">ZERO HEADACHES</span>
+            {/* Growth */}
+            <div className="scroll-animate scale-in delay-300 bg-janus-blue rounded-xl p-8 flex flex-col relative">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <span className="bg-black text-white px-5 py-1.5 text-xs font-bold tracking-widest rounded-full uppercase whitespace-nowrap">
+                  Most Popular
+                </span>
               </div>
-              
-              <div className="mb-8">
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-green-400 font-bold text-sm">⚙️</span>
-                  </div>
-                  <h3 className="font-display text-2xl font-bold text-white">Care & Maintenance</h3>
-                </div>
-                <p className="text-gray-300 mb-6">Never think about your website again</p>
-                <div className="mb-8">
-                  <span className="text-lg text-gray-300">Starting at</span>
-                  <div>
-                    <span className="text-4xl font-bold text-white">$75</span>
-                    <span className="text-gray-300 ml-2">/month</span>
-                  </div>
+              <div className="mb-6">
+                <p className="text-xs uppercase tracking-widest text-blue-200 font-semibold mb-2">For companies focused on conversion</p>
+                <h3 className="font-display text-2xl font-bold text-white mb-1">Growth</h3>
+                <p className="text-blue-200 text-sm mb-6">Everything in Essentials — plus the analytics, lead capture, and optimization layer that turns traffic into pipeline.</p>
+                <div>
+                  <span className="text-4xl font-bold text-white">$4,000</span>
+                  <span className="text-blue-200 text-sm ml-2">one-time</span>
                 </div>
               </div>
-              
-              {/* What's Included */}
-              <div className="mb-8">
-                <p className="text-sm font-semibold text-gray-200 mb-4">Complete peace of mind:</p>
-                <ul className="text-gray-300 space-y-2 text-sm">
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-2 mt-1">✓</span>
-                    <span>Hosting & uptime monitoring</span>
+              <ul className="space-y-2 text-sm text-blue-100 flex-1 mb-8">
+                {[
+                  'Everything in Essentials',
+                  'User behavior analytics',
+                  'Automated lead capture',
+                  'A/B testing framework',
+                  'Advanced SEO optimization',
+                  'Quarterly performance reports',
+                  'Delivered in 3–4 weeks',
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-white font-bold shrink-0">✓</span>
+                    {item}
                   </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-2 mt-1">✓</span>
-                    <span>Security updates & backups</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-2 mt-1">✓</span>
-                    <span>Performance optimization</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-2 mt-1">✓</span>
-                    <span>Monthly analytics reports</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-2 mt-1">✓</span>
-                    <span>Priority support</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-400 mr-2 mt-1">✓</span>
-                    <span>1 content update/month</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="border-t border-gray-700 pt-4 mb-8">
-                <p className="text-xs text-gray-400">
-                  <strong>Perfect for:</strong> Busy founders
-                </p>
-              </div>
-              
-              <CalBooking className="block w-full text-center bg-green-500 text-white py-3 font-bold hover:bg-green-600 transition-all duration-300 rounded-sm">
-                Add Maintenance Plan
+                ))}
+              </ul>
+              <CalBooking className="block w-full text-center bg-white text-janus-blue py-4 font-bold hover:bg-gray-50 transition-colors duration-300 rounded-sm">
+                Get Started
               </CalBooking>
             </div>
           </div>
-          
+
           {/* Add-ons */}
-          <div className="scroll-animate fade-up delay-600 text-center mt-16">
-            <div className="bg-white p-8 rounded-lg janus-shadow max-w-4xl mx-auto">
-              <h3 className="font-display text-2xl font-bold text-black mb-6">Optional Add-Ons</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-                <div>
-                  <p className="font-semibold text-black mb-2">Additional Pages</p>
-                  <p className="text-gray-600">+$200/page</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-black mb-2">Copywriting</p>
-                  <p className="text-gray-600">$100-$300/page</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-black mb-2">Blog/CMS Setup</p>
-                  <p className="text-gray-600">+$500-$1,000</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-black mb-2">Monthly Maintenance</p>
-                  <p className="text-gray-600">$30-$75/month</p>
-                </div>
+          <div className="scroll-animate fade-up delay-400 bg-white border border-gray-200 rounded-xl p-8 mb-6">
+            <h3 className="font-display text-lg font-bold text-black mb-6">Optional Add-Ons</h3>
+            <div className="grid md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+              <div className="py-4 md:py-0 md:px-6 first:pl-0 last:pr-0">
+                <p className="font-semibold text-black text-sm mb-1">Additional Pages</p>
+                <p className="text-janus-blue font-bold text-lg">+$200</p>
+                <p className="text-gray-400 text-xs mt-0.5">per page</p>
+              </div>
+              <div className="py-4 md:py-0 md:px-6">
+                <p className="font-semibold text-black text-sm mb-1">Copywriting</p>
+                <p className="text-janus-blue font-bold text-lg">+$150</p>
+                <p className="text-gray-400 text-xs mt-0.5">per page</p>
+              </div>
+              <div className="py-4 md:py-0 md:px-6 first:pl-0 last:pr-0">
+                <p className="font-semibold text-black text-sm mb-1">Blog / CMS Setup</p>
+                <p className="text-janus-blue font-bold text-lg">+$750</p>
+                <p className="text-gray-400 text-xs mt-0.5">one-time</p>
               </div>
             </div>
           </div>
-          
-          <div className="scroll-animate fade-up delay-700 text-center mt-12">
-            <p className="text-base text-gray-600 mb-4">
-              50% deposit required to start, remainder due upon completion.
-            </p>
-            <p className="text-base text-gray-600">
-              All sites include performance optimization, mobile responsiveness, and Google indexing setup.
+
+          {/* Care plans callout */}
+          <div className="scroll-animate fade-up delay-500 bg-gray-950 border border-white/10 rounded-xl p-6 flex flex-col sm:flex-row items-center gap-5 mb-10">
+            <div className="flex-1 text-center sm:text-left">
+              <p className="text-xs uppercase tracking-widest text-janus-blue font-semibold mb-1">After launch</p>
+              <p className="font-display text-base font-bold text-white">Need ongoing hosting, updates, and support?</p>
+              <p className="text-gray-400 text-sm mt-1">
+                Care plans from $30/month — we keep the lights on so you never have to think about your site again.
+              </p>
+            </div>
+            <Link
+              href="#care-plans"
+              className="shrink-0 bg-white text-black px-5 py-2.5 text-sm font-bold hover:bg-gray-100 transition-colors duration-200 rounded-sm whitespace-nowrap"
+            >
+              See care plans
+              <svg className="inline-block w-4 h-4 ml-1.5 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+
+          <div className="scroll-animate fade-up delay-600 text-center">
+            <p className="text-sm text-gray-400">
+              50% deposit to start, remainder due on completion. All packages include performance optimization, mobile responsiveness, and Google indexing setup.
             </p>
           </div>
         </div>
       </section>
 
       {/* Website Care & Maintenance - Detailed Section */}
-      <section className="py-24 lg:py-32 bg-gray-900 text-white section-spacing relative overflow-hidden">
+      <section id="care-plans" className="py-24 lg:py-32 bg-gray-900 text-white section-spacing relative overflow-hidden">
         {/* Background Graphics */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 grid-pattern opacity-10"></div>
