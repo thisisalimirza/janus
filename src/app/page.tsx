@@ -7,11 +7,6 @@ import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import { getClientLogos } from '../lib/notion'
 
-// Lazy load heavy components
-const ROICalculator = dynamic(() => import('../components/ROICalculator'), {
-  loading: () => <div className="h-64 bg-gray-100 animate-pulse rounded-lg"></div>
-})
-
 const CalBooking = dynamic(() => import('../components/CalBooking'), {
   loading: () => <div className="inline-block bg-gray-300 animate-pulse h-12 w-48 rounded-sm"></div>
 })
@@ -32,36 +27,37 @@ export default async function Home() {
 
           <div className="animate-fade-in-up mb-6">
             <span className="inline-block border border-janus-blue/40 text-janus-blue text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full">
-              Marketing Systems for B2B SaaS
+              Attention is the only asset that matters
             </span>
           </div>
 
           <div className="animate-fade-in-up">
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
-              Your product is great.
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-none tracking-tight">
+              We sell
               <br />
-              <span className="text-janus-blue italic">Your pipeline should be too.</span>
+              <span className="text-janus-blue italic">attention.</span>
             </h1>
           </div>
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <p className="text-lg lg:text-xl font-light mb-10 max-w-3xl mx-auto leading-relaxed text-gray-300">
-              JANUS builds the motion videos, landing pages, and ad content that turn SaaS visitors into demos —
-              delivered in 21 days, without the overhead of hiring a creative team.
+            <p className="text-lg lg:text-xl font-light mb-10 max-w-2xl mx-auto leading-relaxed text-gray-300">
+              Three products. One goal: make your company impossible to ignore.
+              Whether you need your first story, editorial coverage, or a full monthly content engine —
+              we build the thing that gets you seen.
             </p>
           </div>
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <CalBooking className="inline-block bg-janus-blue text-white px-10 py-4 text-lg font-semibold tracking-wide hover:bg-blue-700 transition-all duration-300 hover-rise janus-shadow-xl rounded-sm">
-              Book a Free Strategy Call
+              Book a Free Call
             </CalBooking>
             <p className="text-xs text-white/50 mt-4">
-              No pitch. No pressure. Just a candid look at what&apos;s holding your conversions back.
+              Not sure which product fits? We&apos;ll be straight with you — even if none of them are right for you.
             </p>
           </div>
 
           <div className="animate-fade-in-up flex flex-wrap justify-center gap-6 mt-14 text-white/40 text-sm" style={{ animationDelay: '0.6s' }}>
-            {['21-day launch', 'No long-term contracts', 'SaaS-only focus', 'Cancel anytime'].map((item) => (
+            {['3 products. 1 agency.', 'Starts at $299', 'No long-term lock-in', 'Cancel anytime'].map((item) => (
               <span key={item} className="flex items-center gap-1.5">
                 <svg className="w-3.5 h-3.5 text-white/30 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -77,7 +73,7 @@ export default async function Home() {
       <section className="py-14 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <p className="text-center text-xs uppercase tracking-widest text-gray-400 font-medium mb-8">
-            Trusted by funded SaaS companies
+            Trusted by funded founders and growing startups
           </p>
           <div className="scroll-animate scale-in">
             <ClientLogoCarousel clientLogos={clientLogos} />
@@ -85,74 +81,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ── WHO THIS IS FOR ──────────────────────────────────────────────── */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="scroll-animate fade-up text-xs uppercase tracking-widest text-janus-blue font-semibold mb-4">
-              Who We Work With
-            </p>
-            <h2 className="scroll-animate fade-up delay-200 font-display text-4xl lg:text-5xl font-bold text-black leading-tight">
-              Built for one type of company
-            </h2>
-            <p className="scroll-animate fade-up delay-300 mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-              B2B SaaS teams that have a product worth buying — but whose marketing does not reflect that yet.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-6">
-            <div className="scroll-animate scale-in delay-300 border border-gray-100 rounded-xl p-8 hover:border-janus-blue/30 hover:shadow-lg transition-all duration-300">
-              <div className="w-10 h-10 bg-janus-blue/10 rounded-lg flex items-center justify-center mb-5">
-                <svg className="w-5 h-5 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-lg text-black mb-3">
-                Post-PMF founders scaling acquisition
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
-                You have paying customers and real retention, but your landing page is not converting paid traffic and demos have stalled.
-              </p>
-            </div>
-
-            <div className="scroll-animate scale-in delay-400 border border-gray-100 rounded-xl p-8 hover:border-janus-blue/30 hover:shadow-lg transition-all duration-300">
-              <div className="w-10 h-10 bg-janus-blue/10 rounded-lg flex items-center justify-center mb-5">
-                <svg className="w-5 h-5 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-lg text-black mb-3">
-                Seed-to-Series-A teams with fresh capital
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
-                You just raised and need to move fast. You cannot afford to hire 3–5 creatives — and you should not have to.
-              </p>
-            </div>
-
-            <div className="scroll-animate scale-in delay-500 border border-gray-100 rounded-xl p-8 hover:border-janus-blue/30 hover:shadow-lg transition-all duration-300">
-              <div className="w-10 h-10 bg-janus-blue/10 rounded-lg flex items-center justify-center mb-5">
-                <svg className="w-5 h-5 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-lg text-black mb-3">
-                Technical founders with complex products
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
-                Your product is genuinely powerful but prospects say &quot;I don&apos;t fully get it&quot; on sales calls. Your messaging needs to match your product&apos;s quality.
-              </p>
-            </div>
-          </div>
-
-          <div className="scroll-animate fade-up delay-400 mt-8 text-center">
-            <p className="text-sm text-gray-400">
-              <strong className="text-gray-500">Not a fit:</strong> Pre-product companies, consumer apps, or anyone without paying users yet.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── PROBLEM STATEMENT ────────────────────────────────────────────── */}
+      {/* ── THE PROBLEM ──────────────────────────────────────────────────── */}
       <section className="py-24 lg:py-32 bg-gray-950 text-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -161,49 +90,37 @@ export default async function Home() {
                 The Real Problem
               </p>
               <h2 className="font-display text-4xl lg:text-5xl font-bold leading-tight mb-8">
-                You have a great product.
+                Great products stay invisible
                 <br />
-                <span className="text-janus-blue italic">Nobody knows it yet.</span>
+                <span className="text-janus-blue italic">without an audience.</span>
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed">
-                Most SaaS companies lose deals before a single conversation happens.
-                Visitors arrive, look around for 8 seconds, and leave — because the
-                website does not communicate value fast enough.
+                Founders build great things and then wonder why nobody notices.
+                The answer is almost never the product — it&apos;s the absence of
+                consistent, credible content that earns attention over time.
               </p>
             </div>
 
             <div className="scroll-animate slide-right delay-200 space-y-4">
               {[
-                {
-                  svg: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />,
-                  label: 'Landing page bounces because visitors cannot grasp what you do in under 10 seconds',
-                },
-                {
-                  svg: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />,
-                  label: 'Sales calls that start with "Wait, can you explain what your product does again?"',
-                },
-                {
-                  svg: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />,
-                  label: 'Churn from users who never understood your key features before cancelling',
-                },
-                {
-                  svg: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />,
-                  label: 'Ad spend burning without converting because your creative does not stop the scroll',
-                },
-              ].map((item, i) => (
+                'Posting sporadically on LinkedIn and getting zero traction',
+                'Cold outreach that goes nowhere because nobody knows who you are',
+                'A great product with no community or audience behind it',
+                'Competitors with inferior products winning because they show up consistently',
+              ].map((label, i) => (
                 <div key={i} className="flex gap-4 items-start bg-white/5 border border-white/10 rounded-xl p-5">
                   <div className="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      {item.svg}
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </div>
-                  <p className="text-gray-300 text-sm leading-relaxed">{item.label}</p>
+                  <p className="text-gray-300 text-sm leading-relaxed">{label}</p>
                 </div>
               ))}
 
               <div className="pt-2 border-t border-white/10">
                 <p className="text-janus-blue font-display text-lg italic pt-4">
-                  Clarity is not a &quot;nice to have.&quot; It is the growth lever you are ignoring.
+                  An audience is not a vanity metric. It&apos;s your distribution channel.
                 </p>
               </div>
             </div>
@@ -211,263 +128,182 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ── WHAT YOU GET: THE CLARITY ENGINE ─────────────────────────────── */}
+      {/* ── THE THREE PRODUCTS ───────────────────────────────────────────── */}
       <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-20">
             <p className="scroll-animate fade-up text-xs uppercase tracking-widest text-janus-blue font-semibold mb-4">
-              Our Core Offer
+              What We Do
             </p>
             <h2 className="scroll-animate fade-up delay-200 font-display text-4xl lg:text-6xl font-bold text-black mb-4 leading-tight">
-              The JANUS Clarity Engine™
+              Three products.
+              <br />
+              <span className="text-janus-blue italic">One mission.</span>
             </h2>
             <p className="scroll-animate fade-up delay-300 text-lg text-gray-500 max-w-2xl mx-auto">
-              A complete motion video and messaging system for B2B SaaS — built in three weeks, deployed across your entire funnel.
+              Whether you need your first story, a one-time feature, or an ongoing media engine —
+              there&apos;s a JANUS product built for where you are right now.
             </p>
           </div>
 
-          <div className="space-y-20">
+          <div className="grid lg:grid-cols-3 gap-8">
 
-            {/* Component 1 */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div className="scroll-animate slide-left order-2 lg:order-1">
-                <div className="aspect-video rounded-xl overflow-hidden relative group cursor-pointer">
-                  <Link
-                    href="https://drive.google.com/drive/folders/1dG9RqcvmCKRgwLpnMfz8v-WqjHY4bums"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full h-full"
-                  >
-                    <Image
-                      src="/clarity-videos.png"
-                      alt="60-Second SaaS Explainer Video"
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 group-hover:scale-110 transition-all duration-300">
-                        <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </Link>
-                </div>
-              </div>
-
-              <div className="scroll-animate slide-right delay-200 order-1 lg:order-2">
-                <div className="inline-flex items-center gap-2 mb-6">
-                  <span className="w-7 h-7 bg-janus-blue rounded-full flex items-center justify-center text-white text-xs font-bold">1</span>
-                  <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">Component One</span>
-                </div>
-                <h3 className="font-display text-3xl lg:text-4xl font-bold text-black mb-5 leading-tight">
-                  60-Second SaaS Explainer Video
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  A motion video that tells your product story in 60 seconds or less. Lives on your hero section and turns bouncing visitors into booked demos.
+            {/* Product 1 — Traction Kit */}
+            <div className="scroll-animate scale-in delay-200 flex flex-col border border-gray-200 rounded-2xl p-8 hover:border-janus-blue/30 hover:shadow-xl transition-all duration-300">
+              <div className="mb-6">
+                <span className="inline-block border border-gray-200 text-gray-400 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
+                  One-time · $299
+                </span>
+                <h3 className="font-display text-2xl font-bold text-black mb-3">The Traction Kit™</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  Your founder narrative and go-to-market strategy, built from a single interview.
+                  For early-stage founders who need their first real users — and a clear story to get them.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500">
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Script written by SaaS positioning specialists</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Professional motion animation and voiceover</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Delivered in all formats: MP4, WebM, thumbnail</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Two revision rounds included</li>
-                </ul>
               </div>
+              <ul className="space-y-2 text-sm text-gray-500 flex-1 mb-8">
+                {[
+                  'Journalist-style founder interview',
+                  'Narrative deck that makes people care about your product',
+                  'Data-backed GTM strategy for your first 90 days',
+                  'Messaging that works across cold outreach, pitch decks, and ads',
+                  'Delivered within 5 business days',
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-janus-blue font-bold shrink-0">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="border-t border-gray-100 pt-5 mb-5">
+                <span className="text-3xl font-bold text-black">$299</span>
+                <span className="text-gray-400 text-sm ml-2">one-time</span>
+              </div>
+              <Link
+                href="/traction-kit"
+                className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm text-sm"
+              >
+                Learn more &rarr;
+              </Link>
             </div>
 
-            {/* Component 2 */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div className="scroll-animate slide-left">
-                <div className="inline-flex items-center gap-2 mb-6">
-                  <span className="w-7 h-7 bg-black rounded-full flex items-center justify-center text-white text-xs font-bold">2</span>
-                  <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">Component Two</span>
-                </div>
-                <h3 className="font-display text-3xl lg:text-4xl font-bold text-black mb-5 leading-tight">
-                  Feature Adoption Video Series
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  Three short videos that explain your most powerful features — the ones users miss, misunderstand, or abandon before they see the value.
+            {/* Product 2 — The Signal */}
+            <div className="scroll-animate scale-in delay-300 flex flex-col border border-gray-200 rounded-2xl p-8 hover:border-janus-blue/30 hover:shadow-xl transition-all duration-300">
+              <div className="mb-6">
+                <span className="inline-block border border-gray-200 text-gray-400 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
+                  One-time · $399 · Healthcare
+                </span>
+                <h3 className="font-display text-2xl font-bold text-black mb-3">The Signal™</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  Editorial coverage for healthcare startups. We interview you, produce your founder profile,
+                  and publish it to the healthcare community we&apos;ve built — plus a custom GTM strategy.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-500">
-                  <li className="flex gap-2"><span className="text-black font-bold">✓</span> 3 feature videos, 60–90 seconds each</li>
-                  <li className="flex gap-2"><span className="text-black font-bold">✓</span> Embedded in onboarding emails and in-app tours</li>
-                  <li className="flex gap-2"><span className="text-black font-bold">✓</span> Reduces support tickets and early churn</li>
-                  <li className="flex gap-2"><span className="text-black font-bold">✓</span> Drives upsell to higher-tier plans</li>
-                </ul>
               </div>
-
-              <div className="scroll-animate slide-right delay-200">
-                <div className="aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-gray-900 to-black p-8 flex items-center justify-center">
-                  <Image
-                    src="/feature-system.png"
-                    alt="Feature Adoption System"
-                    width={500}
-                    height={350}
-                    className="w-full h-auto max-w-md"
-                  />
-                </div>
+              <ul className="space-y-2 text-sm text-gray-500 flex-1 mb-8">
+                {[
+                  'Investigative founder interview',
+                  'Custom healthcare GTM strategy',
+                  'Edited clips from your interview',
+                  'Published as editorial content — not advertising',
+                  'Only companies we genuinely believe in get featured',
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-janus-blue font-bold shrink-0">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="border-t border-gray-100 pt-5 mb-5">
+                <span className="text-3xl font-bold text-black">$399</span>
+                <span className="text-gray-400 text-sm ml-2">one-time</span>
               </div>
+              <Link
+                href="/signal"
+                className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm text-sm"
+              >
+                Learn more &rarr;
+              </Link>
             </div>
 
-            {/* Component 3 */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div className="scroll-animate slide-left order-2 lg:order-1">
-                <div className="aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-yellow-400 to-orange-500 p-6 flex items-center justify-center">
-                  <Image
-                    src="/kit.gif"
-                    alt="Short-Form Ad Content Kit"
-                    width={500}
-                    height={350}
-                    className="w-full h-auto max-w-lg"
-                  />
-                </div>
+            {/* Product 3 — Clarity Engine (HERO PRODUCT) */}
+            <div className="scroll-animate scale-in delay-400 flex flex-col bg-gray-950 rounded-2xl p-8 relative ring-2 ring-janus-blue">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <span className="bg-janus-blue text-white px-5 py-1.5 text-xs font-bold tracking-widest rounded-full uppercase whitespace-nowrap">
+                  Flagship Offer
+                </span>
               </div>
-
-              <div className="scroll-animate slide-right delay-200 order-1 lg:order-2">
-                <div className="inline-flex items-center gap-2 mb-6">
-                  <span className="w-7 h-7 bg-gray-500 rounded-full flex items-center justify-center text-white text-xs font-bold">3</span>
-                  <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">Component Three</span>
-                </div>
-                <h3 className="font-display text-3xl lg:text-4xl font-bold text-black mb-5 leading-tight">
-                  Short-Form Ad Content Kit
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  Up to 30 optimized short-form videos built for LinkedIn, Meta, and YouTube — using creative frameworks proven to convert in B2B SaaS.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-500">
-                  <li className="flex gap-2"><span className="text-gray-500 font-bold">✓</span> Hook-first creative designed to stop the scroll</li>
-                  <li className="flex gap-2"><span className="text-gray-500 font-bold">✓</span> Scripts and captions included for every video</li>
-                  <li className="flex gap-2"><span className="text-gray-500 font-bold">✓</span> Optimized for paid and organic distribution</li>
-                  <li className="flex gap-2"><span className="text-gray-500 font-bold">✓</span> Ready to plug into your existing ad accounts</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Component 4 */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div className="scroll-animate slide-left">
-                <div className="inline-flex items-center gap-2 mb-6">
-                  <span className="w-7 h-7 bg-janus-blue rounded-full flex items-center justify-center text-white text-xs font-bold">4</span>
-                  <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">Component Four</span>
-                </div>
-                <h3 className="font-display text-3xl lg:text-4xl font-bold text-black mb-5 leading-tight">
-                  Landing Page Redesign
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  A full conversion-focused redesign of your hero section and landing page — built around the explainer video and the messaging framework we develop together. Visitors who land on your page will finally understand your product in under 10 seconds.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-500">
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Full page copy rewrite, from headline to CTA</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Conversion-optimized layout and section structure</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Explainer video integrated into the hero</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Delivered as Figma file + developer-ready specs</li>
-                </ul>
-              </div>
-
-              <div className="scroll-animate slide-right delay-200">
-                <div className="aspect-video rounded-xl overflow-hidden bg-gray-950 flex flex-col">
-                  {/* Browser chrome */}
-                  <div className="flex items-center gap-1.5 px-4 py-3 bg-gray-900 border-b border-white/10 shrink-0">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                    <div className="ml-3 flex-1 bg-white/5 rounded px-3 py-1 text-gray-500 text-xs font-mono">yourproduct.com</div>
-                  </div>
-                  {/* Page mockup */}
-                  <div className="flex-1 p-6 flex flex-col justify-between">
-                    <div>
-                      <div className="w-20 h-1.5 bg-janus-blue/60 rounded mb-3" />
-                      <div className="w-3/4 h-4 bg-white/20 rounded mb-2" />
-                      <div className="w-1/2 h-4 bg-white/10 rounded mb-5" />
-                      <div className="w-full h-2 bg-white/10 rounded mb-1.5" />
-                      <div className="w-5/6 h-2 bg-white/10 rounded mb-1.5" />
-                      <div className="w-4/6 h-2 bg-white/10 rounded mb-6" />
-                      <div className="inline-block bg-janus-blue px-5 py-2 rounded-sm">
-                        <div className="w-24 h-2 bg-white/80 rounded" />
-                      </div>
-                    </div>
-                    <div className="border border-white/10 rounded-lg p-3 flex items-center gap-3">
-                      <div className="w-8 h-8 bg-janus-blue/20 rounded flex items-center justify-center shrink-0">
-                        <svg className="w-4 h-4 text-janus-blue" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <div className="w-3/4 h-1.5 bg-white/20 rounded mb-1" />
-                        <div className="w-1/2 h-1.5 bg-white/10 rounded" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Engine summary bar */}
-          <div className="scroll-animate fade-up delay-300 mt-20 bg-gray-50 border border-gray-100 rounded-2xl p-8 lg:p-10">
-            <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
-              <div className="flex-1 text-center lg:text-left">
-                <h3 className="font-display text-2xl font-bold text-black mb-2">
-                  Four components. One system. 21 days.
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed max-w-xl">
-                  You can start with just one component, or get the full Clarity Engine™ built at once —
-                  whichever fits where you are right now. Every tier leads to the same outcome: a funnel that converts.
+              <div className="mb-6">
+                <span className="inline-block border border-white/20 text-blue-300 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
+                  Retainer · $1,000/mo
+                </span>
+                <h3 className="font-display text-2xl font-bold text-white mb-3">The Clarity Engine™</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Your full monthly media engine. One hour of your time per month — we produce
+                  everything else. Clips, posts, carousels, copy. Enough to keep your audience
+                  engaged and growing, every single month.
                 </p>
               </div>
-              <div className="flex items-center gap-3 text-sm shrink-0">
-                <div className="text-center px-4 py-3 bg-white border border-gray-200 rounded-xl">
-                  <p className="font-bold text-black text-lg">④ only</p>
-                  <p className="text-gray-400 text-xs mt-0.5">Foundation</p>
-                </div>
-                <div className="text-gray-300 font-light text-xl">→</div>
-                <div className="text-center px-4 py-3 bg-janus-blue rounded-xl">
-                  <p className="font-bold text-white text-lg">① ② ③ ④</p>
-                  <p className="text-blue-200 text-xs mt-0.5">Core Engine</p>
-                </div>
-                <div className="text-gray-300 font-light text-xl">→</div>
-                <div className="text-center px-4 py-3 bg-white border border-gray-200 rounded-xl">
-                  <p className="font-bold text-black text-lg">① ② ③ ④ +∞</p>
-                  <p className="text-gray-400 text-xs mt-0.5">Embedded</p>
-                </div>
+              <ul className="space-y-2 text-sm text-gray-300 flex-1 mb-8">
+                {[
+                  '1-hour monthly session — we find your story for the month',
+                  'Full content production from every session',
+                  'Social clips, posts, carousels, and written content',
+                  'Consistent publishing keeps your audience active and growing',
+                  'You own everything. Cancel anytime.',
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-2">
+                    <span className="text-janus-blue font-bold shrink-0">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="border-t border-white/10 pt-5 mb-5">
+                <span className="text-3xl font-bold text-white">$1,000</span>
+                <span className="text-blue-300 text-sm ml-2">/month</span>
               </div>
+              <CalBooking className="block w-full text-center bg-janus-blue text-white py-4 font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
+                Book a Free Call
+              </CalBooking>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ─────────────────────────────────────────────────── */}
+      {/* ── HOW THE CLARITY ENGINE WORKS ─────────────────────────────────── */}
       <section className="py-24 lg:py-32 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="scroll-animate fade-up text-xs uppercase tracking-widest text-janus-blue font-semibold mb-4">
-              The Process
+              The Clarity Engine™
             </p>
-            <h2 className="scroll-animate fade-up delay-200 font-display text-4xl lg:text-5xl font-bold text-black leading-tight">
-              From kickoff to live — in 21 days
+            <h2 className="scroll-animate fade-up delay-200 font-display text-4xl lg:text-5xl font-bold text-black leading-tight mb-4">
+              One hour a month.
+              <br />
+              <span className="text-janus-blue italic">We handle the rest.</span>
             </h2>
+            <p className="scroll-animate fade-up delay-300 text-gray-500 text-lg max-w-2xl mx-auto">
+              Most founders don&apos;t have time to be content creators. The Clarity Engine turns
+              one monthly conversation into a full month of content — without adding a single task to your plate.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-10">
             {[
               {
-                week: 'Week 1',
-                title: 'Strategy Sprint',
-                desc: 'We audit your positioning, interview your best customers, and map exactly what your messaging needs to communicate — and where it is failing now.',
+                step: '01',
+                title: 'Monthly session',
+                desc: 'We meet for one hour. We ask the questions that surface your story, your insights, and what your audience needs to hear this month.',
                 color: 'bg-janus-blue',
               },
               {
-                week: 'Week 2',
-                title: 'Production',
-                desc: 'Our team writes, designs, and produces all video assets. You review, give feedback once, and we finalize everything ready to deploy.',
+                step: '02',
+                title: 'We produce everything',
+                desc: 'From that one session: clips, posts, carousels, written content. Enough to publish consistently across your channels for the entire month.',
                 color: 'bg-black',
               },
               {
-                week: 'Week 3',
-                title: 'Deploy and Activate',
-                desc: 'We help you integrate assets into your site, ad accounts, and onboarding flows — and set benchmarks so you can measure the lift.',
+                step: '03',
+                title: 'Your audience grows',
+                desc: 'Consistent, high-quality content from a voice that already knows your story builds trust, earns followers, and generates inbound month over month.',
                 color: 'bg-gray-600',
               },
             ].map((step, i) => (
@@ -475,11 +311,21 @@ export default async function Home() {
                 <div className={`w-20 h-20 ${step.color} rounded-full flex items-center justify-center mx-auto mb-6`}>
                   <span className="text-2xl font-bold text-white">{i + 1}</span>
                 </div>
-                <p className="text-xs uppercase tracking-widest text-gray-400 font-medium mb-1">{step.week}</p>
+                <p className="text-xs uppercase tracking-widest text-gray-400 font-medium mb-1">{step.step}</p>
                 <h3 className="font-display text-xl font-bold text-black mb-3">{step.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
               </div>
             ))}
+          </div>
+
+          <div className="scroll-animate fade-up delay-600 mt-16 bg-white border border-gray-100 rounded-2xl p-8 text-center">
+            <p className="text-gray-500 text-sm mb-4 max-w-xl mx-auto">
+              The Clarity Engine runs every month until you cancel. Most clients see meaningful audience growth
+              within 60–90 days. No minimum commitment — stay as long as it&apos;s working.
+            </p>
+            <CalBooking className="inline-block bg-janus-blue text-white px-8 py-3 text-sm font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
+              Start Your Engine — $1,000/mo
+            </CalBooking>
           </div>
         </div>
       </section>
@@ -492,12 +338,12 @@ export default async function Home() {
               Why Founders Choose JANUS
             </p>
             <h2 className="scroll-animate fade-up delay-200 font-display text-4xl lg:text-5xl font-bold leading-tight">
-              The smarter alternative to building in-house
+              The smarter alternative to hiring
             </h2>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-6">
-            {/* In-House */}
+            {/* Hiring in-house */}
             <div className="scroll-animate scale-in delay-300 bg-white/5 border border-white/10 rounded-xl p-8">
               <div className="flex items-center mb-8">
                 <div className="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center mr-4">
@@ -505,15 +351,15 @@ export default async function Home() {
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <h3 className="font-display text-2xl font-bold text-white">Building In-House</h3>
+                <h3 className="font-display text-2xl font-bold text-white">Hiring a Content Team</h3>
               </div>
               <div className="space-y-0">
                 {[
-                  ['Monthly cost', '$12,000–18,000/mo (editor + copywriter + designer)'],
-                  ['Time to first output', '2–3 months to recruit and onboard'],
-                  ['Management overhead', 'Your time, your problem'],
-                  ['Specialization', 'Generalists, not SaaS-focused'],
-                  ['Commitment', 'Employment contracts and benefits'],
+                  ['Monthly cost', '$4,000–$8,000/mo (editor + copywriter)'],
+                  ['Time to first content', '4–6 weeks to recruit and brief'],
+                  ['Your time required', 'Lots — you manage, brief, and review'],
+                  ['Output quality', 'Depends on who you hired'],
+                  ['Commitment', 'Employment contracts, benefits, churn risk'],
                 ].map(([label, value], i) => (
                   <div key={i} className="flex justify-between items-start py-4 border-b border-white/10 gap-4">
                     <span className="text-gray-400 text-sm font-medium shrink-0">{label}</span>
@@ -536,19 +382,22 @@ export default async function Home() {
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <h3 className="font-display text-2xl font-bold text-white">JANUS</h3>
+                <h3 className="font-display text-2xl font-bold text-white">JANUS Clarity Engine™</h3>
               </div>
               <div className="space-y-0">
                 {[
-                  ['Monthly cost', 'Starts at $3,000/mo — full system'],
-                  ['Time to first output', '21 days, guaranteed'],
-                  ['Management overhead', 'Zero — we run the entire process'],
-                  ['Specialization', 'SaaS-only, motion video experts'],
+                  ['Monthly cost', '$1,000/mo — complete content system'],
+                  ['Time to first content', 'Content live within days of your first session'],
+                  ['Your time required', '1 hour per month. That&apos;s it.'],
+                  ['Output quality', 'Produced by a team that knows your story'],
                   ['Commitment', 'Month-to-month, cancel anytime'],
                 ].map(([label, value], i) => (
                   <div key={i} className="flex justify-between items-start py-4 border-b border-white/20 gap-4">
                     <span className="text-blue-100 text-sm font-medium shrink-0">{label}</span>
-                    <span className="text-white text-sm font-semibold text-right">{value}</span>
+                    <span
+                      className="text-white text-sm font-semibold text-right"
+                      dangerouslySetInnerHTML={{ __html: value }}
+                    />
                   </div>
                 ))}
               </div>
@@ -617,213 +466,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ── PRICING ──────────────────────────────────────────────────────── */}
-      <section className="py-24 lg:py-32 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="scroll-animate fade-up text-xs uppercase tracking-widest text-janus-blue font-semibold mb-4">
-              Pricing
-            </p>
-            <h2 className="scroll-animate fade-up delay-200 font-display text-4xl lg:text-5xl font-bold text-black leading-tight mb-4">
-              Start with one component.<br className="hidden lg:block" /> Scale when you&apos;re ready.
-            </h2>
-            <p className="scroll-animate fade-up delay-300 text-gray-500 max-w-xl mx-auto">
-              Every tier builds on the same Clarity Engine™ system — you choose how much of it to activate.
-              Hiring a single senior creative costs $7–10k/month. JANUS is your entire system.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-6 items-stretch">
-
-            {/* Foundation — Landing Page only */}
-            <div className="scroll-animate scale-in delay-300 bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
-              <div className="flex-1">
-                <div className="inline-flex items-center gap-1.5 mb-4">
-                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">④</span>
-                  <span className="text-xs text-gray-400 font-medium uppercase tracking-wide">Landing page only</span>
-                </div>
-                <h3 className="font-display text-xl font-bold text-black mb-1">Foundation</h3>
-                <p className="text-gray-400 text-sm mb-6">Start with your most important conversion point</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-black">$3,000</span>
-                  <span className="text-gray-400 text-sm ml-2">one-time</span>
-                </div>
-                <ul className="space-y-2 text-sm text-gray-500 mb-8">
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Full landing page copy rewrite, headline to CTA</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Conversion-optimized layout and section structure</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Brand messaging framework included</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Delivered as Figma file + developer-ready specs</li>
-                  <li className="flex gap-2"><span className="text-janus-blue font-bold">✓</span> Two revision rounds included</li>
-                </ul>
-              </div>
-              <CalBooking className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm">
-                Book a Strategy Call
-              </CalBooking>
-            </div>
-
-            {/* Core Engine — All 4 components */}
-            <div className="scroll-animate scale-in delay-400 bg-janus-blue rounded-xl p-8 flex flex-col relative lg:scale-105">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span className="bg-black text-white px-5 py-1.5 text-xs font-bold tracking-widest rounded-full uppercase whitespace-nowrap">
-                  Most Popular
-                </span>
-              </div>
-              <div className="flex-1">
-                <div className="inline-flex items-center gap-1.5 mb-4">
-                  <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-white text-xs font-bold">①</span>
-                  <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-white text-xs font-bold">②</span>
-                  <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-white text-xs font-bold">③</span>
-                  <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center text-white text-xs font-bold">④</span>
-                  <span className="text-xs text-blue-200 font-medium uppercase tracking-wide ml-1">All 4 components</span>
-                </div>
-                <h3 className="font-display text-xl font-bold text-white mb-1">Core Engine</h3>
-                <p className="text-blue-200 text-sm mb-6">The complete JANUS Clarity Engine™, built at once</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-white">$5,000</span>
-                  <span className="text-blue-200 text-sm ml-2">one-time</span>
-                </div>
-                <ul className="space-y-2 text-sm text-blue-100 mb-8">
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 60-second SaaS explainer video <span className="text-blue-300 text-xs">(①)</span></li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 3 feature adoption videos, 60–90 sec each <span className="text-blue-300 text-xs">(②)</span></li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 10 short-form ad videos with scripts <span className="text-blue-300 text-xs">(③)</span></li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> Landing page redesign, copy + layout <span className="text-blue-300 text-xs">(④)</span></li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> Brand messaging framework</li>
-                  <li className="flex gap-2"><span className="text-white font-bold">✓</span> 2 months of post-launch support</li>
-                </ul>
-              </div>
-              <CalBooking className="block w-full text-center bg-white text-janus-blue py-4 font-bold hover:bg-gray-50 transition-colors duration-300 rounded-sm text-base">
-                Book a Strategy Call
-              </CalBooking>
-            </div>
-
-            {/* Embedded — Core Engine + ongoing */}
-            <div className="scroll-animate scale-in delay-500 bg-white border border-gray-200 rounded-xl p-8 flex flex-col">
-              <div className="flex-1">
-                <div className="inline-flex items-center gap-1.5 mb-4">
-                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">①</span>
-                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">②</span>
-                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">③</span>
-                  <span className="w-5 h-5 bg-janus-blue/10 rounded-full flex items-center justify-center text-janus-blue text-xs font-bold">④</span>
-                  <span className="text-gray-300 font-light text-sm mx-0.5">+</span>
-                  <span className="text-xs text-gray-400 font-medium uppercase tracking-wide">Ongoing</span>
-                </div>
-                <h3 className="font-display text-xl font-bold text-black mb-1">Embedded Creative</h3>
-                <p className="text-gray-400 text-sm mb-6">Full Engine in month one, then continuous output</p>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-black">$7,500+</span>
-                  <span className="text-gray-400 text-sm ml-2">/month</span>
-                </div>
-                <ul className="space-y-2 text-sm text-gray-500 mb-8">
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Full Core Engine delivered in month 1</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> 30+ pieces of content monthly after that</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Dedicated creative team, no management overhead</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Weekly strategy sessions</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Ad campaign management included</li>
-                  <li className="flex gap-2"><span className="text-gray-400 font-bold">✓</span> Cancel anytime, no penalty</li>
-                </ul>
-              </div>
-              <CalBooking className="block w-full text-center bg-gray-100 text-black py-3 font-semibold hover:bg-gray-200 transition-colors duration-300 rounded-sm">
-                Book a Strategy Call
-              </CalBooking>
-            </div>
-          </div>
-
-          {/* Traction Kit — pre-funding bridge */}
-          <div className="scroll-animate fade-up delay-550 mt-10 bg-gray-950 border border-white/10 rounded-2xl p-7 flex flex-col sm:flex-row items-center gap-6">
-            <div className="flex-1 text-center sm:text-left">
-              <p className="text-xs uppercase tracking-widest text-janus-blue font-semibold mb-1">Pre-funding or early-stage?</p>
-              <p className="font-display text-lg font-bold text-white">The Traction Kit™ — $299</p>
-              <p className="text-gray-400 text-sm mt-1 max-w-lg">
-                A founder narrative deck and data-backed GTM strategy built around your story.
-                Get your first real users — then scale with the Engine when you&apos;re ready.
-              </p>
-            </div>
-            <Link
-              href="/traction-kit"
-              className="shrink-0 bg-white text-black px-6 py-3 text-sm font-bold hover:bg-gray-100 transition-colors duration-200 rounded-sm whitespace-nowrap"
-            >
-              Learn more
-              <svg className="inline-block w-4 h-4 ml-1.5 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-
-          {/* Lead magnets for not-yet-ready visitors */}
-          <div className="scroll-animate fade-up delay-600 mt-4 bg-white border border-gray-200 rounded-2xl p-8">
-            <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
-              <div className="text-center lg:text-left shrink-0">
-                <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">Not ready to commit?</p>
-                <p className="font-display text-lg font-bold text-black">Get something valuable first — free.</p>
-              </div>
-              <div className="flex-1 grid sm:grid-cols-2 gap-3 w-full">
-                <Link
-                  href="https://tally.so/r/nrMgY2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 border border-gray-200 rounded-xl px-5 py-4 hover:border-janus-blue/40 hover:bg-gray-50 transition-all duration-200 group"
-                >
-                  <div className="w-8 h-8 bg-janus-blue/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-janus-blue/20 transition-colors duration-200">
-                    <svg className="w-4 h-4 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.069A1 1 0 0121 8.867V15.5a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-black text-sm">Get 2 free ad videos</p>
-                    <p className="text-gray-400 text-xs">We'll make them for your product, no strings attached</p>
-                  </div>
-                  <svg className="w-4 h-4 text-gray-300 ml-auto shrink-0 group-hover:text-janus-blue transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-                <Link
-                  href="https://tally.so/r/n9jxRE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 border border-gray-200 rounded-xl px-5 py-4 hover:border-janus-blue/40 hover:bg-gray-50 transition-all duration-200 group"
-                >
-                  <div className="w-8 h-8 bg-janus-blue/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-janus-blue/20 transition-colors duration-200">
-                    <svg className="w-4 h-4 text-janus-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-black text-sm">Free landing page teardown</p>
-                    <p className="text-gray-400 text-xs">We'll review your copy and tell you exactly what to fix</p>
-                  </div>
-                  <svg className="w-4 h-4 text-gray-300 ml-auto shrink-0 group-hover:text-janus-blue transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="scroll-animate fade-up delay-700 text-center mt-6">
-            <p className="text-sm text-gray-400">
-              Performance-based pricing available for funded startups. Ask on your strategy call.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── ROI CALCULATOR ───────────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-950 text-white">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="scroll-animate fade-up font-display text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-              How much is unclear messaging costing you?
-            </h2>
-            <p className="scroll-animate fade-up delay-200 text-gray-400 max-w-xl mx-auto">
-              Most teams are leaving $20,000–$50,000/month on the table. Run the numbers.
-            </p>
-          </div>
-          <div className="scroll-animate fade-up delay-400 max-w-4xl mx-auto">
-            <ROICalculator />
-          </div>
-        </div>
-      </section>
-
       {/* ── FAQ ──────────────────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
@@ -836,28 +478,28 @@ export default async function Home() {
           <div className="space-y-3">
             {[
               {
-                q: 'What exactly do I get with the Core Engine?',
-                a: 'You get the complete JANUS Clarity Engine™: one 60-second SaaS explainer video, three feature adoption videos, ten short-form ad videos with scripts, a full landing page redesign (copy + layout), and a brand messaging framework — all produced in 21 days. Two months of post-launch iteration support is included.',
+                q: 'What exactly does the Clarity Engine produce each month?',
+                a: 'From a single 1-hour session, we produce enough content to publish consistently across your channels for the entire month. That typically includes short-form video clips, LinkedIn posts, carousels, and written content — whatever mix fits your audience and platforms.',
               },
               {
-                q: 'How fast will I see results?',
-                a: 'Most clients see improved conversion rates within 30 days of deploying the explainer video on their landing page. Ad content typically shows measurable lift within the first two weeks of running.',
+                q: 'Do I have to post the content myself?',
+                a: 'We produce and package everything for you. Depending on your setup, we can hand it off ready to post or help coordinate publishing. The goal is to minimize your involvement beyond the monthly session.',
               },
               {
-                q: 'Do you work with early-stage startups?',
-                a: 'Yes — we specialize in Seed through Series B SaaS companies. Our requirement is a working product and at least a small base of paying or active users. Pre-product companies are not a fit.',
+                q: 'What\'s the difference between the Traction Kit and the Clarity Engine?',
+                a: 'The Traction Kit is a one-time strategy engagement — you get a narrative deck and GTM roadmap to find your first users. The Clarity Engine is your ongoing media operation: one session per month, full content production, and a growing audience over time.',
               },
               {
-                q: "What if I don't like what you produce?",
-                a: "We iterate until it's right. Every engagement includes a structured feedback round before final delivery. If we miss the mark after revisions, we'll refund your investment — no questions asked.",
+                q: 'Is The Signal only for healthcare?',
+                a: 'Yes — The Signal is purpose-built for healthcare startups. It combines a custom GTM strategy for the healthcare market with editorial coverage published to the healthcare community we\'ve built. For non-healthcare SaaS founders, the Traction Kit or Clarity Engine are the right fit.',
               },
               {
-                q: 'Can I cancel anytime?',
-                a: 'Yes. Monthly retainers are month-to-month with no cancellation fees. The Core Engine is a one-time project with no ongoing commitment unless you choose to add a retainer.',
+                q: 'Can I start with the Traction Kit and upgrade later?',
+                a: 'Absolutely. Many founders start with the Traction Kit to nail their story and strategy, then move to the Clarity Engine when they\'re ready to build a consistent audience. The work we do in the Traction Kit feeds directly into your Clarity Engine sessions.',
               },
               {
-                q: 'How is this different from a video production company?',
-                a: "Video companies produce whatever you brief them on. We start with strategy — understanding your ICP, their language, and your funnel — before a single frame is designed. The output is built to convert, not just look good.",
+                q: 'How soon will I see results from the Clarity Engine?',
+                a: 'Most clients see meaningful engagement growth within 60–90 days of consistent publishing. The compounding effect of regular content takes time, but the inputs are immediate — your first batch of content goes live within days of your first session.',
               },
             ].map((item, i) => (
               <details key={i} className="scroll-animate fade-up group bg-gray-50 border border-gray-100 rounded-xl">
@@ -881,18 +523,19 @@ export default async function Home() {
         <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <div className="scroll-animate fade-up mb-6">
             <p className="text-janus-blue font-display text-lg italic mb-2">
-              If your product is great but your pipeline is not —
+              Still figuring out which one is right?
             </p>
             <h2 className="font-display text-5xl lg:text-6xl font-bold leading-tight">
-              it&apos;s not the product.
+              Just ask.
               <br />
-              It&apos;s the story.
+              <span className="text-janus-blue italic">We&apos;ll be honest with you.</span>
             </h2>
           </div>
 
           <p className="scroll-animate fade-up delay-200 text-gray-400 text-lg mb-12 leading-relaxed">
-            Book a free 30-minute strategy call. We will look at your current messaging, identify where you are
-            losing leads, and tell you exactly what we would do — no obligation.
+            Book a free 20-minute call. We&apos;ll listen to where you are and tell you honestly
+            which product — if any — makes sense. If something else would serve you better,
+            we&apos;ll tell you that too and point you in the right direction.
           </p>
 
           <div className="scroll-animate scale-in delay-300 bg-gray-900 border border-white/10 rounded-2xl p-10 max-w-md mx-auto">
@@ -913,33 +556,26 @@ export default async function Home() {
               </div>
             </div>
 
-            <div className="space-y-3">
-              <CalBooking className="w-full bg-janus-blue text-white py-4 text-base font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
-                Book a Free Strategy Call
-              </CalBooking>
+            <ul className="space-y-2 text-sm text-gray-400 mb-8 text-left">
+              {[
+                'We listen to where you are — no assumptions',
+                'We tell you which product fits, if any',
+                'If something else serves you better, we\'ll say so',
+                '20 minutes. No deck. No pitch.',
+              ].map((item, i) => (
+                <li key={i} className="flex gap-2">
+                  <span className="text-janus-blue font-bold shrink-0">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
 
-              <p className="text-gray-500 text-xs pt-1">Not ready to talk? Get value first:</p>
-
-              <Link
-                href="https://tally.so/r/nrMgY2"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full border border-white/10 text-gray-300 py-3 text-sm font-medium hover:border-white/20 hover:bg-white/5 transition-colors duration-300 rounded-sm"
-              >
-                Request 2 free ad videos for your company &rarr;
-              </Link>
-              <Link
-                href="https://tally.so/r/n9jxRE"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full border border-white/10 text-gray-300 py-3 text-sm font-medium hover:border-white/20 hover:bg-white/5 transition-colors duration-300 rounded-sm"
-              >
-                Get a free teardown of your landing page copy &rarr;
-              </Link>
-            </div>
+            <CalBooking className="w-full bg-janus-blue text-white py-4 text-base font-bold hover:bg-blue-700 transition-colors duration-300 rounded-sm">
+              Book a Free 20-Min Call
+            </CalBooking>
 
             <p className="text-gray-600 text-xs mt-6">
-              No sales pitch — just a candid conversation about your marketing.
+              The worst outcome is you leave with a clearer picture of what you actually need.
             </p>
           </div>
         </div>
