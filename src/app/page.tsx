@@ -27,22 +27,23 @@ export default async function Home() {
 
           <div className="animate-fade-in-up mb-6">
             <span className="inline-block border border-janus-blue/40 text-janus-blue text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full">
-              Content Systems for Founders
+              Attention is the only asset that matters
             </span>
           </div>
 
           <div className="animate-fade-in-up">
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
-              We build your content engine.
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-none tracking-tight">
+              We sell
               <br />
-              <span className="text-janus-blue italic">You build your company.</span>
+              <span className="text-janus-blue italic">attention.</span>
             </h1>
           </div>
 
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <p className="text-lg lg:text-xl font-light mb-10 max-w-3xl mx-auto leading-relaxed text-gray-300">
-              From your first go-to-market story to a full monthly media engine —
-              JANUS turns your ideas into the content that grows your audience, earns trust, and generates inbound.
+            <p className="text-lg lg:text-xl font-light mb-10 max-w-2xl mx-auto leading-relaxed text-gray-300">
+              Three products. One goal: make your company impossible to ignore.
+              Whether you need your first story, editorial coverage, or a full monthly content engine —
+              we build the thing that gets you seen.
             </p>
           </div>
 
